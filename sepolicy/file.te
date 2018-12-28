@@ -1,0 +1,8 @@
+#type bluray, sdcard_type, fs_type, mlstrustedobject;
+type cifs, fs_type, sdcard_type, mlstrustedobject;
+type nfs, fs_type, sdcard_type, mlstrustedobject;
+type sysfs_systemmix, fs_type, sysfs_type;
+type sysfs_disp, fs_type, sysfs_type;
+type sysfs_gpio, fs_type, sysfs_type;
+type sysfs_soc, fs_type, sysfs_type;
+type sysfs_edid, fs_type, sysfs_type;

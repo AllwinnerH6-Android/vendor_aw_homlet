@@ -1,0 +1,963 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+ACTION_BAR_ALL_LIST	Main.java	/^    public static final int     ACTION_BAR_ALL_LIST  = 2;$/;"	f	class:Main
+ACTION_BAR_AUDIO	Main.java	/^    public static final int     ACTION_BAR_AUDIO     = 3;$/;"	f	class:Main
+ACTION_BAR_EXIT	Main.java	/^    public static final int     ACTION_BAR_EXIT      = 1;$/;"	f	class:Main
+ACTION_BAR_VIDEO	Main.java	/^    public static final int     ACTION_BAR_VIDEO     = 4;$/;"	f	class:Main
+ACTIVITYRESULT	Configuration.java	/^    private static final ArrayList<OnActivityResult> ACTIVITYRESULT$/;"	f	class:Configuration	file:
+ALL_CASES	engine/Utils.java	/^    public static final String[]                 ALL_CASES          = {CaseComprehensive.class$/;"	f	class:Utils
+ASPECT_TOLERANCE	engine/testcase/Preview.java	/^    private static final double ASPECT_TOLERANCE = 0.1;$/;"	f	class:Preview	file:
+Attribute	xml/Attribute.java	/^    public Attribute() {$/;"	m	class:Attribute
+Attribute	xml/Attribute.java	/^    public Attribute(String name, String value) {$/;"	m	class:Attribute
+Attribute	xml/Attribute.java	/^public class Attribute {$/;"	c
+AttributeList	xml/AttributeList.java	/^    public AttributeList() {$/;"	m	class:AttributeList
+AttributeList	xml/AttributeList.java	/^public class AttributeList extends Vector<Attribute> {$/;"	c
+Ball	engine/testcase/Ball.java	/^    public Ball(int scale, int texId) {$/;"	m	class:Ball
+Ball	engine/testcase/Ball.java	/^public class Ball {$/;"	c
+BaseCase	engine/BaseCase.java	/^    public BaseCase() {$/;"	m	class:BaseCase
+BaseCase	engine/BaseCase.java	/^public abstract class BaseCase {$/;"	c
+BaseConfiguration	engine/BaseConfiguration.java	/^public abstract class BaseConfiguration {$/;"	c
+CASE_MAP	engine/Utils.java	/^    public static final HashMap<String, Integer> CASE_MAP$/;"	f	class:Utils
+CHARSET_UTF8	xml/XML.java	/^    public static final String CHARSET_UTF8 = "utf-8";$/;"	f	class:XML
+CLASS_PATH_PROP	engine/Utils.java	/^    private static final String[]   CLASS_PATH_PROP  = {"java.class.path", "java.library.path" };$/;"	f	class:Utils	file:
+CMD_PATH	engine/testcase/CaseMemory.java	/^    private static final String      CMD_PATH = "\/system\/bin\/memtester";$/;"	f	class:CaseMemory	file:
+CONFIGURATION_NODE	engine/Utils.java	/^    public static final String                   CONFIGURATION_NODE = "TestCase";$/;"	f	class:Utils
+CONFIG_DRAGON_AGING	Main.java	/^    public static final String CONFIG_DRAGON_AGING = "\/DragonBox\/custom_aging_cases.xml";$/;"	f	class:Main
+CONFIG_FILE	engine/Utils.java	/^    public static final String                   CONFIG_FILE = "custom_aging_cases.xml";$/;"	f	class:Utils
+CONTENT_TYPE	xml/XML.java	/^    public static final String CONTENT_TYPE = "text\/xml; charset=\\"utf-8\\"";$/;"	f	class:XML
+CaseCamera	engine/testcase/CaseCamera.java	/^public class CaseCamera extends BaseCase implements SurfaceHolder.Callback{$/;"	c
+CaseComprehensive	engine/testcase/CaseComprehensive.java	/^public class CaseComprehensive extends BaseCase implements BaseCase.OnPassableChangeListener {$/;"	c
+CaseGPUStress	engine/testcase/CaseGPUStress.java	/^public class CaseGPUStress extends BaseCase {$/;"	c
+CaseHolder	Configuration.java	/^    private class CaseHolder {$/;"	c	class:Configuration
+CaseMemory	engine/testcase/CaseMemory.java	/^public class CaseMemory extends BaseCase {$/;"	c
+CaseThreeDimensional	engine/testcase/CaseThreeDimensional.java	/^public class CaseThreeDimensional extends BaseCase {$/;"	c
+CaseVideo	engine/testcase/CaseVideo.java	/^public class CaseVideo extends BaseCase implements OnPreparedListener, OnErrorListener,$/;"	c
+Celestial	engine/testcase/Celestial.java	/^    public Celestial(int xOffset, int zOffset, float scale, float yAngle, int vCount) {$/;"	m	class:Celestial
+Celestial	engine/testcase/Celestial.java	/^public class Celestial {$/;"	c
+ComphsConfiguration	engine/testcase/CaseComprehensive.java	/^    private class ComphsConfiguration extends BaseConfiguration {$/;"	c	class:CaseComprehensive
+Configuration	Configuration.java	/^public class Configuration extends Activity implements AdapterView.OnItemClickListener,$/;"	c
+CsvUtil	CsvUtil.java	/^    public CsvUtil() {$/;"	m	class:CsvUtil
+CsvUtil	CsvUtil.java	/^    public CsvUtil(String aFileName) throws IOException {$/;"	m	class:CsvUtil
+CsvUtil	CsvUtil.java	/^public class CsvUtil {$/;"	c
+CustomApkConfig	engine/CustomApkConfig.java	/^    public CustomApkConfig(String path) {$/;"	m	class:CustomApkConfig
+CustomApkConfig	engine/CustomApkConfig.java	/^public class CustomApkConfig {$/;"	c
+CustomDefault	CustomDefault.java	/^public class CustomDefault extends Activity {$/;"	c
+DEBUG	engine/BaseCase.java	/^    protected static final boolean                DEBUG              = true;$/;"	f	class:BaseCase
+DEBUG	engine/DFEngine.java	/^    static final boolean              DEBUG                       = false;$/;"	f	class:DFEngine
+DEBUG	engine/testcase/CaseMemory.java	/^    static final boolean             DEBUG                 = false;$/;"	f	class:CaseMemory
+DEFAULT_BUFFER_SIZE	engine/SwFile.java	/^    public static final int    DEFAULT_BUFFER_SIZE = 512 * 1024;$/;"	f	class:SwFile
+DEFAULT_CASE_FILE_NAME	engine/DFEngine.java	/^    public static final String        DEFAULT_CASE_FILE_NAME      = "default_cases.xml";$/;"	f	class:DFEngine
+DEFAULT_CASE_SHARED_PACKAGE	engine/DFEngine.java	/^    public static final String        DEFAULT_CASE_SHARED_PACKAGE$/;"	f	class:DFEngine
+DEVELOPER_MODE	Main.java	/^    public static final boolean DEVELOPER_MODE       = false;$/;"	f	class:Main
+DFEngine	engine/DFEngine.java	/^    public DFEngine(Context context, String configPath) {$/;"	m	class:DFEngine
+DFEngine	engine/DFEngine.java	/^public final class DFEngine {$/;"	c
+DRAGON_FILE_PATH	engine/DFEngine.java	/^    public static final String        DRAGON_FILE_PATH            = Environment$/;"	f	class:DFEngine
+DraggableArrayAdapter	Configuration.java	/^        DraggableArrayAdapter() {$/;"	m	class:Configuration.DraggableArrayAdapter
+DraggableArrayAdapter	Configuration.java	/^    class DraggableArrayAdapter extends ArrayAdapter<CaseHolder> {$/;"	c	class:Configuration
+DraggableList	DraggableList.java	/^    public DraggableList(Context context, AttributeSet attrs) {$/;"	m	class:DraggableList
+DraggableList	DraggableList.java	/^    public DraggableList(Context context, AttributeSet attrs, int defStyle) {$/;"	m	class:DraggableList
+DraggableList	DraggableList.java	/^public class DraggableList extends ListView {$/;"	c
+DragonBoxApp	DragonBoxApp.java	/^public class DragonBoxApp extends Application {$/;"	c
+DropListener	DraggableList.java	/^    public interface DropListener {$/;"	i	class:DraggableList
+EXTSD_CASE_DIR	engine/DFEngine.java	/^    public static final String        EXTSD_CASE_DIR$/;"	f	class:DFEngine
+EXTSD_CASE_FILE_NAME	engine/DFEngine.java	/^    public static final String        EXTSD_CASE_FILE_NAME$/;"	f	class:DFEngine
+EXTSD_CASE_MP3_NAME	engine/DFEngine.java	/^    public static final String        EXTSD_CASE_MP3_NAME$/;"	f	class:DFEngine
+EarthAndMoonView	engine/testcase/EarthAndMoonView.java	/^    public EarthAndMoonView(Context context) {$/;"	m	class:EarthAndMoonView
+EarthAndMoonView	engine/testcase/EarthAndMoonView.java	/^public class EarthAndMoonView extends GLSurfaceView {$/;"	c
+FATPLOG	engine/DFEngine.java	/^    public static final String        FATPLOG                     = Environment$/;"	f	class:DFEngine
+FILE	FileSelector.java	/^    public static final String FILE     = "file";$/;"	f	class:FileSelector
+FILENAME	engine/CustomApkConfig.java	/^    public static final String FILENAME = "custom_activities.xml";$/;"	f	class:CustomApkConfig
+FLAG_DISMISS_HOMEKEY	Main.java	/^    public static final int     FLAG_DISMISS_HOMEKEY = 0x02000000;$/;"	f	class:Main
+FLAG_FATP	engine/DFEngine.java	/^    public static final String        FLAG_FATP                   = "FATP";$/;"	f	class:DFEngine
+FLAG_PATH	engine/DFEngine.java	/^    public static final String        FLAG_PATH                   = Environment$/;"	f	class:DFEngine
+FLAG_SMT	engine/DFEngine.java	/^    public static final String        FLAG_SMT                    = "SMT";$/;"	f	class:DFEngine
+FailedPopupWindow	engine/FailedPopupWindow.java	/^    public FailedPopupWindow(Context context) {$/;"	m	class:FailedPopupWindow
+FailedPopupWindow	engine/FailedPopupWindow.java	/^public class FailedPopupWindow extends PopupWindow implements View.OnClickListener {$/;"	c
+FileAdapter	FileSelector.java	/^    private class FileAdapter extends BaseAdapter {$/;"	c	class:FileSelector
+FileSelector	FileSelector.java	/^public class FileSelector extends Activity implements OnItemClickListener {$/;"	c
+HANDLER_FINISHED	engine/testcase/CaseMemory.java	/^    private static final int         HANDLER_FINISHED      = 1;$/;"	f	class:CaseMemory	file:
+HANDLER_PROGRESS	engine/testcase/CaseMemory.java	/^    private static final int         HANDLER_PROGRESS      = 2;$/;"	f	class:CaseMemory	file:
+HANDLER_UPDATE_OUTPUT	engine/testcase/CaseMemory.java	/^    private static final int         HANDLER_UPDATE_OUTPUT = 0;$/;"	f	class:CaseMemory	file:
+HEADSET	engine/testcase/CaseVideo.java	/^    private static final String HEADSET         = "headset";$/;"	f	class:CaseVideo	file:
+INTERNAL_GPUSTRESS_TEST	engine/DFEngine.java	/^    public static final String        INTERNAL_GPUSTRESS_TEST     = "CaseGPUStress";$/;"	f	class:DFEngine
+INTERNAL_TEST_CONFIG_HEAD	engine/DFEngine.java	/^    public static final String        INTERNAL_TEST_CONFIG_HEAD   = "@internal:";$/;"	f	class:DFEngine
+JaxpParser	xml/parse/JaxpParser.java	/^    public JaxpParser() {$/;"	m	class:JaxpParser
+JaxpParser	xml/parse/JaxpParser.java	/^public class JaxpParser extends com.softwinner.agingdragonbox.xml.Parser {$/;"	c
+LEDTIME_TESTING	engine/Utils.java	/^    public static final int LEDTIME_TESTING = 1000;\/\/测试时，每一秒闪一次。$/;"	f	class:Utils
+LEDTIME_TEST_FINISHED	engine/Utils.java	/^    public static final int LEDTIME_TEST_FINISHED = 100;\/\/测试结束后，每0.1秒闪一次。$/;"	f	class:Utils
+LockLayer	engine/LockLayer.java	/^    public LockLayer(Activity act) {$/;"	m	class:LockLayer
+LockLayer	engine/LockLayer.java	/^public class LockLayer {$/;"	c
+LogDumper	engine/LogcatHelper.java	/^        LogDumper(String pid, String dir) {$/;"	m	class:LogcatHelper.LogDumper
+LogDumper	engine/LogcatHelper.java	/^    private class LogDumper extends Thread {$/;"	c	class:LogcatHelper
+LogcatHelper	engine/LogcatHelper.java	/^    private LogcatHelper(Context context) {$/;"	m	class:LogcatHelper	file:
+LogcatHelper	engine/LogcatHelper.java	/^public final class LogcatHelper {$/;"	c
+MAX_INFO_LINE	engine/testcase/CaseMemory.java	/^    private static final int         MAX_INFO_LINE         = 500;$/;"	f	class:CaseMemory	file:
+MD5	engine/Utils.java	/^    private static String MD5(InputStream is) {$/;"	m	class:Utils	file:
+MODE_DEFAULT	Configuration.java	/^    private static final int MODE_DEFAULT  = 3;$/;"	f	class:Configuration	file:
+MODE_EXTSD	Configuration.java	/^    private static final int MODE_EXTSD    = 0;$/;"	f	class:Configuration	file:
+MODE_FLOWING	engine/DFEngine.java	/^    public static final int           MODE_FLOWING                = 1;$/;"	f	class:DFEngine
+MODE_FREEDOM	engine/DFEngine.java	/^    public static final int           MODE_FREEDOM                = 3;$/;"	f	class:DFEngine
+MODE_REVIEWS	engine/DFEngine.java	/^    public static final int           MODE_REVIEWS                = 2;$/;"	f	class:DFEngine
+MODE_USBHOST0	Configuration.java	/^    private static final int MODE_USBHOST0 = 4;$/;"	f	class:Configuration	file:
+MODE_USBHOST1	Configuration.java	/^    private static final int MODE_USBHOST1 = 5;$/;"	f	class:Configuration	file:
+MODE_USBHOST2	Configuration.java	/^    private static final int MODE_USBHOST2 = 6;$/;"	f	class:Configuration	file:
+MODE_USBHOST3	Configuration.java	/^    private static final int MODE_USBHOST3 = 7;$/;"	f	class:Configuration	file:
+MSG_HIDE_FAILED	engine/DFEngine.java	/^    public static final int           MSG_HIDE_FAILED             = 4;$/;"	f	class:DFEngine
+MSG_HIDE_PASSED	engine/DFEngine.java	/^    public static final int           MSG_HIDE_PASSED             = 2;$/;"	f	class:DFEngine
+MSG_SHOW_FAILED	engine/DFEngine.java	/^    public static final int           MSG_SHOW_FAILED             = 3;$/;"	f	class:DFEngine
+MSG_SHOW_PASSED	engine/DFEngine.java	/^    public static final int           MSG_SHOW_PASSED             = 1;$/;"	f	class:DFEngine
+M_ACTIVITYRESULT	Main.java	/^    private static final ArrayList<OnActivityResult> M_ACTIVITYRESULT$/;"	f	class:Main	file:
+Main	Main.java	/^public class Main extends Activity implements UICallback, View.OnClickListener,$/;"	c
+MyDate	engine/MyDate.java	/^public class MyDate {$/;"	c
+Node	xml/Node.java	/^    public Node() {$/;"	m	class:Node
+Node	xml/Node.java	/^    public Node(String name) {$/;"	m	class:Node
+Node	xml/Node.java	/^    public Node(String ns, String name) {$/;"	m	class:Node
+Node	xml/Node.java	/^public class Node {$/;"	c
+NodeList	xml/NodeList.java	/^    public NodeList() {$/;"	m	class:NodeList
+NodeList	xml/NodeList.java	/^public class NodeList extends Vector<Node> {$/;"	c
+NoneConfiguration	engine/NoneConfiguration.java	/^public class NoneConfiguration extends BaseConfiguration {$/;"	c
+OnActivityResult	Configuration.java	/^    public interface OnActivityResult {$/;"	i	class:Configuration
+OnPassableChangeListener	engine/BaseCase.java	/^    public interface OnPassableChangeListener {$/;"	i	class:BaseCase
+OnProgressListener	engine/SwFile.java	/^    public interface OnProgressListener {$/;"	i	class:SwFile
+OnResultPublishListener	engine/BaseCase.java	/^    public interface OnResultPublishListener {$/;"	i	class:BaseCase
+PASSABLE_MIN_CAP	engine/testcase/CaseMemory.java	/^    public static final String       PASSABLE_MIN_CAP      = "minCap";$/;"	f	class:CaseMemory
+PASSABLE_NODE_NAME	engine/BaseCase.java	/^    protected static final String                 PASSABLE_NODE_NAME = "Passable";$/;"	f	class:BaseCase
+PRIVATE_ROOT	engine/DFEngine.java	/^    public static final String        PRIVATE_ROOT                = "\/snsn\/";$/;"	f	class:DFEngine
+PROPERTY_DRAGONAGING	engine/Utils.java	/^    public static final String PROPERTY_DRAGONAGING = "persist.sys.dragonaging";$/;"	f	class:Utils
+PROPERTY_DRAGONAGING_TIME	engine/Utils.java	/^    public static final String PROPERTY_DRAGONAGING_TIME = "persist.sys.dragonaging_time";$/;"	f	class:Utils
+Parser	xml/Parser.java	/^    public Parser() {$/;"	m	class:Parser
+Parser	xml/Parser.java	/^public abstract class Parser {$/;"	c
+ParserException	xml/ParserException.java	/^    public ParserException(Exception e) {$/;"	m	class:ParserException
+ParserException	xml/ParserException.java	/^    public ParserException(String s) {$/;"	m	class:ParserException
+ParserException	xml/ParserException.java	/^public class ParserException extends Exception {$/;"	c
+Preview	engine/testcase/Preview.java	/^    Preview(Context context) {$/;"	m	class:Preview
+Preview	engine/testcase/Preview.java	/^    Preview(Context context, AttributeSet attrs) {$/;"	m	class:Preview
+Preview	engine/testcase/Preview.java	/^class Preview extends ViewGroup implements SurfaceHolder.Callback {$/;"	c
+QUEUE_END	engine/QueueBuffer.java	/^    private static final Object QUEUE_END = '\\0';$/;"	f	class:QueueBuffer	file:
+QueueBuffer	engine/QueueBuffer.java	/^    public QueueBuffer(int size) {$/;"	m	class:QueueBuffer
+QueueBuffer	engine/QueueBuffer.java	/^public class QueueBuffer {$/;"	c
+RESULT_PASSED	engine/BaseCase.java	/^    public static final int                       RESULT_PASSED      = 2;$/;"	f	class:BaseCase
+RESULT_RESET	engine/BaseCase.java	/^    public static final int                       RESULT_RESET       = 0;$/;"	f	class:BaseCase
+RESULT_UNPASSED	engine/BaseCase.java	/^    public static final int                       RESULT_UNPASSED    = 1;$/;"	f	class:BaseCase
+ROOT	FileSelector.java	/^    public static final String ROOT     = "root";$/;"	f	class:FileSelector
+ResultAdapter	Main.java	/^    private class ResultAdapter extends BaseAdapter {$/;"	c	class:Main
+ResultsAdapter	Main.java	/^        public ResultsAdapter() {$/;"	m	class:Main.ResultsAdapter
+ResultsAdapter	Main.java	/^    public class ResultsAdapter extends BaseAdapter {$/;"	c	class:Main
+RootCmd	RootCmd.java	/^public class RootCmd {$/;"	c
+SAMPLE	engine/testcase/CaseVideo.java	/^    public static final String  SAMPLE          = "case_video_sample";$/;"	f	class:CaseVideo
+SAVE_REPORT	Configuration.java	/^    public static final String    SAVE_REPORT = "save_report"; \/\/ 是否保存报表属性名称$/;"	f	class:Configuration
+SDCARD_CASE_MP3_NAME	engine/DFEngine.java	/^    public static final String        SDCARD_CASE_MP3_NAME        = Environment$/;"	f	class:DFEngine
+SECHEDULE_MILLIS	engine/BaseCase.java	/^    private static final int SECHEDULE_MILLIS = 5 * 1000;$/;"	f	class:BaseCase	file:
+SIZE_GB	engine/SwFile.java	/^    public static final int    SIZE_GB             = 1024 * SIZE_MB;$/;"	f	class:SwFile
+SIZE_GB_STR	engine/SwFile.java	/^    public static final String SIZE_GB_STR         = "GB";$/;"	f	class:SwFile
+SIZE_KB	engine/SwFile.java	/^    public static final int    SIZE_KB             = 1024;$/;"	f	class:SwFile
+SIZE_KB_STR	engine/SwFile.java	/^    public static final String SIZE_KB_STR         = "KB";$/;"	f	class:SwFile
+SIZE_MB	engine/SwFile.java	/^    public static final int    SIZE_MB             = 1024 * SIZE_KB;$/;"	f	class:SwFile
+SIZE_MB_STR	engine/SwFile.java	/^    public static final String SIZE_MB_STR         = "MB";$/;"	f	class:SwFile
+SMTLOG	engine/DFEngine.java	/^    public static final String        SMTLOG                      = Environment$/;"	f	class:DFEngine
+STATE_ERROR	engine/testcase/CaseVideo.java	/^    private static final int    STATE_ERROR     = -1;$/;"	f	class:CaseVideo	file:
+STATE_FINISHED	engine/BaseCase.java	/^    protected static final int                    STATE_FINISHED     = 3;$/;"	f	class:BaseCase
+STATE_IDLE	engine/testcase/CaseVideo.java	/^    private static final int    STATE_IDLE      = 0;$/;"	f	class:CaseVideo	file:
+STATE_INITIALIZE	engine/BaseCase.java	/^    protected static final int                    STATE_INITIALIZE   = 1;$/;"	f	class:BaseCase
+STATE_PAUSED	engine/testcase/CaseVideo.java	/^    private static final int    STATE_PAUSED    = 3;$/;"	f	class:CaseVideo	file:
+STATE_PLAYING	engine/testcase/CaseVideo.java	/^    private static final int    STATE_PLAYING   = 4;$/;"	f	class:CaseVideo	file:
+STATE_PREPARED	engine/testcase/CaseVideo.java	/^    private static final int    STATE_PREPARED  = 2;$/;"	f	class:CaseVideo	file:
+STATE_PREPARING	engine/testcase/CaseVideo.java	/^    private static final int    STATE_PREPARING = 1;$/;"	f	class:CaseVideo	file:
+STATE_SHOW_CASE_LIST	Main.java	/^    private static final int    STATE_SHOW_CASE_LIST = 2;$/;"	f	class:Main	file:
+STATE_SHOW_RESULT	Main.java	/^    private static final int    STATE_SHOW_RESULT    = 1;$/;"	f	class:Main	file:
+STATE_STARTED	engine/BaseCase.java	/^    protected static final int                    STATE_STARTED      = 2;$/;"	f	class:BaseCase
+STATE_TEST_CASE	Main.java	/^    private static final int    STATE_TEST_CASE      = 0;$/;"	f	class:Main	file:
+STATE_UNINITIALIZE	engine/BaseCase.java	/^    protected static final int                    STATE_UNINITIALIZE = 0;$/;"	f	class:BaseCase
+SceneRenderer	engine/testcase/EarthAndMoonView.java	/^    private class SceneRenderer implements GLSurfaceView.Renderer {$/;"	c	class:EarthAndMoonView
+SharedContext	SharedContext.java	/^    public SharedContext(Context context, String packageName) {$/;"	m	class:SharedContext
+SharedContext	SharedContext.java	/^public class SharedContext extends ContextWrapper {$/;"	c
+SwFile	engine/SwFile.java	/^public class SwFile {$/;"	c
+SystemKeyButton	SystemKeyButton.java	/^    private SystemKeyButton(Context context, AttributeSet attrs) {$/;"	m	class:SystemKeyButton	file:
+SystemKeyButton	SystemKeyButton.java	/^public final class SystemKeyButton extends Button {$/;"	c
+TAG	Configuration.java	/^    private static final String   TAG = "DragonAging-Configuration";$/;"	f	class:Configuration	file:
+TAG	Main.java	/^    private static final String TAG                  = "DragonAging-Main";$/;"	f	class:Main	file:
+TAG	engine/DFEngine.java	/^    static final String               TAG                         = "DragonAging-DFEngine";$/;"	f	class:DFEngine
+TAG	engine/LogcatHelper.java	/^    private static final String TAG        = "DragonAging-LogcatHelper";$/;"	f	class:LogcatHelper	file:
+TAG	engine/SwFile.java	/^    public static final String TAG                 = "SwFile";$/;"	f	class:SwFile
+TAG	engine/Utils.java	/^    public static final String                   TAG            = "DragonBox-Uitls";$/;"	f	class:Utils
+TAG	engine/testcase/CaseCamera.java	/^    private static final String TAG = CaseCamera.class.getSimpleName();$/;"	f	class:CaseCamera	file:
+TAG	engine/testcase/CaseComprehensive.java	/^    private static final String TAG = "DragonAging-CaseComprehensive";$/;"	f	class:CaseComprehensive	file:
+TAG	engine/testcase/CaseMemory.java	/^    private static final String      TAG                   = "DragonAging-CaseMemory";$/;"	f	class:CaseMemory	file:
+TAG	engine/testcase/CaseVideo.java	/^    private static final String TAG             = "DragonAging-CaseVideo";$/;"	f	class:CaseVideo	file:
+TAG	engine/testcase/Preview.java	/^    private static final String TAG = "Preview";$/;"	f	class:Preview	file:
+TAG	engine/testcase/ThreeDimensionalView.java	/^    private static final String  TAG        = "3D";$/;"	f	class:ThreeDimensionalView	file:
+TAG	service/TestFinishService.java	/^    public static String TAG ="DragonAging-TestFinishService";$/;"	f	class:TestFinishService
+TAG	xml/parse/XmlPullParser.java	/^    private static String TAG = "DragonAging-XmlPullparser";$/;"	f	class:XmlPullParser	file:
+TEST_TIME	engine/Utils.java	/^    public static final int TEST_TIME = 2*60*60*1000;\/\/测试时长，单位：毫秒$/;"	f	class:Utils
+TOUCH_SCALE_FACTOR	engine/testcase/EarthAndMoonView.java	/^    private static final float TOUCH_SCALE_FACTOR = 180.0f \/ 320;$/;"	f	class:EarthAndMoonView	file:
+TestFinishService	service/TestFinishService.java	/^public class TestFinishService extends Service{$/;"	c
+TestReceiver	TestReceiver.java	/^public class TestReceiver extends BroadcastReceiver {$/;"	c
+TestRunnable	engine/testcase/CaseMemory.java	/^    class TestRunnable implements Runnable {$/;"	c	class:CaseMemory
+ThreadVar	ThreadVar.java	/^public class ThreadVar {$/;"	c
+ThreeDimensionalView	engine/testcase/ThreeDimensionalView.java	/^    public ThreeDimensionalView(Context context) {$/;"	m	class:ThreeDimensionalView
+ThreeDimensionalView	engine/testcase/ThreeDimensionalView.java	/^    public ThreeDimensionalView(Context context, AttributeSet attrs) {$/;"	m	class:ThreeDimensionalView
+ThreeDimensionalView	engine/testcase/ThreeDimensionalView.java	/^public class ThreeDimensionalView extends GLSurfaceView implements Renderer {$/;"	c
+UICallback	engine/UICallback.java	/^public interface UICallback {$/;"	i
+UI_COMPONENT_BTN_FAILED	engine/UICallback.java	/^    int UI_COMPONENT_BTN_FAILED = 2;$/;"	f	interface:UICallback
+UI_COMPONENT_BTN_PASSED	engine/UICallback.java	/^    int UI_COMPONENT_BTN_PASSED = 1;$/;"	f	interface:UICallback
+UNIT_SIZE	engine/testcase/Ball.java	/^    private static final int UNIT_SIZE = 10000;$/;"	f	class:Ball	file:
+UNIT_SIZE	engine/testcase/Celestial.java	/^    private static final float         UNIT_SIZE = 20.0f;$/;"	f	class:Celestial	file:
+UPDATE_AGING_TIME_INTERNAL	Main.java	/^    public static final int UPDATE_AGING_TIME_INTERNAL = 1*60*1000;\/\/每隔1分钟将老化时间更新至属性中。$/;"	f	class:Main
+USBHOST0_CASE_DIR	engine/DFEngine.java	/^    public static final String        USBHOST0_CASE_DIR           = "\/mnt\/usbhost0\/DragonBox\/";$/;"	f	class:DFEngine
+USBHOST0_CASE_FILE_NAME	engine/DFEngine.java	/^    public static final String        USBHOST0_CASE_FILE_NAME$/;"	f	class:DFEngine
+USBHOST0_CASE_MP3_NAME	engine/DFEngine.java	/^    public static final String        USBHOST0_CASE_MP3_NAME$/;"	f	class:DFEngine
+USBHOST1_CASE_DIR	engine/DFEngine.java	/^    public static final String        USBHOST1_CASE_DIR           = "\/mnt\/usbhost1\/DragonBox\/";$/;"	f	class:DFEngine
+USBHOST1_CASE_FILE_NAME	engine/DFEngine.java	/^    public static final String        USBHOST1_CASE_FILE_NAME$/;"	f	class:DFEngine
+USBHOST1_CASE_MP3_NAME	engine/DFEngine.java	/^    public static final String        USBHOST1_CASE_MP3_NAME$/;"	f	class:DFEngine
+USBHOST2_CASE_DIR	engine/DFEngine.java	/^    public static final String        USBHOST2_CASE_DIR           = "\/mnt\/usbhost2\/DragonBox\/";$/;"	f	class:DFEngine
+USBHOST2_CASE_FILE_NAME	engine/DFEngine.java	/^    public static final String        USBHOST2_CASE_FILE_NAME$/;"	f	class:DFEngine
+USBHOST2_CASE_MP3_NAME	engine/DFEngine.java	/^    public static final String        USBHOST2_CASE_MP3_NAME$/;"	f	class:DFEngine
+USBHOST3_CASE_DIR	engine/DFEngine.java	/^    public static final String        USBHOST3_CASE_DIR           = "\/mnt\/usbhost3\/DragonBox\/";$/;"	f	class:DFEngine
+USBHOST3_CASE_FILE_NAME	engine/DFEngine.java	/^    public static final String        USBHOST3_CASE_FILE_NAME$/;"	f	class:DFEngine
+USBHOST3_CASE_MP3_NAME	engine/DFEngine.java	/^    public static final String        USBHOST3_CASE_MP3_NAME$/;"	f	class:DFEngine
+USELOCKBUTTON	Main.java	/^    public static final String  USELOCKBUTTON        = "useLockButton";$/;"	f	class:Main
+UiHandler	engine/DFEngine.java	/^        UiHandler() {$/;"	m	class:DFEngine.UiHandler
+UiHandler	engine/DFEngine.java	/^    private class UiHandler extends Handler {$/;"	c	class:DFEngine
+Utils	engine/Utils.java	/^public class Utils {$/;"	c
+VERSION	engine/Utils.java	/^    public static final String                   VERSION            = "v1.1.2";$/;"	f	class:Utils
+ViewHolder	Configuration.java	/^        class ViewHolder {$/;"	c	class:Configuration.DraggableArrayAdapter
+WHAT_UPDATE_AGING_TIME	Main.java	/^    public static final int WHAT_UPDATE_AGING_TIME = 0;\/\/每隔一定时间将老化时间更新至属性中。$/;"	f	class:Main
+X	engine/testcase/ThreeDimensionalView.java	/^    private static final float   X          = .525731112119133606f;$/;"	f	class:ThreeDimensionalView	file:
+XML	xml/XML.java	/^public class XML {$/;"	c
+XmlPullParser	xml/parse/XmlPullParser.java	/^    public XmlPullParser() {$/;"	m	class:XmlPullParser
+XmlPullParser	xml/parse/XmlPullParser.java	/^public class XmlPullParser extends com.softwinner.agingdragonbox.xml.Parser {$/;"	c
+Z	engine/testcase/ThreeDimensionalView.java	/^    private static final float   Z          = .850650808352039932f;$/;"	f	class:ThreeDimensionalView	file:
+add	engine/QueueBuffer.java	/^    public void add(Object obj) {$/;"	m	class:QueueBuffer
+addAttribute	xml/Node.java	/^    public void addAttribute(Attribute attr) {$/;"	m	class:Node
+addAttribute	xml/Node.java	/^    public void addAttribute(String name, String value) {$/;"	m	class:Node
+addCase	engine/DFEngine.java	/^    public void addCase(BaseCase mCase) {$/;"	m	class:DFEngine
+addCase	engine/DFEngine.java	/^    public void addCase(BaseCase mCase, Node attr) {$/;"	m	class:DFEngine
+addNode	xml/Node.java	/^    public void addNode(Node node) {$/;"	m	class:Node
+addPassableChangeListener	engine/BaseCase.java	/^    public void addPassableChangeListener(OnPassableChangeListener listener) {$/;"	m	class:BaseCase
+addResultPublishListener	engine/BaseCase.java	/^    public void addResultPublishListener(OnResultPublishListener listener) {$/;"	m	class:BaseCase
+addValue	xml/Node.java	/^    public void addValue(String value) {$/;"	m	class:Node
+adjustScrollBounds	DraggableList.java	/^    private void adjustScrollBounds(int y) {$/;"	m	class:DraggableList	file:
+allPassed	Main.java	/^    private boolean allPassed() {$/;"	m	class:Main	file:
+alreadyTestTime	engine/Utils.java	/^    public static int alreadyTestTime = SystemProperties.getInt(PROPERTY_DRAGONAGING_TIME,0); $/;"	f	class:Utils
+attr	Configuration.java	/^            TextView attr;$/;"	f	class:Configuration.DraggableArrayAdapter.ViewHolder
+attrList	xml/Node.java	/^    private AttributeList attrList = new AttributeList();$/;"	f	class:Node	file:
+autoGet	engine/testcase/CaseComprehensive.java	/^        private boolean  autoGet             = false;$/;"	f	class:CaseComprehensive.ComphsConfiguration	file:
+beforeShow	engine/FailedPopupWindow.java	/^    private void beforeShow() {$/;"	m	class:FailedPopupWindow	file:
+browseThread	engine/testcase/CaseGPUStress.java	/^    Thread                   browseThread   = null;$/;"	f	class:CaseGPUStress
+browseThread	engine/testcase/CaseMemory.java	/^    Thread                           browseThread          = null;$/;"	f	class:CaseMemory
+browseThread	engine/testcase/CaseThreeDimensional.java	/^    Thread                       browseThread   = null;$/;"	f	class:CaseThreeDimensional
+browseThread	engine/testcase/CaseVideo.java	/^    Thread                      browseThread    = null;$/;"	f	class:CaseVideo
+bufferedreader	CsvUtil.java	/^    private BufferedReader bufferedreader = null;$/;"	f	class:CsvUtil	file:
+byteToGb	engine/SwFile.java	/^    public static String byteToGb(long byteSize) {$/;"	m	class:SwFile
+byteToKb	engine/SwFile.java	/^    public static String byteToKb(long byteSize) {$/;"	m	class:SwFile
+byteToMb	engine/SwFile.java	/^    public static String byteToMb(long byteSize) {$/;"	m	class:SwFile
+byteToSize	engine/SwFile.java	/^    public static String byteToSize(long byteSize) {$/;"	m	class:SwFile
+callMethod	engine/Utils.java	/^    public static Object callMethod(Object obj, String methodName, Object[] args,$/;"	m	class:Utils
+cancelSechedule	engine/BaseCase.java	/^    protected void cancelSechedule() {$/;"	m	class:BaseCase
+celestialBig	engine/testcase/EarthAndMoonView.java	/^        Celestial celestialBig;$/;"	f	class:EarthAndMoonView.SceneRenderer
+celestialSmall	engine/testcase/EarthAndMoonView.java	/^        Celestial celestialSmall;$/;"	f	class:EarthAndMoonView.SceneRenderer
+chanceLedStatus	engine/Utils.java	/^    public static void chanceLedStatus(int status) {$/;"	m	class:Utils
+chanceLedStatus	engine/testcase/CaseGPUStress.java	/^    private void chanceLedStatus(int status) {$/;"	m	class:CaseGPUStress	file:
+chanceLedStatus	engine/testcase/CaseMemory.java	/^    private void chanceLedStatus(int status) {$/;"	m	class:CaseMemory	file:
+chanceLedStatus	engine/testcase/CaseThreeDimensional.java	/^    private void chanceLedStatus(int status) {$/;"	m	class:CaseThreeDimensional	file:
+chanceLedStatus	engine/testcase/CaseVideo.java	/^    private void chanceLedStatus(int status) {$/;"	m	class:CaseVideo	file:
+checkHeadset	engine/testcase/CaseVideo.java	/^    private boolean             checkHeadset    = false;$/;"	f	class:CaseVideo	file:
+checkbox	Configuration.java	/^            CheckBox checkbox;$/;"	f	class:Configuration.DraggableArrayAdapter.ViewHolder
+classPathArray	engine/Utils.java	/^    private static List<File> classPathArray = getClassPath();$/;"	f	class:Utils	file:
+closeCamera	engine/testcase/CaseCamera.java	/^    private void closeCamera() {$/;"	m	class:CaseCamera	file:
+closePreviewSession	engine/testcase/CaseCamera.java	/^    private void closePreviewSession() {$/;"	m	class:CaseCamera	file:
+cmd	engine/testcase/CaseMemory.java	/^    String                           cmd;$/;"	f	class:CaseMemory
+cmds	engine/LogcatHelper.java	/^        String                   cmds     = null;$/;"	f	class:LogcatHelper.LogDumper
+colors	engine/testcase/ThreeDimensionalView.java	/^    private static float[]       colors     = {0f, 0f, 0f, 1f, 0f, 0f, 1f, 1f, 0f, 1f, 0f, 1f, 0f,$/;"	f	class:ThreeDimensionalView	file:
+com.softwinner.agingdragonbox	Configuration.java	/^package com.softwinner.agingdragonbox;$/;"	p
+com.softwinner.agingdragonbox	CsvUtil.java	/^package com.softwinner.agingdragonbox;$/;"	p
+com.softwinner.agingdragonbox	CustomDefault.java	/^package com.softwinner.agingdragonbox;$/;"	p
+com.softwinner.agingdragonbox	DraggableList.java	/^package com.softwinner.agingdragonbox;$/;"	p
+com.softwinner.agingdragonbox	DragonBoxApp.java	/^package com.softwinner.agingdragonbox;$/;"	p
+com.softwinner.agingdragonbox	FileSelector.java	/^package com.softwinner.agingdragonbox;$/;"	p
+com.softwinner.agingdragonbox	Main.java	/^package com.softwinner.agingdragonbox;$/;"	p
+com.softwinner.agingdragonbox	RootCmd.java	/^package com.softwinner.agingdragonbox;$/;"	p
+com.softwinner.agingdragonbox	SharedContext.java	/^package com.softwinner.agingdragonbox;$/;"	p
+com.softwinner.agingdragonbox	SystemKeyButton.java	/^package com.softwinner.agingdragonbox;$/;"	p
+com.softwinner.agingdragonbox	TestReceiver.java	/^package com.softwinner.agingdragonbox;$/;"	p
+com.softwinner.agingdragonbox	ThreadVar.java	/^package com.softwinner.agingdragonbox;$/;"	p
+com.softwinner.agingdragonbox.engine	engine/BaseCase.java	/^package com.softwinner.agingdragonbox.engine;$/;"	p
+com.softwinner.agingdragonbox.engine	engine/BaseConfiguration.java	/^package com.softwinner.agingdragonbox.engine;$/;"	p
+com.softwinner.agingdragonbox.engine	engine/CustomApkConfig.java	/^package com.softwinner.agingdragonbox.engine;$/;"	p
+com.softwinner.agingdragonbox.engine	engine/DFEngine.java	/^package com.softwinner.agingdragonbox.engine;$/;"	p
+com.softwinner.agingdragonbox.engine	engine/FailedPopupWindow.java	/^package com.softwinner.agingdragonbox.engine;$/;"	p
+com.softwinner.agingdragonbox.engine	engine/LockLayer.java	/^package com.softwinner.agingdragonbox.engine;$/;"	p
+com.softwinner.agingdragonbox.engine	engine/LogcatHelper.java	/^package com.softwinner.agingdragonbox.engine;$/;"	p
+com.softwinner.agingdragonbox.engine	engine/MyDate.java	/^package com.softwinner.agingdragonbox.engine;$/;"	p
+com.softwinner.agingdragonbox.engine	engine/NoneConfiguration.java	/^package com.softwinner.agingdragonbox.engine;$/;"	p
+com.softwinner.agingdragonbox.engine	engine/QueueBuffer.java	/^package com.softwinner.agingdragonbox.engine;$/;"	p
+com.softwinner.agingdragonbox.engine	engine/SwFile.java	/^package com.softwinner.agingdragonbox.engine;$/;"	p
+com.softwinner.agingdragonbox.engine	engine/UICallback.java	/^package com.softwinner.agingdragonbox.engine;$/;"	p
+com.softwinner.agingdragonbox.engine	engine/Utils.java	/^package com.softwinner.agingdragonbox.engine;$/;"	p
+com.softwinner.agingdragonbox.engine.testcase	engine/testcase/Ball.java	/^package com.softwinner.agingdragonbox.engine.testcase;$/;"	p
+com.softwinner.agingdragonbox.engine.testcase	engine/testcase/CaseCamera.java	/^package com.softwinner.agingdragonbox.engine.testcase;$/;"	p
+com.softwinner.agingdragonbox.engine.testcase	engine/testcase/CaseComprehensive.java	/^package com.softwinner.agingdragonbox.engine.testcase;$/;"	p
+com.softwinner.agingdragonbox.engine.testcase	engine/testcase/CaseGPUStress.java	/^package com.softwinner.agingdragonbox.engine.testcase;$/;"	p
+com.softwinner.agingdragonbox.engine.testcase	engine/testcase/CaseMemory.java	/^package com.softwinner.agingdragonbox.engine.testcase;$/;"	p
+com.softwinner.agingdragonbox.engine.testcase	engine/testcase/CaseThreeDimensional.java	/^package com.softwinner.agingdragonbox.engine.testcase;$/;"	p
+com.softwinner.agingdragonbox.engine.testcase	engine/testcase/CaseVideo.java	/^package com.softwinner.agingdragonbox.engine.testcase;$/;"	p
+com.softwinner.agingdragonbox.engine.testcase	engine/testcase/Celestial.java	/^package com.softwinner.agingdragonbox.engine.testcase;$/;"	p
+com.softwinner.agingdragonbox.engine.testcase	engine/testcase/EarthAndMoonView.java	/^package com.softwinner.agingdragonbox.engine.testcase;$/;"	p
+com.softwinner.agingdragonbox.engine.testcase	engine/testcase/Preview.java	/^package com.softwinner.agingdragonbox.engine.testcase;$/;"	p
+com.softwinner.agingdragonbox.engine.testcase	engine/testcase/ThreeDimensionalView.java	/^package com.softwinner.agingdragonbox.engine.testcase;$/;"	p
+com.softwinner.agingdragonbox.service	service/TestFinishService.java	/^package com.softwinner.agingdragonbox.service;$/;"	p
+com.softwinner.agingdragonbox.xml	xml/Attribute.java	/^package com.softwinner.agingdragonbox.xml;$/;"	p
+com.softwinner.agingdragonbox.xml	xml/AttributeList.java	/^package com.softwinner.agingdragonbox.xml;$/;"	p
+com.softwinner.agingdragonbox.xml	xml/Node.java	/^package com.softwinner.agingdragonbox.xml;$/;"	p
+com.softwinner.agingdragonbox.xml	xml/NodeList.java	/^package com.softwinner.agingdragonbox.xml;$/;"	p
+com.softwinner.agingdragonbox.xml	xml/Parser.java	/^package com.softwinner.agingdragonbox.xml;$/;"	p
+com.softwinner.agingdragonbox.xml	xml/ParserException.java	/^package com.softwinner.agingdragonbox.xml;$/;"	p
+com.softwinner.agingdragonbox.xml	xml/XML.java	/^package com.softwinner.agingdragonbox.xml;$/;"	p
+com.softwinner.agingdragonbox.xml.parse	xml/parse/JaxpParser.java	/^package com.softwinner.agingdragonbox.xml.parse;$/;"	p
+com.softwinner.agingdragonbox.xml.parse	xml/parse/XmlPullParser.java	/^package com.softwinner.agingdragonbox.xml.parse;$/;"	p
+configurable	engine/BaseConfiguration.java	/^    public boolean configurable() {$/;"	m	class:BaseConfiguration
+contentView1	engine/testcase/CaseComprehensive.java	/^        private View     contentView1;$/;"	f	class:CaseComprehensive.ComphsConfiguration	file:
+copyAssetTo	engine/SwFile.java	/^    public static boolean copyAssetTo(Context context, String from, String to) throws IOException {$/;"	m	class:SwFile
+copyFileTo	engine/SwFile.java	/^    public static long copyFileTo(File from, File to, int flag, OnProgressListener listener,$/;"	m	class:SwFile
+copyFileTo	engine/SwFile.java	/^    public static long copyFileTo(String from, String to, int flag, OnProgressListener listener,$/;"	m	class:SwFile
+copyStream	engine/SwFile.java	/^    public static long copyStream(InputStream in, OutputStream out) throws IOException {$/;"	m	class:SwFile
+count	engine/CustomApkConfig.java	/^    public int count() {$/;"	m	class:CustomApkConfig
+createCase	engine/DFEngine.java	/^    public void createCase(File xml) {$/;"	m	class:DFEngine
+createCase	engine/DFEngine.java	/^    public void createCase(InputStream xml) throws ParserException {$/;"	m	class:DFEngine
+createCase	engine/DFEngine.java	/^    public void createCase(String xml) {$/;"	m	class:DFEngine
+createCase	engine/Utils.java	/^    public static BaseCase createCase(String caseName) {$/;"	m	class:Utils
+createRamdomFile	engine/SwFile.java	/^    public static long createRamdomFile(File to, long size, OnProgressListener listener) {$/;"	m	class:SwFile
+createZeroFile	engine/SwFile.java	/^    public static long createZeroFile(File file, long size, OnProgressListener listener, long max)$/;"	m	class:SwFile
+csvClose	CsvUtil.java	/^    public void csvClose() throws IOException {$/;"	m	class:CsvUtil
+currentLine	engine/testcase/CaseMemory.java	/^    private int                      currentLine           = 0;$/;"	f	class:CaseMemory	file:
+deleteDir	engine/SwFile.java	/^    public static boolean deleteDir(File dir) {$/;"	m	class:SwFile
+doExpansion	DraggableList.java	/^    private void doExpansion() {$/;"	m	class:DraggableList	file:
+drag	Configuration.java	/^            View     drag;$/;"	f	class:Configuration.DraggableArrayAdapter.ViewHolder
+dragView	DraggableList.java	/^    private void dragView(int x, int y) {$/;"	m	class:DraggableList	file:
+dragndropBackgroundColor	DraggableList.java	/^    private int                        dragndropBackgroundColor = 0x00000000;$/;"	f	class:DraggableList	file:
+drawSelf	engine/testcase/Ball.java	/^    public void drawSelf(GL10 gl) {$/;"	m	class:Ball
+drawSelf	engine/testcase/Celestial.java	/^    public void drawSelf(GL10 gl) {$/;"	m	class:Celestial
+drop	DraggableList.java	/^        void drop(int from, int to);$/;"	m	interface:DraggableList.DropListener
+earth	engine/testcase/EarthAndMoonView.java	/^        Ball      earth;$/;"	f	class:EarthAndMoonView.SceneRenderer
+earthTextureId	engine/testcase/EarthAndMoonView.java	/^    public int            earthTextureId;$/;"	f	class:EarthAndMoonView
+enableCamera	engine/testcase/CaseComprehensive.java	/^        private CheckBox enableCamera;$/;"	f	class:CaseComprehensive.ComphsConfiguration	file:
+enableCvbs	engine/testcase/CaseComprehensive.java	/^        private CheckBox enableCvbs;$/;"	f	class:CaseComprehensive.ComphsConfiguration	file:
+enableElthernet	engine/testcase/CaseComprehensive.java	/^        private CheckBox enableElthernet;$/;"	f	class:CaseComprehensive.ComphsConfiguration	file:
+enableMemory	engine/testcase/CaseComprehensive.java	/^        private CheckBox enableMemory;$/;"	f	class:CaseComprehensive.ComphsConfiguration	file:
+enableSpdif	engine/testcase/CaseComprehensive.java	/^        private CheckBox enableSpdif;$/;"	f	class:CaseComprehensive.ComphsConfiguration	file:
+enableThreeDimensional	engine/testcase/CaseComprehensive.java	/^        private CheckBox enableThreeDimensional;$/;"	f	class:CaseComprehensive.ComphsConfiguration	file:
+enableVersion	engine/testcase/CaseComprehensive.java	/^        private CheckBox enableVersion;$/;"	f	class:CaseComprehensive.ComphsConfiguration	file:
+enableVideo	engine/testcase/CaseComprehensive.java	/^        private CheckBox enableVideo;$/;"	f	class:CaseComprehensive.ComphsConfiguration	file:
+enableWifi	engine/testcase/CaseComprehensive.java	/^        private CheckBox enableWifi;$/;"	f	class:CaseComprehensive.ComphsConfiguration	file:
+escapeXMLChars	xml/XML.java	/^    private static String escapeXMLChars(String input, boolean quote) {$/;"	m	class:XML	file:
+escapeXMLChars	xml/XML.java	/^    public static String escapeXMLChars(String input) {$/;"	m	class:XML
+execRootCmd	RootCmd.java	/^    public static String execRootCmd(String cmd) {$/;"	m	class:RootCmd
+execRootCmdSilent	RootCmd.java	/^    public static int execRootCmdSilent(String cmd) {$/;"	m	class:RootCmd
+failedit	Main.java	/^    private void failedit() {$/;"	m	class:Main	file:
+finalize	engine/testcase/CaseVideo.java	/^    protected void finalize() throws Throwable {$/;"	m	class:CaseVideo
+generateConfiguration	engine/BaseCase.java	/^    protected BaseConfiguration generateConfiguration() {$/;"	m	class:BaseCase
+generateConfiguration	engine/testcase/CaseComprehensive.java	/^    protected BaseConfiguration generateConfiguration() {$/;"	m	class:CaseComprehensive
+generateTexCoor	engine/testcase/Ball.java	/^    public float[] generateTexCoor(int bw, int bh) {$/;"	m	class:Ball
+getAttribute	xml/AttributeList.java	/^    public Attribute getAttribute(String name) {$/;"	m	class:AttributeList
+getAttribute	xml/AttributeList.java	/^    public Attribute getAttribute(int n) {$/;"	m	class:AttributeList
+getAttribute	xml/Node.java	/^    public Attribute getAttribute(String name) {$/;"	m	class:Node
+getAttribute	xml/Node.java	/^    public Attribute getAttribute(int index) {$/;"	m	class:Node
+getAttributeIntegerValue	xml/Node.java	/^    public int getAttributeIntegerValue(String name) {$/;"	m	class:Node
+getAttributeValue	xml/Node.java	/^    public String getAttributeValue(String name) {$/;"	m	class:Node
+getCase	engine/DFEngine.java	/^    public BaseCase getCase(int index) {$/;"	m	class:DFEngine
+getCaseList	engine/Utils.java	/^    public static void getCaseList(String packageName) throws IOException {$/;"	m	class:Utils
+getCaseSize	engine/DFEngine.java	/^    public int getCaseSize() {$/;"	m	class:DFEngine
+getClassInPackage	engine/Utils.java	/^    public static List<String> getClassInPackage(String pkgName) {$/;"	m	class:Utils
+getClassPath	engine/Utils.java	/^    private static List<File> getClassPath() {$/;"	m	class:Utils	file:
+getCol	CsvUtil.java	/^    public String getCol(int index) {$/;"	m	class:CsvUtil
+getColNum	CsvUtil.java	/^    public int getColNum() {$/;"	m	class:CsvUtil
+getConfigInfo	engine/BaseConfiguration.java	/^    public String getConfigInfo() {$/;"	m	class:BaseConfiguration
+getConfigInfo	engine/testcase/CaseComprehensive.java	/^        public String getConfigInfo() {$/;"	m	class:CaseComprehensive.ComphsConfiguration
+getConfigNode	engine/BaseConfiguration.java	/^    public Node getConfigNode() {$/;"	m	class:BaseConfiguration
+getConfigView	engine/BaseConfiguration.java	/^    public View getConfigView() {$/;"	m	class:BaseConfiguration
+getConfiguration	engine/BaseCase.java	/^    public BaseConfiguration getConfiguration() {$/;"	m	class:BaseCase
+getCount	FileSelector.java	/^        public int getCount() {$/;"	m	class:FileSelector.FileAdapter
+getCount	Main.java	/^        public int getCount() {$/;"	m	class:Main.ResultAdapter
+getCount	Main.java	/^        public int getCount() {$/;"	m	class:Main.ResultsAdapter
+getCurCase	engine/DFEngine.java	/^    public BaseCase getCurCase() {$/;"	m	class:DFEngine
+getData	Configuration.java	/^    private ArrayList<CaseHolder> getData() {$/;"	m	class:Configuration	file:
+getDataFromXML	Configuration.java	/^    private ArrayList<CaseHolder> getDataFromXML(InputStream is) throws ParserException {$/;"	m	class:Configuration	file:
+getDate	CsvUtil.java	/^    public ArrayList<HashMap<String, Object>> getDate() {$/;"	m	class:CsvUtil
+getDateEN	engine/MyDate.java	/^    public static String getDateEN() {$/;"	m	class:MyDate
+getDetailResult	engine/BaseCase.java	/^    public String getDetailResult() {$/;"	m	class:BaseCase
+getDetailResult	engine/testcase/CaseComprehensive.java	/^    public String getDetailResult() {$/;"	m	class:CaseComprehensive
+getEndsWith	xml/NodeList.java	/^    public Node getEndsWith(String name) {$/;"	m	class:NodeList
+getEngine	DragonBoxApp.java	/^    public DFEngine getEngine() {$/;"	m	class:DragonBoxApp
+getEngine	engine/BaseCase.java	/^    protected DFEngine getEngine() {$/;"	m	class:BaseCase
+getFields	engine/Utils.java	/^    public static Object getFields(Class<?> aClass, String fieldsName) throws SecurityException,$/;"	m	class:Utils
+getFileInputStream	engine/DFEngine.java	/^    private InputStream getFileInputStream(String fileName) {$/;"	m	class:DFEngine	file:
+getFileName	engine/MyDate.java	/^    public static String getFileName() {$/;"	m	class:MyDate
+getIdentifier	SharedContext.java	/^    public int getIdentifier(String name, String defType) {$/;"	m	class:SharedContext
+getIndentLevelString	xml/Node.java	/^    public String getIndentLevelString(int nIndentLevel) {$/;"	m	class:Node
+getIndentLevelString	xml/Node.java	/^    public String getIndentLevelString(int nIndentLevel, String space) {$/;"	m	class:Node
+getIndex	xml/Node.java	/^    public int getIndex(String name) {$/;"	m	class:Node
+getInstance	engine/DFEngine.java	/^    public static DFEngine getInstance() {$/;"	m	class:DFEngine
+getInstance	engine/LogcatHelper.java	/^    public static LogcatHelper getInstance(Context context) {$/;"	m	class:LogcatHelper
+getItem	FileSelector.java	/^        public File getItem(int position) {$/;"	m	class:FileSelector.FileAdapter
+getItem	Main.java	/^        public BaseCase getItem(int index) {$/;"	m	class:Main.ResultAdapter
+getItem	Main.java	/^        public Object getItem(int position) {$/;"	m	class:Main.ResultsAdapter
+getItemForPosition	DraggableList.java	/^    private int getItemForPosition(int y) {$/;"	m	class:DraggableList	file:
+getItemId	FileSelector.java	/^        public long getItemId(int position) {$/;"	m	class:FileSelector.FileAdapter
+getItemId	Main.java	/^        public long getItemId(int position) {$/;"	m	class:Main.ResultAdapter
+getItemId	Main.java	/^        public long getItemId(int position) {$/;"	m	class:Main.ResultsAdapter
+getList	Configuration.java	/^        public ArrayList<CaseHolder> getList() {$/;"	m	class:Configuration.DraggableArrayAdapter
+getList	CsvUtil.java	/^    public List getList() throws IOException {$/;"	m	class:CsvUtil
+getMode	engine/DFEngine.java	/^    public int getMode() {$/;"	m	class:DFEngine
+getNAttributes	xml/Node.java	/^    public int getNAttributes() {$/;"	m	class:Node
+getNNodes	xml/Node.java	/^    public int getNNodes() {$/;"	m	class:Node
+getName	engine/BaseCase.java	/^    public String getName() {$/;"	m	class:BaseCase
+getName	engine/BaseConfiguration.java	/^    public String getName() {$/;"	m	class:BaseConfiguration
+getName	xml/Attribute.java	/^    public String getName() {$/;"	m	class:Attribute
+getName	xml/Node.java	/^    public String getName() {$/;"	m	class:Node
+getNode	engine/CustomApkConfig.java	/^    public Node getNode() {$/;"	m	class:CustomApkConfig
+getNode	xml/Node.java	/^    public Node getNode(String name) {$/;"	m	class:Node
+getNode	xml/Node.java	/^    public Node getNode(int index) {$/;"	m	class:Node
+getNode	xml/NodeList.java	/^    public Node getNode(String name) {$/;"	m	class:NodeList
+getNode	xml/NodeList.java	/^    public Node getNode(int n) {$/;"	m	class:NodeList
+getNodeEndsWith	xml/Node.java	/^    public Node getNodeEndsWith(String name) {$/;"	m	class:Node
+getNodeValue	xml/Node.java	/^    public String getNodeValue(String name) {$/;"	m	class:Node
+getOptimalPreviewSize	engine/testcase/Preview.java	/^    private Size getOptimalPreviewSize(List<Size> sizes, int w, int h) {$/;"	m	class:Preview	file:
+getParentNode	xml/Node.java	/^    public Node getParentNode() {$/;"	m	class:Node
+getPassable	engine/BaseCase.java	/^    public boolean getPassable() {$/;"	m	class:BaseCase
+getQueue	engine/QueueBuffer.java	/^    public List<Object> getQueue() {$/;"	m	class:QueueBuffer
+getResult	engine/BaseCase.java	/^    public int getResult() {$/;"	m	class:BaseCase
+getRootNode	xml/Node.java	/^    public Node getRootNode() {$/;"	m	class:Node
+getRow	CsvUtil.java	/^    public String getRow(int index) {$/;"	m	class:CsvUtil
+getRowNum	CsvUtil.java	/^    public int getRowNum() {$/;"	m	class:CsvUtil
+getString	CsvUtil.java	/^    public String getString(int row, int col) {$/;"	m	class:CsvUtil
+getTitle	engine/DFEngine.java	/^    public String getTitle() {$/;"	m	class:DFEngine
+getUiHandler	engine/DFEngine.java	/^    \/* called in package *\/Handler getUiHandler() {$/;"	m	class:DFEngine
+getUserData	xml/Node.java	/^    public Object getUserData() {$/;"	m	class:Node
+getValue	xml/Attribute.java	/^    public String getValue() {$/;"	m	class:Attribute
+getValue	xml/Node.java	/^    public String getValue() {$/;"	m	class:Node
+getView	Configuration.java	/^        public View getView(int position, View convertView, ViewGroup parent) {$/;"	m	class:Configuration.DraggableArrayAdapter
+getView	FileSelector.java	/^        public View getView(int position, View convertView, ViewGroup parent) {$/;"	m	class:FileSelector.FileAdapter
+getView	Main.java	/^        public View getView(int position, View convert, ViewGroup root) {$/;"	m	class:Main.ResultAdapter
+getView	Main.java	/^        public View getView(int position, View convertView, ViewGroup parent) {$/;"	m	class:Main.ResultsAdapter
+getView	engine/BaseCase.java	/^    public View getView() {$/;"	m	class:BaseCase
+getView	engine/LockLayer.java	/^    public View getView() {$/;"	m	class:LockLayer
+getWorkerHandler	engine/DFEngine.java	/^    public Handler getWorkerHandler() {$/;"	m	class:DFEngine
+handleMessage	engine/DFEngine.java	/^        public void handleMessage(Message msg) {$/;"	m	class:DFEngine.UiHandler
+handler	Main.java	/^    public static Handler handler = new Handler() {$/;"	f	class:Main
+hasAttributes	xml/Node.java	/^    public boolean hasAttributes() {$/;"	m	class:Node
+hasCamera	engine/testcase/CaseComprehensive.java	/^        private boolean  hasCamera           = true;$/;"	f	class:CaseComprehensive.ComphsConfiguration	file:
+hasCvbs	engine/testcase/CaseComprehensive.java	/^        private boolean  hasCvbs             = true;$/;"	f	class:CaseComprehensive.ComphsConfiguration	file:
+hasElthernet	engine/testcase/CaseComprehensive.java	/^        private boolean  hasElthernet        = true;$/;"	f	class:CaseComprehensive.ComphsConfiguration	file:
+hasMemory	engine/testcase/CaseComprehensive.java	/^        private boolean  hasMemory           = true;$/;"	f	class:CaseComprehensive.ComphsConfiguration	file:
+hasNodes	xml/Node.java	/^    public boolean hasNodes() {$/;"	m	class:Node
+hasSpdif	engine/testcase/CaseComprehensive.java	/^        private boolean  hasSpdif            = true;$/;"	f	class:CaseComprehensive.ComphsConfiguration	file:
+hasThreeDimensional	engine/testcase/CaseComprehensive.java	/^        private boolean  hasThreeDimensional = true;$/;"	f	class:CaseComprehensive.ComphsConfiguration	file:
+hasVersion	engine/testcase/CaseComprehensive.java	/^        private boolean  hasVersion          = true;$/;"	f	class:CaseComprehensive.ComphsConfiguration	file:
+hasVideo	engine/testcase/CaseComprehensive.java	/^        private boolean  hasVideo            = true;$/;"	f	class:CaseComprehensive.ComphsConfiguration	file:
+hasWifi	engine/testcase/CaseComprehensive.java	/^        private boolean  hasWifi             = true;$/;"	f	class:CaseComprehensive.ComphsConfiguration	file:
+haveRoot	RootCmd.java	/^    public static boolean haveRoot() {$/;"	m	class:RootCmd
+iewGroup	engine/testcase/CaseGPUStress.java	/^    private ViewGroup        iewGroup;$/;"	f	class:CaseGPUStress	file:
+iewGroup	engine/testcase/CaseThreeDimensional.java	/^    private ViewGroup            iewGroup;$/;"	f	class:CaseThreeDimensional	file:
+indices	engine/testcase/ThreeDimensionalView.java	/^    private static short[]       indices    = {0, 4, 1, 0, 9, 4, 9, 5, 4, 4, 5, 8, 4,$/;"	f	class:ThreeDimensionalView	file:
+init	engine/FailedPopupWindow.java	/^    private void init() {$/;"	m	class:FailedPopupWindow	file:
+init	engine/LogcatHelper.java	/^    public void init(Context context) {$/;"	m	class:LogcatHelper
+init	engine/testcase/ThreeDimensionalView.java	/^    private void init() {$/;"	m	class:ThreeDimensionalView	file:
+initCMDFile	engine/testcase/CaseMemory.java	/^    public void initCMDFile() {$/;"	m	class:CaseMemory
+initMaterial	engine/testcase/EarthAndMoonView.java	/^    private void initMaterial(GL10 gl) {$/;"	m	class:EarthAndMoonView	file:
+initSunLight	engine/testcase/EarthAndMoonView.java	/^    private void initSunLight(GL10 gl) {$/;"	m	class:EarthAndMoonView	file:
+initTexture	engine/testcase/EarthAndMoonView.java	/^    public int initTexture(GL10 gl, int drawableId) {$/;"	m	class:EarthAndMoonView
+initialize	engine/BaseCase.java	/^    public void initialize(Context context) {$/;"	m	class:BaseCase
+initialize	engine/BaseCase.java	/^    public void initialize(Context context, Node attr) {$/;"	m	class:BaseCase
+initialize	engine/DFEngine.java	/^    private void initialize(Context context) {$/;"	m	class:DFEngine	file:
+initialize	engine/LockLayer.java	/^    private void initialize() {$/;"	m	class:LockLayer	file:
+initializeForConfig	engine/BaseConfiguration.java	/^    public void initializeForConfig(Context context) {$/;"	m	class:BaseConfiguration
+initializeForConfig	engine/BaseConfiguration.java	/^    public void initializeForConfig(Context context, Node attr) {$/;"	m	class:BaseConfiguration
+insertAttributeAt	xml/Node.java	/^    public void insertAttributeAt(Attribute attr, int index) {$/;"	m	class:Node
+insertNode	xml/Node.java	/^    public void insertNode(Node node, int index) {$/;"	m	class:Node
+instance	engine/LogcatHelper.java	/^    private static LogcatHelper instance   = null;$/;"	f	class:LogcatHelper	file:
+isName	xml/Node.java	/^    public boolean isName(String value) {$/;"	m	class:Node
+isSaveReport	engine/DFEngine.java	/^    private boolean                   isSaveReport;$/;"	f	class:DFEngine	file:
+isShow	engine/testcase/CaseMemory.java	/^    private boolean                  isShow;$/;"	f	class:CaseMemory	file:
+killMyProcess	Main.java	/^    private void killMyProcess() {$/;"	m	class:Main	file:
+ledTime	engine/testcase/CaseGPUStress.java	/^    private static int       ledTime        = 500;$/;"	f	class:CaseGPUStress	file:
+ledTime	engine/testcase/CaseMemory.java	/^    private static int               ledTime               = 500;$/;"	f	class:CaseMemory	file:
+ledTime	engine/testcase/CaseThreeDimensional.java	/^    private static int           ledTime        = 500;$/;"	f	class:CaseThreeDimensional	file:
+ledTime	engine/testcase/CaseVideo.java	/^    private static int          ledTime         = 500;$/;"	f	class:CaseVideo	file:
+loadingCustom	engine/DFEngine.java	/^    private boolean loadingCustom(String path) {$/;"	m	class:DFEngine	file:
+lock	engine/LockLayer.java	/^    public void lock() {$/;"	m	class:LockLayer
+lockLayer	Main.java	/^    LockLayer                   lockLayer;$/;"	f	class:Main
+lockTop	engine/LockLayer.java	/^    public void lockTop(View v, WindowManager.LayoutParams wp) {$/;"	m	class:LockLayer
+lockTopView	engine/LockLayer.java	/^    public void lockTopView(View v) {$/;"	m	class:LockLayer
+lockTopView	engine/LockLayer.java	/^    public void lockTopView(int resId) {$/;"	m	class:LockLayer
+lockView	engine/LockLayer.java	/^    public void lockView(View v) {$/;"	m	class:LockLayer
+lockView	engine/LockLayer.java	/^    public void lockView(View v, boolean enableBack) {$/;"	m	class:LockLayer
+lockView	engine/LockLayer.java	/^    public void lockView(int resId) {$/;"	m	class:LockLayer
+logcatProc	engine/LogcatHelper.java	/^        private Process          logcatProc;$/;"	f	class:LogcatHelper.LogDumper	file:
+mAM	engine/testcase/CaseVideo.java	/^    private AudioManager        mAM;$/;"	f	class:CaseVideo	file:
+mActivty	engine/LockLayer.java	/^    private Activity      mActivty;$/;"	f	class:LockLayer	file:
+mAdapter	Configuration.java	/^    private DraggableArrayAdapter mAdapter    = null;$/;"	f	class:Configuration	file:
+mAdapter	FileSelector.java	/^    private FileAdapter        mAdapter = new FileAdapter();$/;"	f	class:FileSelector	file:
+mAdapter	Main.java	/^    private ResultAdapter mAdapter = new ResultAdapter();$/;"	f	class:Main	file:
+mAdapter	engine/testcase/CaseMemory.java	/^    private ArrayAdapter<String>     mAdapter;$/;"	f	class:CaseMemory	file:
+mAngle	engine/testcase/ThreeDimensionalView.java	/^    private int                  mAngle;$/;"	f	class:ThreeDimensionalView	file:
+mAngleX	engine/testcase/Ball.java	/^    public float        mAngleX;$/;"	f	class:Ball
+mAngleY	engine/testcase/Ball.java	/^    public float        mAngleY;$/;"	f	class:Ball
+mAngleZ	engine/testcase/Ball.java	/^    public float        mAngleZ;$/;"	f	class:Ball
+mAvailSize	engine/testcase/CaseMemory.java	/^    private long                     mAvailSize            = 0;$/;"	f	class:CaseMemory	file:
+mBackgroundHandler	engine/testcase/CaseCamera.java	/^	private Handler mBackgroundHandler;$/;"	f	class:CaseCamera	file:
+mBackgroundThread	engine/testcase/CaseCamera.java	/^    private HandlerThread mBackgroundThread;$/;"	f	class:CaseCamera	file:
+mBaseList	engine/testcase/CaseComprehensive.java	/^    private ArrayList<BaseCase> mBaseList;$/;"	f	class:CaseComprehensive	file:
+mBuffer	engine/QueueBuffer.java	/^    private Object[]     mBuffer;    \/\/ 缓存$/;"	f	class:QueueBuffer	file:
+mCallback	engine/DFEngine.java	/^    private WeakReference<UICallback> mCallback                   = new WeakReference<UICallback>($/;"	f	class:DFEngine	file:
+mCamera	engine/testcase/Preview.java	/^    Camera               mCamera;$/;"	f	class:Preview
+mCameraDevice	engine/testcase/CaseCamera.java	/^	CameraDevice mCameraDevice;$/;"	f	class:CaseCamera
+mCameraIds	engine/testcase/CaseCamera.java	/^	String[] mCameraIds;$/;"	f	class:CaseCamera
+mCameraManager	engine/testcase/CaseCamera.java	/^	private CameraManager mCameraManager;$/;"	f	class:CaseCamera	file:
+mCameraOpenCloseLock	engine/testcase/CaseCamera.java	/^	private Semaphore mCameraOpenCloseLock = new Semaphore(1);$/;"	f	class:CaseCamera	file:
+mCase	Configuration.java	/^        BaseCase mCase;$/;"	f	class:Configuration.CaseHolder
+mCase	engine/BaseConfiguration.java	/^    protected BaseCase mCase;$/;"	f	class:BaseConfiguration
+mCase	engine/FailedPopupWindow.java	/^    private BaseCase mCase;$/;"	f	class:FailedPopupWindow	file:
+mCaseContent	Main.java	/^    private ViewGroup           mCaseContent;$/;"	f	class:Main	file:
+mCaseList	Configuration.java	/^    private ArrayList<CaseHolder> mCaseList;$/;"	f	class:Configuration	file:
+mCaseList	engine/DFEngine.java	/^    private final ArrayList<BaseCase> mCaseList                   = new ArrayList<BaseCase>();$/;"	f	class:DFEngine	file:
+mCode	SystemKeyButton.java	/^    private int            mCode = KeyEvent.KEYCODE_BACK;$/;"	f	class:SystemKeyButton	file:
+mColorBuffer	engine/testcase/Celestial.java	/^    private IntBuffer   mColorBuffer;$/;"	f	class:Celestial	file:
+mColorBuffer	engine/testcase/ThreeDimensionalView.java	/^    private FloatBuffer          mColorBuffer;$/;"	f	class:ThreeDimensionalView	file:
+mConfigInfo	engine/BaseConfiguration.java	/^    protected String   mConfigInfo;$/;"	f	class:BaseConfiguration
+mConfigPath	engine/DFEngine.java	/^    private String                    mConfigPath                 = null;$/;"	f	class:DFEngine	file:
+mConfigView	engine/BaseConfiguration.java	/^    protected View     mConfigView;$/;"	f	class:BaseConfiguration
+mConfiguration	engine/BaseCase.java	/^    protected BaseConfiguration                   mConfiguration;$/;"	f	class:BaseCase
+mConfirmButton	engine/FailedPopupWindow.java	/^    private Button   mConfirmButton;$/;"	f	class:FailedPopupWindow	file:
+mContext	Main.java	/^    public static Context mContext;$/;"	f	class:Main
+mContext	engine/BaseCase.java	/^    protected Context                             mContext;$/;"	f	class:BaseCase
+mContext	engine/BaseConfiguration.java	/^    protected Context  mContext;$/;"	f	class:BaseConfiguration
+mContext	engine/DFEngine.java	/^    private Context                   mContext;$/;"	f	class:DFEngine	file:
+mContext	engine/FailedPopupWindow.java	/^    private Context  mContext;$/;"	f	class:FailedPopupWindow	file:
+mCoordOffset	DraggableList.java	/^    private int                        mCoordOffset;                         \/\/ the$/;"	f	class:DraggableList	file:
+mCurCaseIndex	engine/DFEngine.java	/^    private int                       mCurCaseIndex               = -1;$/;"	f	class:DFEngine	file:
+mCurrentDirectory	FileSelector.java	/^    private File               mCurrentDirectory;$/;"	f	class:FileSelector	file:
+mCurrentLockView	Main.java	/^    View                        mCurrentLockView;$/;"	f	class:Main
+mCurrentState	Main.java	/^    private int                 mCurrentState        = STATE_TEST_CASE;$/;"	f	class:Main	file:
+mCurrentState	engine/testcase/CaseVideo.java	/^    private int                 mCurrentState   = STATE_IDLE;$/;"	f	class:CaseVideo	file:
+mDownTime	SystemKeyButton.java	/^    private long           mDownTime;$/;"	f	class:SystemKeyButton	file:
+mDragBitmap	DraggableList.java	/^    private Bitmap                     mDragBitmap;$/;"	f	class:DraggableList	file:
+mDragPoint	DraggableList.java	/^    private int                        mDragPoint;                           \/\/ at$/;"	f	class:DraggableList	file:
+mDragPos	DraggableList.java	/^    private int                        mDragPos;                             \/\/ which$/;"	f	class:DraggableList	file:
+mDragView	DraggableList.java	/^    private ImageView                  mDragView;$/;"	f	class:DraggableList	file:
+mDropListener	DraggableList.java	/^    private DropListener               mDropListener;$/;"	f	class:DraggableList	file:
+mEditor	engine/testcase/CaseMemory.java	/^    private SharedPreferences.Editor mEditor;$/;"	f	class:CaseMemory	file:
+mEngine	DragonBoxApp.java	/^    public DFEngine mEngine;$/;"	f	class:DragonBoxApp
+mEngine	Main.java	/^    private DFEngine            mEngine;$/;"	f	class:Main	file:
+mEngine	engine/BaseCase.java	/^    protected DFEngine                            mEngine;$/;"	f	class:BaseCase
+mFailedTimes	engine/BaseCase.java	/^    protected int                                 mFailedTimes       = 0;$/;"	f	class:BaseCase
+mFailedTip	engine/FailedPopupWindow.java	/^    private TextView mFailedTip;$/;"	f	class:FailedPopupWindow	file:
+mFilename	CsvUtil.java	/^    private String         mFilename       = null;$/;"	f	class:CsvUtil	file:
+mFiles	FileSelector.java	/^        private File[] mFiles;$/;"	f	class:FileSelector.FileAdapter	file:
+mFirstDragPos	DraggableList.java	/^    private int                        mFirstDragPos;                        \/\/ where$/;"	f	class:DraggableList	file:
+mFront	engine/QueueBuffer.java	/^    private int          mFront;$/;"	f	class:QueueBuffer	file:
+mFullCache	engine/testcase/CaseVideo.java	/^    private File                mFullCache;$/;"	f	class:CaseVideo	file:
+mHasCustomPassable	engine/BaseCase.java	/^    protected boolean                             mHasCustomPassable = false;$/;"	f	class:BaseCase
+mHaveRoot	RootCmd.java	/^    private static boolean mHaveRoot = false;$/;"	f	class:RootCmd	file:
+mHeight	DraggableList.java	/^    private int                        mHeight;$/;"	f	class:DraggableList	file:
+mHolder	engine/testcase/Preview.java	/^    SurfaceHolder        mHolder;$/;"	f	class:Preview
+mIWindowManager	SystemKeyButton.java	/^    private IWindowManager mIWindowManager;$/;"	f	class:SystemKeyButton	file:
+mIndexBuffer	engine/testcase/ThreeDimensionalView.java	/^    private ShortBuffer          mIndexBuffer;$/;"	f	class:ThreeDimensionalView	file:
+mInflater	FileSelector.java	/^    private LayoutInflater     mInflater;$/;"	f	class:FileSelector	file:
+mInstance	engine/DFEngine.java	/^    private static DFEngine           mInstance;$/;"	f	class:DFEngine	file:
+mIsRunning	engine/testcase/CaseMemory.java	/^    private boolean                  mIsRunning            = false;$/;"	f	class:CaseMemory	file:
+mItemHeightExpanded	DraggableList.java	/^    private int                        mItemHeightExpanded      = 128;$/;"	f	class:DraggableList	file:
+mItemHeightHalf	DraggableList.java	/^    private int                        mItemHeightHalf          = 32;$/;"	f	class:DraggableList	file:
+mItemHeightNormal	DraggableList.java	/^    private int                        mItemHeightNormal        = 64;$/;"	f	class:DraggableList	file:
+mLeft	engine/testcase/CaseComprehensive.java	/^    private LinearLayout        mLeft;$/;"	f	class:CaseComprehensive	file:
+mList	CsvUtil.java	/^    private List           mList           = new ArrayList();$/;"	f	class:CsvUtil	file:
+mListView	Configuration.java	/^    private DraggableList         mListView;$/;"	f	class:Configuration	file:
+mListView	FileSelector.java	/^    private ListView           mListView;$/;"	f	class:FileSelector	file:
+mListenerList	engine/BaseCase.java	/^    protected ArrayList<OnResultPublishListener>  mListenerList;$/;"	f	class:BaseCase
+mLockView	engine/LockLayer.java	/^    private View          mLockView;$/;"	f	class:LockLayer	file:
+mLockViewLayoutParams	engine/LockLayer.java	/^    private LayoutParams  mLockViewLayoutParams;$/;"	f	class:LockLayer	file:
+mLogDumper	engine/LogcatHelper.java	/^    private LogDumper           mLogDumper = null;$/;"	f	class:LogcatHelper	file:
+mLowerBound	DraggableList.java	/^    private int                        mLowerBound;$/;"	f	class:DraggableList	file:
+mMaxFailedTimes	engine/BaseCase.java	/^    protected int                                 mMaxFailedTimes    = 3;$/;"	f	class:BaseCase
+mMaxInfoTV	engine/testcase/CaseCamera.java	/^	TextView mMaxInfoTV;$/;"	f	class:CaseCamera
+mMaxSurfaceV	engine/testcase/CaseCamera.java	/^	SurfaceView mMaxSurfaceV;$/;"	f	class:CaseCamera
+mMediaPlayer	engine/testcase/CaseVideo.java	/^    private MediaPlayer         mMediaPlayer;$/;"	f	class:CaseVideo	file:
+mMidLeft	engine/testcase/CaseComprehensive.java	/^    private LinearLayout        mMidLeft;$/;"	f	class:CaseComprehensive	file:
+mMidRight	engine/testcase/CaseComprehensive.java	/^    private LinearLayout        mMidRight;$/;"	f	class:CaseComprehensive	file:
+mMinCapInMB	engine/testcase/CaseMemory.java	/^    private int                      mMinCapInMB           = -1;$/;"	f	class:CaseMemory	file:
+mMode	Configuration.java	/^    private int              mMode         = MODE_EXTSD;$/;"	f	class:Configuration	file:
+mMode	engine/DFEngine.java	/^    private int                       mMode                       = MODE_FLOWING;$/;"	f	class:DFEngine	file:
+mName	engine/BaseConfiguration.java	/^    protected String   mName;$/;"	f	class:BaseConfiguration
+mName	xml/Attribute.java	/^    private String mName  = new String();$/;"	f	class:Attribute	file:
+mName	xml/Node.java	/^    private String mName = new String();$/;"	f	class:Node	file:
+mNode	engine/CustomApkConfig.java	/^    private Node mNode;$/;"	f	class:CustomApkConfig	file:
+mNormalBuffer	engine/testcase/Ball.java	/^    private IntBuffer   mNormalBuffer;$/;"	f	class:Ball	file:
+mPID	engine/LogcatHelper.java	/^        private String           mPID;$/;"	f	class:LogcatHelper.LogDumper	file:
+mPId	engine/LogcatHelper.java	/^    private int                 mPId;$/;"	f	class:LogcatHelper	file:
+mParentNode	xml/Node.java	/^    private Node mParentNode = null;$/;"	f	class:Node	file:
+mParser	Configuration.java	/^    protected Parser         mParser;$/;"	f	class:Configuration
+mParser	engine/DFEngine.java	/^    private Parser                    mParser;$/;"	f	class:DFEngine	file:
+mPassable	engine/BaseCase.java	/^    protected boolean                             mPassable          = false;$/;"	f	class:BaseCase
+mPassableLsnList	engine/BaseCase.java	/^    protected ArrayList<OnPassableChangeListener> mPassableLsnList;$/;"	f	class:BaseCase
+mPlugedFilter	engine/testcase/CaseVideo.java	/^    private IntentFilter        mPlugedFilter;$/;"	f	class:CaseVideo	file:
+mPosition	Main.java	/^    private int                 mPosition;$/;"	f	class:Main	file:
+mPreviewBuilder	engine/testcase/CaseCamera.java	/^	private CaptureRequest.Builder mPreviewBuilder;$/;"	f	class:CaseCamera	file:
+mPreviewSession	engine/testcase/CaseCamera.java	/^	private CameraCaptureSession mPreviewSession;$/;"	f	class:CaseCamera	file:
+mPreviewSize	engine/testcase/Preview.java	/^    Size                 mPreviewSize;$/;"	f	class:Preview
+mPreviousX	engine/testcase/EarthAndMoonView.java	/^    private float         mPreviousX;$/;"	f	class:EarthAndMoonView	file:
+mPreviousY	engine/testcase/EarthAndMoonView.java	/^    private float         mPreviousY;$/;"	f	class:EarthAndMoonView	file:
+mProgressBar	engine/testcase/CaseMemory.java	/^    private ProgressBar              mProgressBar;$/;"	f	class:CaseMemory	file:
+mProgressBar	engine/testcase/CaseVideo.java	/^    private ProgressBar         mProgressBar;$/;"	f	class:CaseVideo	file:
+mReader	engine/LogcatHelper.java	/^        private BufferedReader   mReader  = null;$/;"	f	class:LogcatHelper.LogDumper	file:
+mRear	engine/QueueBuffer.java	/^    private int          mRear;$/;"	f	class:QueueBuffer	file:
+mReceiver	Main.java	/^    private BroadcastReceiver   mReceiver;$/;"	f	class:Main	file:
+mReceiver	engine/testcase/CaseVideo.java	/^    private BroadcastReceiver mReceiver = new BroadcastReceiver() {$/;"	f	class:CaseVideo	file:
+mRedo	engine/testcase/CaseVideo.java	/^    private Button              mRedo;$/;"	f	class:CaseVideo	file:
+mRenderer	engine/testcase/EarthAndMoonView.java	/^    private SceneRenderer mRenderer;$/;"	f	class:EarthAndMoonView	file:
+mResult	engine/BaseCase.java	/^    protected int                                 mResult            = RESULT_RESET;$/;"	f	class:BaseCase
+mResult	engine/testcase/CaseMemory.java	/^    private boolean                  mResult               = false;$/;"	f	class:CaseMemory	file:
+mResultTextView	engine/testcase/CaseMemory.java	/^    private TextView                 mResultTextView;$/;"	f	class:CaseMemory	file:
+mReviewsIndex	engine/DFEngine.java	/^    private int                       mReviewsIndex               = -1;$/;"	f	class:DFEngine	file:
+mRight	engine/testcase/CaseComprehensive.java	/^    private LinearLayout        mRight;$/;"	f	class:CaseComprehensive	file:
+mRight0	engine/testcase/CaseComprehensive.java	/^    private LinearLayout        mRight0;$/;"	f	class:CaseComprehensive	file:
+mRootPath	FileSelector.java	/^    private String             mRootPath;$/;"	f	class:FileSelector	file:
+mRunning	engine/LogcatHelper.java	/^        private boolean          mRunning = true;$/;"	f	class:LogcatHelper.LogDumper	file:
+mScale	engine/testcase/Celestial.java	/^    float               mScale;$/;"	f	class:Celestial
+mSdlRunnable	engine/BaseCase.java	/^    private Runnable         mSdlRunnable;$/;"	f	class:BaseCase	file:
+mSharedPreferences	engine/testcase/CaseMemory.java	/^    private SharedPreferences        mSharedPreferences;$/;"	f	class:CaseMemory	file:
+mSize	engine/QueueBuffer.java	/^    private final int    mSize;      \/\/ 实际缓存数+1$/;"	f	class:QueueBuffer	file:
+mStage	engine/testcase/CaseMemory.java	/^    protected ViewGroup              mStage;$/;"	f	class:CaseMemory
+mStage	engine/testcase/ThreeDimensionalView.java	/^    protected ViewGroup          mStage;$/;"	f	class:ThreeDimensionalView
+mState	engine/BaseCase.java	/^    protected int                                 mState             = STATE_INITIALIZE;$/;"	f	class:BaseCase
+mStorageManager	engine/testcase/CaseMemory.java	/^    private StorageManager           mStorageManager;$/;"	f	class:CaseMemory	file:
+mSupportedPreviewSizes	engine/testcase/Preview.java	/^    List<Size>           mSupportedPreviewSizes;$/;"	f	class:Preview
+mSurfaceHolder	engine/testcase/CaseCamera.java	/^	SurfaceHolder mSurfaceHolder;$/;"	f	class:CaseCamera
+mSurfaceView	engine/testcase/Preview.java	/^    SurfaceView          mSurfaceView;$/;"	f	class:Preview
+mTempRect	DraggableList.java	/^    private Rect                       mTempRect                = new Rect();$/;"	f	class:DraggableList	file:
+mTextId	engine/testcase/Ball.java	/^    int                 mTextId;$/;"	f	class:Ball
+mTextureBuffer	engine/testcase/Ball.java	/^    private FloatBuffer mTextureBuffer;$/;"	f	class:Ball	file:
+mThreeDimensionalView	engine/testcase/CaseThreeDimensional.java	/^    private ThreeDimensionalView mThreeDimensionalView;$/;"	f	class:CaseThreeDimensional	file:
+mThreeDimensionalView	engine/testcase/ThreeDimensionalView.java	/^    private ThreeDimensionalView mThreeDimensionalView;$/;"	f	class:ThreeDimensionalView	file:
+mTimer	engine/testcase/CaseGPUStress.java	/^    private Timer            mTimer         = new Timer();$/;"	f	class:CaseGPUStress	file:
+mTimer	engine/testcase/CaseThreeDimensional.java	/^    private Timer                mTimer         = new Timer();$/;"	f	class:CaseThreeDimensional	file:
+mTimer	engine/testcase/CaseVideo.java	/^    private Timer               mTimer          = new Timer();$/;"	f	class:CaseVideo	file:
+mTimerTask	engine/testcase/CaseGPUStress.java	/^    private TimerTask        mTimerTask;$/;"	f	class:CaseGPUStress	file:
+mTimerTask	engine/testcase/CaseThreeDimensional.java	/^    private TimerTask            mTimerTask;$/;"	f	class:CaseThreeDimensional	file:
+mTimerTask	engine/testcase/CaseVideo.java	/^    private TimerTask           mTimerTask;$/;"	f	class:CaseVideo	file:
+mTitle	engine/testcase/CaseVideo.java	/^    private TextView            mTitle;$/;"	f	class:CaseVideo	file:
+mTopWindowManager	engine/LockLayer.java	/^    private WindowManager mTopWindowManager;$/;"	f	class:LockLayer	file:
+mTouchSlop	DraggableList.java	/^    private final int                  mTouchSlop;$/;"	f	class:DraggableList	file:
+mUiHandler	engine/BaseCase.java	/^    protected static Handler                      mUiHandler;$/;"	f	class:BaseCase
+mUpperBound	DraggableList.java	/^    private int                        mUpperBound;$/;"	f	class:DraggableList	file:
+mVCount	engine/testcase/Celestial.java	/^    int                 mVCount    = 0;$/;"	f	class:Celestial
+mValue	xml/Attribute.java	/^    private String mValue = new String();$/;"	f	class:Attribute	file:
+mValue	xml/Node.java	/^    private String mValue = new String();$/;"	f	class:Node	file:
+mVertexBuffer	engine/testcase/Ball.java	/^    private IntBuffer   mVertexBuffer;$/;"	f	class:Ball	file:
+mVertexBuffer	engine/testcase/Celestial.java	/^    private FloatBuffer mVertexBuffer;$/;"	f	class:Celestial	file:
+mVertexBuffer	engine/testcase/ThreeDimensionalView.java	/^    private FloatBuffer          mVertexBuffer;$/;"	f	class:ThreeDimensionalView	file:
+mVideoRunnable	engine/testcase/CaseVideo.java	/^    private Runnable mVideoRunnable = new Runnable() {$/;"	f	class:CaseVideo	file:
+mView	engine/BaseCase.java	/^    protected View                                mView;$/;"	f	class:BaseCase
+mView	engine/FailedPopupWindow.java	/^    private View     mView;$/;"	f	class:FailedPopupWindow	file:
+mWindowManager	DraggableList.java	/^    private WindowManager              mWindowManager;$/;"	f	class:DraggableList	file:
+mWindowManager	engine/LockLayer.java	/^    private WindowManager mWindowManager;$/;"	f	class:LockLayer	file:
+mWindowParams	DraggableList.java	/^    private WindowManager.LayoutParams mWindowParams;$/;"	f	class:DraggableList	file:
+mWriter	engine/LogcatHelper.java	/^        private BufferedWriter   mWriter  = null;$/;"	f	class:LogcatHelper.LogDumper	file:
+mXOffset	engine/testcase/Celestial.java	/^    int                 mXOffset;$/;"	f	class:Celestial
+mYAngle	engine/testcase/Celestial.java	/^    float               mYAngle;$/;"	f	class:Celestial
+mZOffset	engine/testcase/Celestial.java	/^    int                 mZOffset;$/;"	f	class:Celestial
+maxRSSI	engine/testcase/CaseComprehensive.java	/^        private String   maxRSSI;$/;"	f	class:CaseComprehensive.ComphsConfiguration	file:
+md5CheckResult	engine/Utils.java	/^    public static boolean md5CheckResult;\/\/比较拷贝前后文件的md5结果$/;"	f	class:Utils
+memSize	engine/testcase/CaseMemory.java	/^    private int                      memSize               = 128;$/;"	f	class:CaseMemory	file:
+minMemory	engine/testcase/CaseComprehensive.java	/^        private String   minMemory;$/;"	f	class:CaseComprehensive.ComphsConfiguration	file:
+moon	engine/testcase/EarthAndMoonView.java	/^        Ball      moon;$/;"	f	class:EarthAndMoonView.SceneRenderer
+moonTextureId	engine/testcase/EarthAndMoonView.java	/^    public int            moonTextureId;$/;"	f	class:EarthAndMoonView
+myHandler	engine/testcase/CaseMemory.java	/^    private Handler                  myHandler             = new Handler() {$/;"	f	class:CaseMemory	file:
+myPointToPosition	DraggableList.java	/^    private int myPointToPosition(int x, int y) {$/;"	m	class:DraggableList	file:
+myViewGroup	engine/testcase/CaseMemory.java	/^    private ViewGroup                myViewGroup;$/;"	f	class:CaseMemory	file:
+nName	engine/BaseCase.java	/^    protected String                              nName              = new String();$/;"	f	class:BaseCase
+name	Configuration.java	/^            TextView name;$/;"	f	class:Configuration.DraggableArrayAdapter.ViewHolder
+name	Configuration.java	/^        String   name;$/;"	f	class:Configuration.CaseHolder
+next	engine/QueueBuffer.java	/^    private int next(int index) {$/;"	m	class:QueueBuffer	file:
+nodeList	xml/Node.java	/^    private NodeList nodeList = new NodeList();$/;"	f	class:Node	file:
+onActivityResult	Configuration.java	/^        void onActivityResult(int requestCode, int resultCode, Intent data);$/;"	m	interface:Configuration.OnActivityResult
+onActivityResult	Configuration.java	/^    protected void onActivityResult(int requestCode, int resultCode, Intent data) {$/;"	m	class:Configuration
+onActivityResult	Main.java	/^    protected void onActivityResult(int requestCode, int resultCode, Intent data) {$/;"	m	class:Main
+onBackPressed	FileSelector.java	/^    public void onBackPressed() {$/;"	m	class:FileSelector
+onBind	service/TestFinishService.java	/^    public IBinder onBind(Intent intent) {$/;"	m	class:TestFinishService
+onBufferingUpdate	engine/testcase/CaseVideo.java	/^    public void onBufferingUpdate(MediaPlayer arg0, int arg1) {$/;"	m	class:CaseVideo
+onCaseCompleted	Main.java	/^    public void onCaseCompleted() {$/;"	m	class:Main
+onCaseCompleted	engine/UICallback.java	/^    void onCaseCompleted();$/;"	m	interface:UICallback
+onCaseFinished	engine/BaseCase.java	/^    protected abstract void onCaseFinished();$/;"	m	class:BaseCase
+onCaseFinished	engine/testcase/CaseCamera.java	/^	protected void onCaseFinished() {$/;"	m	class:CaseCamera
+onCaseFinished	engine/testcase/CaseComprehensive.java	/^    protected void onCaseFinished() {$/;"	m	class:CaseComprehensive
+onCaseFinished	engine/testcase/CaseGPUStress.java	/^    protected void onCaseFinished() {$/;"	m	class:CaseGPUStress
+onCaseFinished	engine/testcase/CaseMemory.java	/^    protected void onCaseFinished() {$/;"	m	class:CaseMemory
+onCaseFinished	engine/testcase/CaseThreeDimensional.java	/^    protected void onCaseFinished() {$/;"	m	class:CaseThreeDimensional
+onCaseFinished	engine/testcase/CaseVideo.java	/^    protected void onCaseFinished() {$/;"	m	class:CaseVideo
+onCaseStarted	engine/BaseCase.java	/^    protected abstract boolean onCaseStarted();$/;"	m	class:BaseCase
+onCaseStarted	engine/testcase/CaseCamera.java	/^	protected boolean onCaseStarted() {$/;"	m	class:CaseCamera
+onCaseStarted	engine/testcase/CaseComprehensive.java	/^    protected boolean onCaseStarted() {$/;"	m	class:CaseComprehensive
+onCaseStarted	engine/testcase/CaseGPUStress.java	/^    protected boolean onCaseStarted() {$/;"	m	class:CaseGPUStress
+onCaseStarted	engine/testcase/CaseMemory.java	/^    protected boolean onCaseStarted() {$/;"	m	class:CaseMemory
+onCaseStarted	engine/testcase/CaseThreeDimensional.java	/^    protected boolean onCaseStarted() {$/;"	m	class:CaseThreeDimensional
+onCaseStarted	engine/testcase/CaseVideo.java	/^    protected boolean onCaseStarted() {$/;"	m	class:CaseVideo
+onCheckChange	Configuration.java	/^    private void onCheckChange(final int index) {$/;"	m	class:Configuration	file:
+onCheckClicked	DraggableList.java	/^        void onCheckClicked(int index);$/;"	m	interface:DraggableList.DropListener
+onClick	Configuration.java	/^    public void onClick(View v) {$/;"	m	class:Configuration
+onClick	Main.java	/^    public void onClick(View v) {$/;"	m	class:Main
+onClick	engine/FailedPopupWindow.java	/^    public void onClick(View v) {$/;"	m	class:FailedPopupWindow
+onCompletion	engine/testcase/CaseVideo.java	/^    public void onCompletion(MediaPlayer arg0) {$/;"	m	class:CaseVideo
+onConfigurationChanged	Configuration.java	/^    public void onConfigurationChanged(android.content.res.Configuration newConfig) {$/;"	m	class:Configuration
+onConfigurationChanged	Main.java	/^    public void onConfigurationChanged(Configuration newConfig) {$/;"	m	class:Main
+onCreate	Configuration.java	/^    public void onCreate(Bundle savedInstanceState) {$/;"	m	class:Configuration
+onCreate	CustomDefault.java	/^    public void onCreate(Bundle savedInstanceState) {$/;"	m	class:CustomDefault
+onCreate	DragonBoxApp.java	/^    public void onCreate() {$/;"	m	class:DragonBoxApp
+onCreate	FileSelector.java	/^    protected void onCreate(Bundle savedInstanceState) {$/;"	m	class:FileSelector
+onCreate	Main.java	/^    public void onCreate(Bundle savedInstanceState) {$/;"	m	class:Main
+onCreateOptionsMenu	Main.java	/^    public boolean onCreateOptionsMenu(Menu menu) {$/;"	m	class:Main
+onDestroy	Configuration.java	/^    protected void onDestroy() {$/;"	m	class:Configuration
+onDestroy	Main.java	/^    public void onDestroy() {$/;"	m	class:Main
+onDrawFrame	engine/testcase/EarthAndMoonView.java	/^        public void onDrawFrame(GL10 gl) {$/;"	m	class:EarthAndMoonView.SceneRenderer
+onDrawFrame	engine/testcase/ThreeDimensionalView.java	/^    public void onDrawFrame(GL10 gl) {$/;"	m	class:ThreeDimensionalView
+onDrop	Configuration.java	/^    private DraggableList.DropListener onDrop = new DraggableList.DropListener() {$/;"	f	class:Configuration	file:
+onError	engine/testcase/CaseVideo.java	/^    public boolean onError(MediaPlayer arg0, int arg1, int arg2) {$/;"	m	class:CaseVideo
+onGetConfigNode	engine/BaseConfiguration.java	/^    protected void onGetConfigNode(Node node) {$/;"	m	class:BaseConfiguration
+onGetConfigNode	engine/testcase/CaseComprehensive.java	/^        protected void onGetConfigNode(Node node) {$/;"	m	class:CaseComprehensive.ComphsConfiguration
+onInfo	engine/testcase/CaseVideo.java	/^    public boolean onInfo(MediaPlayer arg0, int arg1, int arg2) {$/;"	m	class:CaseVideo
+onInitialize	engine/BaseCase.java	/^    protected abstract void onInitialize(Node attr);$/;"	m	class:BaseCase
+onInitialize	engine/testcase/CaseCamera.java	/^	protected void onInitialize(Node attr){$/;"	m	class:CaseCamera
+onInitialize	engine/testcase/CaseComprehensive.java	/^    protected void onInitialize(Node node) {$/;"	m	class:CaseComprehensive
+onInitialize	engine/testcase/CaseGPUStress.java	/^    protected void onInitialize(Node attr) {$/;"	m	class:CaseGPUStress
+onInitialize	engine/testcase/CaseMemory.java	/^    protected void onInitialize(Node attr) {$/;"	m	class:CaseMemory
+onInitialize	engine/testcase/CaseThreeDimensional.java	/^    protected void onInitialize(Node attr) {$/;"	m	class:CaseThreeDimensional
+onInitialize	engine/testcase/CaseVideo.java	/^    protected void onInitialize(Node attr) {$/;"	m	class:CaseVideo
+onInitializeForConfig	engine/BaseConfiguration.java	/^    protected abstract void onInitializeForConfig(Node attr);$/;"	m	class:BaseConfiguration
+onInitializeForConfig	engine/NoneConfiguration.java	/^    protected void onInitializeForConfig(Node attr) {$/;"	m	class:NoneConfiguration
+onInitializeForConfig	engine/testcase/CaseComprehensive.java	/^        public void onInitializeForConfig(Node node) {$/;"	m	class:CaseComprehensive.ComphsConfiguration
+onInterceptTouchEvent	DraggableList.java	/^    public boolean onInterceptTouchEvent(MotionEvent ev) {$/;"	m	class:DraggableList
+onItemClick	Configuration.java	/^    public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {$/;"	m	class:Configuration
+onItemClick	FileSelector.java	/^    public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {$/;"	m	class:FileSelector
+onItemClick	Main.java	/^    public void onItemClick(AdapterView<?> adapter, View view, int position, long id) {$/;"	m	class:Main
+onKeyDown	Main.java	/^    public boolean onKeyDown(int keyCode, KeyEvent event) {$/;"	m	class:Main
+onLayout	engine/testcase/Preview.java	/^    protected void onLayout(boolean changed, int l, int t, int r, int b) {$/;"	m	class:Preview
+onMeasure	engine/testcase/Preview.java	/^    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {$/;"	m	class:Preview
+onOptionsItemSelected	Main.java	/^    public boolean onOptionsItemSelected(MenuItem item) {$/;"	m	class:Main
+onPassableChange	engine/BaseCase.java	/^        void onPassableChange(BaseCase aCase, boolean passable);$/;"	m	interface:BaseCase.OnPassableChangeListener
+onPassableChange	engine/BaseCase.java	/^    protected void onPassableChange() {$/;"	m	class:BaseCase
+onPassableChange	engine/testcase/CaseComprehensive.java	/^    public void onPassableChange(BaseCase inCase, boolean passable) {$/;"	m	class:CaseComprehensive
+onPassableChange	engine/testcase/CaseVideo.java	/^    protected void onPassableChange() {$/;"	m	class:CaseVideo
+onPassableInfo	engine/BaseCase.java	/^    protected void onPassableInfo(Node node) {$/;"	m	class:BaseCase
+onPause	Main.java	/^    protected void onPause() {$/;"	m	class:Main
+onPrepared	engine/testcase/CaseVideo.java	/^    public void onPrepared(MediaPlayer arg0) {$/;"	m	class:CaseVideo
+onProgressChange	engine/SwFile.java	/^        void onProgressChange(long progress);$/;"	m	interface:SwFile.OnProgressListener
+onReceive	TestReceiver.java	/^    public void onReceive(Context context, Intent intent) {$/;"	m	class:TestReceiver
+onRelease	engine/BaseCase.java	/^    protected abstract void onRelease();$/;"	m	class:BaseCase
+onRelease	engine/testcase/CaseCamera.java	/^    protected void onRelease() {$/;"	m	class:CaseCamera
+onRelease	engine/testcase/CaseComprehensive.java	/^    protected void onRelease() {$/;"	m	class:CaseComprehensive
+onRelease	engine/testcase/CaseGPUStress.java	/^    protected void onRelease() {$/;"	m	class:CaseGPUStress
+onRelease	engine/testcase/CaseMemory.java	/^    protected void onRelease() {$/;"	m	class:CaseMemory
+onRelease	engine/testcase/CaseThreeDimensional.java	/^    protected void onRelease() {$/;"	m	class:CaseThreeDimensional
+onRelease	engine/testcase/CaseVideo.java	/^    protected void onRelease() {$/;"	m	class:CaseVideo
+onResultPublish	engine/BaseCase.java	/^        void onResultPublish(BaseCase aCase, int result);$/;"	m	interface:BaseCase.OnResultPublishListener
+onResume	Main.java	/^    protected void onResume() {$/;"	m	class:Main
+onSeekComplete	engine/testcase/CaseVideo.java	/^    public void onSeekComplete(MediaPlayer arg0) {$/;"	m	class:CaseVideo
+onStartCommand	service/TestFinishService.java	/^    public int onStartCommand(Intent intent,int flags, int startId) {$/;"	m	class:TestFinishService
+onStop	Main.java	/^    protected void onStop() {$/;"	m	class:Main
+onSurfaceChanged	engine/testcase/EarthAndMoonView.java	/^        public void onSurfaceChanged(GL10 gl, int width, int height) {$/;"	m	class:EarthAndMoonView.SceneRenderer
+onSurfaceChanged	engine/testcase/ThreeDimensionalView.java	/^    public void onSurfaceChanged(GL10 gl, int width, int height) {$/;"	m	class:ThreeDimensionalView
+onSurfaceCreated	engine/testcase/EarthAndMoonView.java	/^        public void onSurfaceCreated(GL10 gl, EGLConfig config) {$/;"	m	class:EarthAndMoonView.SceneRenderer
+onSurfaceCreated	engine/testcase/ThreeDimensionalView.java	/^    public void onSurfaceCreated(GL10 gl, EGLConfig config) {$/;"	m	class:ThreeDimensionalView
+onTouchEvent	DraggableList.java	/^    public boolean onTouchEvent(MotionEvent ev) {$/;"	m	class:DraggableList
+onTouchEvent	SystemKeyButton.java	/^    public boolean onTouchEvent(MotionEvent ev) {$/;"	m	class:SystemKeyButton
+onVideoSizeChanged	engine/testcase/CaseVideo.java	/^    public void onVideoSizeChanged(MediaPlayer arg0, int arg1, int arg2) {$/;"	m	class:CaseVideo
+openCamera	engine/testcase/CaseCamera.java	/^	private void openCamera() {$/;"	m	class:CaseCamera	file:
+out	engine/LogcatHelper.java	/^        private FileOutputStream out      = null;$/;"	f	class:LogcatHelper.LogDumper	file:
+output	xml/Node.java	/^    public void output(PrintWriter ps, int indentLevel, boolean hasChildNode) {$/;"	m	class:Node
+outputAttributes	xml/Node.java	/^    public void outputAttributes(PrintWriter ps) {$/;"	m	class:Node
+outputWindow	engine/testcase/CaseMemory.java	/^    private TextView                 outputWindow;$/;"	f	class:CaseMemory	file:
+parse	xml/Parser.java	/^    public Node parse(File descriptionFile) throws ParserException {$/;"	m	class:Parser
+parse	xml/Parser.java	/^    public Node parse(String descr) throws ParserException {$/;"	m	class:Parser
+parse	xml/Parser.java	/^    public abstract Node parse(InputStream inStream) throws ParserException;$/;"	m	class:Parser
+parse	xml/parse/JaxpParser.java	/^    public Node parse(InputStream inStream) throws ParserException {$/;"	m	class:JaxpParser
+parse	xml/parse/JaxpParser.java	/^    public com.softwinner.agingdragonbox.xml.Node parse($/;"	m	class:JaxpParser
+parse	xml/parse/XmlPullParser.java	/^    public Node parse(InputStream inStream) throws ParserException {$/;"	m	class:XmlPullParser
+parse	xml/parse/XmlPullParser.java	/^    public Node parse(org.xmlpull.v1.XmlPullParser xpp, InputStream inStream)$/;"	m	class:XmlPullParser
+parseNode	engine/DFEngine.java	/^    private void parseNode(Node node) {$/;"	m	class:DFEngine	file:
+passableDisplay	engine/testcase/CaseComprehensive.java	/^        private String   passableDisplay;$/;"	f	class:CaseComprehensive.ComphsConfiguration	file:
+passableFireware	engine/testcase/CaseComprehensive.java	/^        private String   passableFireware;$/;"	f	class:CaseComprehensive.ComphsConfiguration	file:
+passableFirewareEdit	engine/testcase/CaseComprehensive.java	/^        private EditText passableFirewareEdit;$/;"	f	class:CaseComprehensive.ComphsConfiguration	file:
+passableMaxCpu	engine/testcase/CaseComprehensive.java	/^        private String   passableMaxCpu;$/;"	f	class:CaseComprehensive.ComphsConfiguration	file:
+passableMaxRSSIEdit	engine/testcase/CaseComprehensive.java	/^        private EditText passableMaxRSSIEdit;$/;"	f	class:CaseComprehensive.ComphsConfiguration	file:
+passableMemoryEdit	engine/testcase/CaseComprehensive.java	/^        private EditText passableMemoryEdit;$/;"	f	class:CaseComprehensive.ComphsConfiguration	file:
+passableMinCpu	engine/testcase/CaseComprehensive.java	/^        private String   passableMinCpu;$/;"	f	class:CaseComprehensive.ComphsConfiguration	file:
+passableModel	engine/testcase/CaseComprehensive.java	/^        private String   passableModel;$/;"	f	class:CaseComprehensive.ComphsConfiguration	file:
+passableVersionDetail	engine/testcase/CaseComprehensive.java	/^        private Button   passableVersionDetail;$/;"	f	class:CaseComprehensive.ComphsConfiguration	file:
+passedit	Main.java	/^    private void passedit() {$/;"	m	class:Main	file:
+pathLogcat	engine/LogcatHelper.java	/^    private static String       pathLogcat;$/;"	f	class:LogcatHelper	file:
+peek	engine/QueueBuffer.java	/^    public Object peek() {$/;"	m	class:QueueBuffer
+performPassableChangeListener	engine/BaseCase.java	/^    protected void performPassableChangeListener() {$/;"	m	class:BaseCase
+performResultPublishListener	engine/BaseCase.java	/^    protected void performResultPublishListener() {$/;"	m	class:BaseCase
+playVideo	engine/testcase/CaseVideo.java	/^    public void playVideo(Uri uri) {$/;"	m	class:CaseVideo
+pop	engine/QueueBuffer.java	/^    public Object pop() {$/;"	m	class:QueueBuffer
+print	xml/Node.java	/^    public void print() {$/;"	m	class:Node
+print	xml/Node.java	/^    public void print(boolean hasChildNode) {$/;"	m	class:Node
+readCvs	CsvUtil.java	/^    public List readCvs(String filename) throws IOException {$/;"	m	class:CsvUtil
+readDualSpeed	engine/SwFile.java	/^    public static long readDualSpeed(File first, File second, OnProgressListener listener1,$/;"	m	class:SwFile
+readSpeed	engine/SwFile.java	/^    public static long readSpeed(File file, OnProgressListener listener, long max)$/;"	m	class:SwFile
+readyExit	Main.java	/^    private boolean             readyExit            = false;$/;"	f	class:Main	file:
+refeshOutputWindow	engine/testcase/CaseMemory.java	/^    private void refeshOutputWindow() {$/;"	m	class:CaseMemory	file:
+registerActivityResult	Configuration.java	/^    public static final void registerActivityResult(OnActivityResult callback) {$/;"	m	class:Configuration
+registerActivityResult	Main.java	/^    public static final void registerActivityResult(OnActivityResult callback) {$/;"	m	class:Main
+relaseCase	Configuration.java	/^    private void relaseCase() {$/;"	m	class:Configuration	file:
+release	engine/BaseCase.java	/^    public void release() {$/;"	m	class:BaseCase
+release	engine/DFEngine.java	/^    public void release() {$/;"	m	class:DFEngine
+removeAllNodes	xml/Node.java	/^    public void removeAllNodes() {$/;"	m	class:Node
+removeAttribute	xml/Node.java	/^    public boolean removeAttribute(Attribute attr) {$/;"	m	class:Node
+removeAttribute	xml/Node.java	/^    public boolean removeAttribute(String name) {$/;"	m	class:Node
+removeCase	engine/DFEngine.java	/^    public void removeCase(BaseCase mCase) {$/;"	m	class:DFEngine
+removeNode	xml/Node.java	/^    public boolean removeNode(Node node) {$/;"	m	class:Node
+removeNode	xml/Node.java	/^    public boolean removeNode(String name) {$/;"	m	class:Node
+removePassableChangeListener	engine/BaseCase.java	/^    public void removePassableChangeListener(OnPassableChangeListener listener) {$/;"	m	class:BaseCase
+removeResultPublishListener	engine/BaseCase.java	/^    public void removeResultPublishListener(OnResultPublishListener listener) {$/;"	m	class:BaseCase
+repeat	engine/testcase/CaseMemory.java	/^    private int                      repeat;$/;"	f	class:CaseMemory	file:
+requestPermission	engine/testcase/CaseCamera.java	/^	public int requestPermission() {$/;"	m	class:CaseCamera
+reset	engine/QueueBuffer.java	/^    public void reset() {$/;"	m	class:QueueBuffer
+resultData	Main.java	/^    public ArrayList<HashMap<String, Object>> resultData;$/;"	f	class:Main
+run	engine/LogcatHelper.java	/^        public void run() {$/;"	m	class:LogcatHelper.LogDumper
+run	engine/testcase/CaseMemory.java	/^        public void run() {$/;"	m	class:CaseMemory.TestRunnable
+sHandler	engine/DFEngine.java	/^    private static Handler            sHandler;$/;"	f	class:DFEngine	file:
+sUiHandler	engine/DFEngine.java	/^    private static Handler            sUiHandler;$/;"	f	class:DFEngine	file:
+sWorker	engine/DFEngine.java	/^    private static HandlerThread      sWorker;$/;"	f	class:DFEngine	file:
+save	Configuration.java	/^    private void save() {$/;"	m	class:Configuration	file:
+saveConfig	engine/BaseConfiguration.java	/^    public void saveConfig() {$/;"	m	class:BaseConfiguration
+saveConfig	engine/testcase/CaseComprehensive.java	/^        public void saveConfig() {$/;"	m	class:CaseComprehensive.ComphsConfiguration
+saveReportCheckbox	Configuration.java	/^    private CheckBox              saveReportCheckbox;         \/\/ 报表设置CheckBox$/;"	f	class:Configuration	file:
+saveResultToReport	engine/DFEngine.java	/^    public void saveResultToReport(BaseCase mCase) {$/;"	m	class:DFEngine
+sb	engine/testcase/CaseMemory.java	/^    StringBuilder                    sb                    = new StringBuilder();$/;"	f	class:CaseMemory
+search	engine/Utils.java	/^    public static boolean search(ArrayList<File> result, File folder, String[] types,$/;"	m	class:Utils
+sechedule	engine/BaseCase.java	/^    protected void sechedule() {$/;"	m	class:BaseCase
+selected	Configuration.java	/^        boolean  selected;$/;"	f	class:Configuration.CaseHolder
+sendEvent	SystemKeyButton.java	/^    void sendEvent(int action, int flags) {$/;"	m	class:SystemKeyButton
+sendEvent	SystemKeyButton.java	/^    void sendEvent(int action, int flags, long when) {$/;"	m	class:SystemKeyButton
+serialVersionUID	xml/AttributeList.java	/^    private static final long serialVersionUID = 135327024058847706L;$/;"	f	class:AttributeList	file:
+serialVersionUID	xml/NodeList.java	/^    private static final long serialVersionUID = -3658719588373461339L;$/;"	f	class:NodeList	file:
+serialVersionUID	xml/ParserException.java	/^    private static final long serialVersionUID = -896044962433865450L;$/;"	f	class:ParserException	file:
+setAttribute	xml/Node.java	/^    public void setAttribute(String name, String value) {$/;"	m	class:Node
+setAttribute	xml/Node.java	/^    public void setAttribute(String name, int value) {$/;"	m	class:Node
+setCamera	engine/testcase/Preview.java	/^    public void setCamera(Camera camera) {$/;"	m	class:Preview
+setCase	engine/BaseConfiguration.java	/^    void setCase(BaseCase aCase) {$/;"	m	class:BaseConfiguration
+setCase	engine/FailedPopupWindow.java	/^    public void setCase(BaseCase testCase) {$/;"	m	class:FailedPopupWindow
+setCaseContent	Main.java	/^    public void setCaseContent(View v) {$/;"	m	class:Main
+setCaseContent	engine/UICallback.java	/^    void setCaseContent(View v);$/;"	m	interface:UICallback
+setCurCaseResult	engine/DFEngine.java	/^    public void setCurCaseResult(int result) {$/;"	m	class:DFEngine
+setCurrentList	FileSelector.java	/^        public void setCurrentList(File directory) {$/;"	m	class:FileSelector.FileAdapter
+setDropListener	DraggableList.java	/^    public void setDropListener(DropListener onDrop) {$/;"	m	class:DraggableList
+setEngine	DragonBoxApp.java	/^    public void setEngine(DFEngine engine) {$/;"	m	class:DragonBoxApp
+setEngine	engine/BaseCase.java	/^    public void setEngine(DFEngine engine) {$/;"	m	class:BaseCase
+setLockView	engine/LockLayer.java	/^    public void setLockView(View v) {$/;"	m	class:LockLayer
+setLockView	engine/LockLayer.java	/^    public void setLockView(int resId) {$/;"	m	class:LockLayer
+setName	engine/BaseCase.java	/^    public void setName(String name) {$/;"	m	class:BaseCase
+setName	engine/BaseCase.java	/^    public void setName(int resId) {$/;"	m	class:BaseCase
+setName	engine/BaseConfiguration.java	/^    public void setName(String name) {$/;"	m	class:BaseConfiguration
+setName	engine/BaseConfiguration.java	/^    public void setName(int resId) {$/;"	m	class:BaseConfiguration
+setName	xml/Attribute.java	/^    public void setName(String name) {$/;"	m	class:Attribute
+setName	xml/Node.java	/^    public void setName(String name) {$/;"	m	class:Node
+setName	xml/Node.java	/^    public void setName(String ns, String name) {$/;"	m	class:Node
+setNameSpace	xml/Node.java	/^    public void setNameSpace(String ns, String value) {$/;"	m	class:Node
+setNode	xml/Node.java	/^    public void setNode(String name, String value) {$/;"	m	class:Node
+setParentNode	xml/Node.java	/^    public void setParentNode(Node node) {$/;"	m	class:Node
+setPassable	engine/BaseCase.java	/^    public void setPassable(boolean passable) {$/;"	m	class:BaseCase
+setResult	engine/BaseCase.java	/^    public void setResult(int result) {$/;"	m	class:BaseCase
+setRunFlag	engine/DFEngine.java	/^    private void setRunFlag(String part) {$/;"	m	class:DFEngine	file:
+setUICallback	engine/DFEngine.java	/^    public void setUICallback(UICallback uicallback) {$/;"	m	class:DFEngine
+setUiVisible	Main.java	/^    public void setUiVisible(int component, int visible) {$/;"	m	class:Main
+setUiVisible	engine/UICallback.java	/^    void setUiVisible(int component, int visible);$/;"	m	interface:UICallback
+setUserData	xml/Node.java	/^    public void setUserData(Object data) {$/;"	m	class:Node
+setValue	xml/Attribute.java	/^    public void setValue(String value) {$/;"	m	class:Attribute
+setValue	xml/Node.java	/^    public void setValue(String value) {$/;"	m	class:Node
+setValue	xml/Node.java	/^    public void setValue(int value) {$/;"	m	class:Node
+setView	engine/BaseCase.java	/^    public void setView(View v) {$/;"	m	class:BaseCase
+setView	engine/BaseCase.java	/^    public void setView(int resId) {$/;"	m	class:BaseCase
+showAtLocation	engine/FailedPopupWindow.java	/^    public void showAtLocation(IBinder token, int gravity, int x, int y) {$/;"	m	class:FailedPopupWindow
+showConfigDlg	Configuration.java	/^    private void showConfigDlg(final CaseHolder holder) {$/;"	m	class:Configuration	file:
+showResultDialog	Main.java	/^    private void showResultDialog() {$/;"	m	class:Main	file:
+size	engine/QueueBuffer.java	/^    public int size() {$/;"	m	class:QueueBuffer
+start	engine/LogcatHelper.java	/^    public void start() {$/;"	m	class:LogcatHelper
+startBackgroundThread	engine/testcase/CaseCamera.java	/^	private void startBackgroundThread() {$/;"	m	class:CaseCamera	file:
+startCase	engine/BaseCase.java	/^    public void startCase() {$/;"	m	class:BaseCase
+startCaseAtFreedom	engine/DFEngine.java	/^    public void startCaseAtFreedom(int index) {$/;"	m	class:DFEngine
+startCaseAtReviews	engine/DFEngine.java	/^    public void startCaseAtReviews(int index) {$/;"	m	class:DFEngine
+startCtrlLedThread	engine/Utils.java	/^    public static void startCtrlLedThread() {$/;"	m	class:Utils
+startCtrlLedThread	engine/testcase/CaseGPUStress.java	/^    private void startCtrlLedThread() {$/;"	m	class:CaseGPUStress	file:
+startCtrlLedThread	engine/testcase/CaseMemory.java	/^    private void startCtrlLedThread() {$/;"	m	class:CaseMemory	file:
+startCtrlLedThread	engine/testcase/CaseThreeDimensional.java	/^    private void startCtrlLedThread() {$/;"	m	class:CaseThreeDimensional	file:
+startCtrlLedThread	engine/testcase/CaseVideo.java	/^    private void startCtrlLedThread() {$/;"	m	class:CaseVideo	file:
+startCurCaseAtFlowing	engine/DFEngine.java	/^    public void startCurCaseAtFlowing() {$/;"	m	class:DFEngine
+startDragging	DraggableList.java	/^    private void startDragging(Bitmap bm, int y) {$/;"	m	class:DraggableList	file:
+startNextCase	engine/DFEngine.java	/^    public void startNextCase() {$/;"	m	class:DFEngine
+startPreCase	engine/DFEngine.java	/^    public void startPreCase() {$/;"	m	class:DFEngine
+startPreview	engine/testcase/CaseCamera.java	/^	protected void startPreview() {$/;"	m	class:CaseCamera
+stop	engine/LogcatHelper.java	/^    public void stop() {$/;"	m	class:LogcatHelper
+stopBackgroundThread	engine/testcase/CaseCamera.java	/^    private void stopBackgroundThread() {$/;"	m	class:CaseCamera	file:
+stopDragging	DraggableList.java	/^    private void stopDragging() {$/;"	m	class:DraggableList	file:
+stopLogs	engine/LogcatHelper.java	/^        public void stopLogs() {$/;"	m	class:LogcatHelper.LogDumper
+surfaceChanged	engine/testcase/CaseCamera.java	/^	public void surfaceChanged(SurfaceHolder arg0, int arg1, int arg2, int arg3) {$/;"	m	class:CaseCamera
+surfaceChanged	engine/testcase/CaseVideo.java	/^    public void surfaceChanged(SurfaceHolder arg0, int arg1, int arg2, int arg3) {$/;"	m	class:CaseVideo
+surfaceChanged	engine/testcase/Preview.java	/^    public void surfaceChanged(SurfaceHolder holder, int format, int w, int h) {$/;"	m	class:Preview
+surfaceCreated	engine/testcase/CaseCamera.java	/^	public void surfaceCreated(SurfaceHolder arg0) {$/;"	m	class:CaseCamera
+surfaceCreated	engine/testcase/CaseVideo.java	/^    public void surfaceCreated(SurfaceHolder arg0) {$/;"	m	class:CaseVideo
+surfaceCreated	engine/testcase/Preview.java	/^    public void surfaceCreated(SurfaceHolder holder) {$/;"	m	class:Preview
+surfaceDestroyed	engine/testcase/CaseCamera.java	/^	public void surfaceDestroyed(SurfaceHolder arg0) {$/;"	m	class:CaseCamera
+surfaceDestroyed	engine/testcase/CaseVideo.java	/^    public void surfaceDestroyed(SurfaceHolder arg0) {$/;"	m	class:CaseVideo
+surfaceDestroyed	engine/testcase/Preview.java	/^    public void surfaceDestroyed(SurfaceHolder holder) {$/;"	m	class:Preview
+surfaceHolder	engine/testcase/CaseVideo.java	/^    private SurfaceHolder       surfaceHolder;$/;"	f	class:CaseVideo	file:
+surfaceView	engine/testcase/CaseVideo.java	/^    private SurfaceView         surfaceView;$/;"	f	class:CaseVideo	file:
+svMeminfo	engine/testcase/CaseMemory.java	/^    private ScrollView               svMeminfo;   $/;"	f	class:CaseMemory	file:
+switchAudio	Main.java	/^    private void switchAudio() {$/;"	m	class:Main	file:
+switchCamera	engine/testcase/Preview.java	/^    public void switchCamera(Camera camera) {$/;"	m	class:Preview
+switchMode	Configuration.java	/^    boolean switchMode(int mode) {$/;"	m	class:Configuration
+switchToList	Main.java	/^    private void switchToList() {$/;"	m	class:Main	file:
+switchToMain	Main.java	/^    private void switchToMain() {$/;"	m	class:Main	file:
+switchToResult	Main.java	/^    private void switchToResult() {$/;"	m	class:Main	file:
+switchVideo	Main.java	/^    private void switchVideo() {$/;"	m	class:Main	file:
+switchView	Main.java	/^    private void switchView() {$/;"	m	class:Main	file:
+testFinished	ThreadVar.java	/^    public static boolean testFinished = false;\/\/测试时长达到指定时间$/;"	f	class:ThreadVar
+testTimebyMin	Main.java	/^    public static int testTimebyMin = 0;\/\/本次测试分钟数$/;"	f	class:Main
+testView	engine/testcase/CaseGPUStress.java	/^    private EarthAndMoonView testView;$/;"	f	class:CaseGPUStress	file:
+threadExit	ThreadVar.java	/^    public static boolean threadExit     = true;\/\/video error$/;"	f	class:ThreadVar
+threadExit	engine/testcase/CaseGPUStress.java	/^    private boolean          threadExit     = true;$/;"	f	class:CaseGPUStress	file:
+threadExit	engine/testcase/CaseMemory.java	/^    private boolean                  threadExit;$/;"	f	class:CaseMemory	file:
+threadExit	engine/testcase/CaseThreeDimensional.java	/^    private boolean              threadExit     = true;$/;"	f	class:CaseThreeDimensional	file:
+threadExit	engine/testcase/CaseVideo.java	/^    private boolean             threadExit      = true;$/;"	f	class:CaseVideo	file:
+threadExitDdr	ThreadVar.java	/^    public static boolean threadExitDdr = true;\/\/memory error$/;"	f	class:ThreadVar
+threadExitDdr	engine/testcase/CaseGPUStress.java	/^    private boolean          threadExitDdr = true;$/;"	f	class:CaseGPUStress	file:
+threadExitDdr	engine/testcase/CaseMemory.java	/^    private boolean                  threadExitDdr;$/;"	f	class:CaseMemory	file:
+threadExitDdr	engine/testcase/CaseThreeDimensional.java	/^    private boolean              threadExitDdr = true;$/;"	f	class:CaseThreeDimensional	file:
+threadExitDdr	engine/testcase/CaseVideo.java	/^    private boolean             threadExitDdr  = true;$/;"	f	class:CaseVideo	file:
+threadVar	engine/testcase/CaseGPUStress.java	/^    ThreadVar                threadVar     = new ThreadVar();$/;"	f	class:CaseGPUStress
+threadVar	engine/testcase/CaseMemory.java	/^    ThreadVar                        threadVar            = new ThreadVar();$/;"	f	class:CaseMemory
+threadVar	engine/testcase/CaseThreeDimensional.java	/^    ThreadVar                    threadVar     = new ThreadVar();$/;"	f	class:CaseThreeDimensional
+threadVar	engine/testcase/CaseVideo.java	/^    ThreadVar                   threadVar      = new ThreadVar();$/;"	f	class:CaseVideo
+titleView1	engine/testcase/CaseComprehensive.java	/^        private View     titleView1;$/;"	f	class:CaseComprehensive.ComphsConfiguration	file:
+toHex	engine/Utils.java	/^    private static String toHex(byte[] bytes) {$/;"	m	class:Utils	file:
+toString	xml/Node.java	/^    public String toString() {$/;"	m	class:Node
+toString	xml/Node.java	/^    public String toString(String enc, boolean hasChildNode) {$/;"	m	class:Node
+toXMLString	xml/Node.java	/^    public String toXMLString() {$/;"	m	class:Node
+toXMLString	xml/Node.java	/^    public String toXMLString(boolean hasChildNode) {$/;"	m	class:Node
+unExpandViews	DraggableList.java	/^    public void unExpandViews(boolean deletion) {$/;"	m	class:DraggableList
+unescapeXMLChars	xml/XML.java	/^    public static String unescapeXMLChars(String input) {$/;"	m	class:XML
+unlock	engine/LockLayer.java	/^    public void unlock() {$/;"	m	class:LockLayer
+unlockTop	engine/LockLayer.java	/^    public void unlockTop() {$/;"	m	class:LockLayer
+unregisterActivityResult	Configuration.java	/^    public static final void unregisterActivityResult(OnActivityResult callback) {$/;"	m	class:Configuration
+unregisterActivityResult	Main.java	/^    public static final void unregisterActivityResult(OnActivityResult callback) {$/;"	m	class:Main
+updatePreview	engine/testcase/CaseCamera.java	/^    protected void updatePreview() {$/;"	m	class:CaseCamera
+userData	xml/Node.java	/^    private Object userData = null;$/;"	f	class:Node	file:
+vCount	engine/testcase/Ball.java	/^    int                 vCount = 0;$/;"	f	class:Ball
+vertices	engine/testcase/ThreeDimensionalView.java	/^    private static float[]       vertices   = {-X, 0.0f, Z, X, 0.0f, Z, -X, 0.0f, -Z,$/;"	f	class:ThreeDimensionalView	file:
+writeFileToCache	engine/Utils.java	/^    public static String writeFileToCache(String fileName,Context context) {$/;"	m	class:Utils
+writeFileToCacheSecure	engine/Utils.java	/^    public static String writeFileToCacheSecure(String fileName,Context context) {$/;"	m	class:Utils
+writeSpeed	engine/SwFile.java	/^    public static long writeSpeed(File file, long size, OnProgressListener listener, long max)$/;"	m	class:SwFile
+x	engine/testcase/ThreeDimensionalView.java	/^    private int                  x;$/;"	f	class:ThreeDimensionalView	file:

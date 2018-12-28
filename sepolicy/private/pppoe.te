@@ -1,0 +1,81 @@
+type pppoe_data_file, file_type, data_file_type, core_data_file_type;
+type sysfs_net_eth0, fs_type,  sysfs_type; 
+type sysfs_wlan0, fs_type,  sysfs_type; 
+
+#start_pppoe service
+type start_pppoe, domain, coredomain;
+type start_pppoe_exec, exec_type, file_type;                                                                                                    
+init_daemon_domain(start_pppoe)
+type_transition start_pppoe system_data_file:{ dir file } pppoe_data_file;
+
+#stop_pppoe service
+type stop_pppoe, domain, coredomain;
+type stop_pppoe_exec, exec_type, file_type;
+init_daemon_domain(stop_pppoe)
+type_transition stop_pppoe system_data_file:{ dir file } pppoe_data_file;
+
+#allow options for start_pppoe
+allow start_pppoe device:dir search;
+allow start_pppoe init:fd use;
+allow start_pppoe init:unix_stream_socket connectto;
+allow start_pppoe init:process sigchld;
+allow start_pppoe null_device:chr_file { read write };
+allow start_pppoe self:packet_socket ioctl;
+allow start_pppoe self:udp_socket ioctl;
+allow start_pppoe self:socket ioctl;
+allowxperm start_pppoe self:packet_socket ioctl { unpriv_sock_ioctls priv_sock_ioctls ppp_ioctls };
+allowxperm start_pppoe self:udp_socket ioctl { priv_sock_ioctls };
+allowxperm start_pppoe self:socket ioctl { ppp_ioctls };
+allow start_pppoe self:packet_socket { read write create bind setopt };
+allow start_pppoe self:process sigchld;
+allow start_pppoe self:socket { create connect };
+allow start_pppoe self:udp_socket create;
+allow start_pppoe self:unix_dgram_socket { connect create };
+allow start_pppoe system_file:dir search;
+allow start_pppoe system_file:file execute_no_trans;
+allow start_pppoe system_data_file:file { read open getattr };
+allow start_pppoe system_data_file:dir { write open getattr add_name remove_name };
+allow start_pppoe pppoe_data_file:dir  { create write read open getattr };
+allow start_pppoe pppoe_data_file:file { create write read open getattr unlink };
+allow start_pppoe system_file:lnk_file read;
+allow start_pppoe shell_exec:file { read execute getattr open };
+allow start_pppoe toolbox_exec:file { read execute getattr open execute_no_trans };
+allow start_pppoe vendor_toolbox_exec:file { read getattr };
+allow start_pppoe system_prop:property_service { set };
+allow start_pppoe property_socket:sock_file { write };
+allow start_pppoe kernel:system {module_request};
+allow start_pppoe start_pppoe_exec:file { execute_no_trans };
+allow start_pppoe self:capability {net_admin net_raw setuid setgid sys_module };
+allow start_pppoe ppp_device:chr_file { open read write ioctl };
+allow start_pppoe sysfs_net:dir search;
+allow start_pppoe sysfs_net_eth0:dir { r_dir_perms search };
+allow start_pppoe sysfs_net_eth0:file { rw_file_perms read open };
+allow start_pppoe sysfs_net_eth0:lnk_file read;
+allow start_pppoe sysfs_wlan0:dir { r_dir_perms search };
+allow start_pppoe sysfs_wlan0:file { rw_file_perms read open };
+allow start_pppoe sysfs_wlan0:lnk_file read;
+allow start_pppoe rootfs:dir { read open };
+
+#allow options for stop_pppoe
+allow stop_pppoe shell_exec:file { read execute getattr };
+allow stop_pppoe toolbox_exec:file { read execute getattr open execute_no_trans };
+allow stop_pppoe vendor_toolbox_exec:file { read getattr };
+allow stop_pppoe ppp_device:chr_file { open };
+allow stop_pppoe system_prop:property_service { set };
+allow stop_pppoe sysfs_net_eth0:dir { search };
+allow stop_pppoe property_socket:sock_file { write };
+allow stop_pppoe start_pppoe_exec:file { execute_no_trans };
+allow stop_pppoe init:unix_stream_socket connectto;
+allow stop_pppoe system_data_file:file { read open getattr };
+allow stop_pppoe system_data_file:dir { write open getattr add_name };
+allow stop_pppoe pppoe_data_file:dir  { create write read open getattr };
+allow stop_pppoe pppoe_data_file:file { create write read open getattr };
+allow stop_pppoe sysfs_net_eth0:dir { r_dir_perms search };
+allow stop_pppoe sysfs_net_eth0:file { rw_file_perms read open };
+allow stop_pppoe sysfs_net_eth0:lnk_file read;
+allow stop_pppoe sysfs_wlan0:dir { r_dir_perms search };
+allow stop_pppoe sysfs_wlan0:file { rw_file_perms read open };
+allow stop_pppoe sysfs_wlan0:lnk_file read;
+allow stop_pppoe rootfs:dir { read open };
+allow stop_pppoe sysfs_net:dir search;
+allow stop_pppoe start_pppoe:process { sigkill signal };

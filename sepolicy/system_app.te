@@ -1,0 +1,10 @@
+#allow system_app hdmi_prop:file {read open getattr};
+#allow system_app hdmiavailable_prop:file {read open getattr};
+#allow system_app hdmi_prop:property_service set;
+#allow system_app hdmiavailable_prop:property_service set;
+#allow system_app mediasw_prop:property_service set;
+allow system_app systemmix:binder call;
+allow appdomain systemmix:binder call;
+allow platform_app systemmix:binder call;
+allow system_app sysfs_soc:dir r_dir_perms;
+allow system_app sst_storage_device:chr_file {open read ioctl};

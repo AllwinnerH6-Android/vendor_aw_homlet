@@ -1,0 +1,6 @@
+service displayd /vendor/bin/softwinner.homlet.displayd@1.0-service
+    class hal animation
+    user system
+    group system
+    capabilities SYS_NICE
+    onrestart restart surfaceflinger

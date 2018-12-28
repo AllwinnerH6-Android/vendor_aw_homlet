@@ -1,0 +1,4 @@
+allow init sysfs_disp:file {write getattr open read setattr };
+allow init vfat:dir mounton;
+allow init root_block_device:blk_file write;
+allow init sunxi_soc_info_device:chr_file rw_file_perms;

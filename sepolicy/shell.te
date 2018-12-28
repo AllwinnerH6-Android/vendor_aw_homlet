@@ -1,0 +1,3 @@
+allow shell display_output_service:service_manager add;
+allow shell displayd:binder call;
+allow shell sunxi_displayd_hwservice:hwservice_manager find;

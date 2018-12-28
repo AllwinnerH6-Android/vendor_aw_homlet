@@ -1,0 +1,23 @@
+## label graphics device with a new type, we need
+## to allow write operation from appdomain
+#
+/system/bin/multi_ir      u:object_r:multi_ir_exec:s0
+/vendor/bin/softwinner.homlet.displayd@1.0-service u:object_r:displayd_exec:s0
+/system/bin/systemmixservice  u:object_r:systemmix_exec:s0
+/system/bin/gpioservice     u:object_r:gpioservice_exec:s0
+
+# cedar_dev
+/dev/sunxi_soc_info        u:object_r:sunxi_soc_info_device:s0
+/dev/deinterlace           u:object_r:deinterlace_device:s0
+/dev/googlevp9_dev         u:object_r:googlevp9_device:s0
+#gpio
+/sys/class/gpio_sw/normal_led/light    u:object_r:sysfs_gpio:s0
+/sys/class/gpio_sw/standby_led/light    u:object_r:sysfs_gpio:s0
+
+#Reserve0
+/dev/block/by-name/Reserve0 u:object_r:userdata_block_device:s0
+/Reserve0                  u:object_r:vfat:s0
+#secure storage
+/dev/sst_storage            u:object_r:sst_storage_device:s0
+#qw
+/system/bin/qw             u:object_r:qw_exec:s0

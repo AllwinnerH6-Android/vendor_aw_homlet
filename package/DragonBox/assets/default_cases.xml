@@ -1,0 +1,29 @@
+<CaseVersion fireware="v2.0" display="sugar_ref001-eng 4.2.2 JDQ39 20140604 test-keys" model="SoftwinerEvb"></CaseVersion>
+<CaseLed></CaseLed>
+<CaseSpdif></CaseSpdif>
+<CaseVideo></CaseVideo>
+<CaseKey keyvalue="KEYCODE_3"></CaseKey>
+<CasePerformance></CasePerformance>
+<CaseUsbVolume num="2"></CaseUsbVolume>
+<CaseSDVolume></CaseSDVolume>
+<CaseEthernet></CaseEthernet>
+<CaseWifi  maxRSSI="-65" wifiSSID="wifiSSID" wifiPWD="password"></CaseWifi>
+<CaseBluetooth></CaseBluetooth>
+<CaseSpeaker></CaseSpeaker>
+<CaseMicRecord recordtime="5"></CaseMicRecord>
+<!--channel：AudioRecord的传参，录制几个声道，范围：参考AudioFormat：CHANNEL_IN_***-->
+<!--displayChannel：将录制的channel声道数解析成几个波形显示，范围：1~8-->
+<!--sampleRate：AudioRecord的传参，采样率，可选值：16000/48000-->
+<!--source：AudioRecord的传参，录制来源，可选值：1(MIC)、6(VOICE_RECOGNITION)，参考MediaRecorder.AudioSource-->
+<CaseMicRecordGraphic channel="1020" displayChannel="8" sampleRate="16000" source="1"></CaseMicRecordGraphic>
+<CaseHdmi></CaseHdmi>
+<CaseCvbs></CaseCvbs>
+<CaseCamera recordtime="5"></CaseCamera>
+
+<CaseMixPlay></CaseMixPlay>
+<CaseResetKey></CaseResetKey>
+<CaseYSTWifi routerIP="192.168.125.1" apName="AndroidAP" apPSW="qqqqqqqq" apSecurity="WPA2" timeout="25000"></CaseYSTWifi>
+<CaseYSTWan routerIP="192.168.125.1" timeout="15000"></CaseYSTWan>
+<CaseYSTLan lan1IP="192.168.125.10" lan2IP="192.168.125.11" timeout="15000"></CaseYSTLan>
+<CaseYSTMicRecord recordtime="5"></CaseYSTMicRecord>
+<CaseYSTMicRecord2 recordtime="5"></CaseYSTMicRecord2>

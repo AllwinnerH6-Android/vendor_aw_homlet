@@ -1,0 +1,130 @@
+
+package softwinner.homlet.displayd@1.0;
+
+/**
+ * The margin area on all four sides of screen, in percentage
+ */
+struct ScreenMargin {
+    uint32_t left;
+    uint32_t right;
+    uint32_t top;
+    uint32_t bottom;
+};
+
+/**
+ * Displayd response codes; success = 0; error < 0
+ */
+enum Error : int32_t {
+  NONE           =  0,  // operation is successful
+  BAD_DISPLAY    = -1,  // invalid display
+  BAD_PARAMETER  = -2,  // invalid parameter
+  UNSUPPORTED    = -3,  // operation is not implemented
+};
+
+/**
+ * Interface type define in sunxi platform
+ */
+enum IfaceType : int32_t {
+  NONE   = 0,
+  LCD    = 1,
+  CVBS   = 2,
+  HDMI   = 4,
+  VGA    = 8,
+};
+
+/**
+ * Display output Format codes for HDMI/CVBS
+ */
+enum DispFormat : int32_t {
+  DISP_FMT_480I             = 0,
+  DISP_FMT_576I             = 1,
+  DISP_FMT_480P             = 2,
+  DISP_FMT_576P             = 3,
+  DISP_FMT_720P_50HZ        = 4,
+  DISP_FMT_720P_60HZ        = 5,
+  DISP_FMT_1080I_50HZ       = 6,
+  DISP_FMT_1080I_60HZ       = 7,
+  DISP_FMT_1080P_24HZ       = 8,
+  DISP_FMT_1080P_50HZ       = 9,
+  DISP_FMT_1080P_60HZ       = 0xa,
+  DISP_FMT_1080P_24HZ_3D_FP = 0x17,
+  DISP_FMT_720P_50HZ_3D_FP  = 0x18,
+  DISP_FMT_720P_60HZ_3D_FP  = 0x19,
+  DISP_FMT_1080P_25HZ       = 0x1a,
+  DISP_FMT_1080P_30HZ       = 0x1b,
+  DISP_FMT_PAL              = 0xb,
+  DISP_FMT_PAL_SVIDEO       = 0xc,
+  DISP_FMT_NTSC             = 0xe,
+  DISP_FMT_NTSC_SVIDEO      = 0xf,
+  DISP_FMT_PAL_M            = 0x11,
+  DISP_FMT_PAL_M_SVIDEO     = 0x12,
+  DISP_FMT_PAL_NC           = 0x14,
+  DISP_FMT_PAL_NC_SVIDEO    = 0x15,
+  DISP_FMT_3840_2160P_30HZ  = 0x1c,
+  DISP_FMT_3840_2160P_25HZ  = 0x1d,
+  DISP_FMT_3840_2160P_24HZ  = 0x1e,
+  DISP_FMT_4096_2160P_24HZ  = 0x1f,
+  DISP_FMT_4096_2160P_25HZ  = 0x20,
+  DISP_FMT_4096_2160P_30HZ  = 0x21,
+  DISP_FMT_3840_2160P_60HZ  = 0x22,
+  DISP_FMT_4096_2160P_60HZ  = 0x23,
+  DISP_FMT_3840_2160P_50HZ  = 0x24,
+  DISP_FMT_4096_2160P_50HZ  = 0x25,
+
+  DISP_FMT_INVALID          = 0xff,
+};
+
+/**
+  * Layer mode for 3D output
+  */
+enum LayerMode : int32_t {
+  LAYER_2D_ORIGINAL         = 0,
+  LAYER_2D_LEFT             = 1,
+  LAYER_2D_TOP              = 2,
+  LAYER_3D_LEFT_RIGHT_HDMI  = 3,
+  LAYER_3D_TOP_BOTTOM_HDMI  = 4,
+  LAYER_2D_DUAL_STREAM      = 5,
+  LAYER_3D_DUAL_STREAM      = 6,
+  LAYER_3D_LEFT_RIGHT_ALL   = 7,
+  LAYER_3D_TOP_BOTTOM_ALL   = 8,
+};
+
+enum AspectRatio : int32_t {
+  ASPECT_RATIO_AUTO         = 0,
+  ASPECT_RATIO_FULL         = 1,
+  ASPECT_RATIO_4_3          = 2,
+  ASPECT_RATIO_16_9         = 3,
+  ASPECT_RATIO_MATCH_WIDTH  = 4,
+  ASPECT_RATIO_MATCH_HEIGHT = 5,
+  ASPECT_RATIO_FULL_ONCE    = 7,
+  ASPECT_RATIO_RATIO_LOAD   = 8,
+};
+
+enum Dataspace : int32_t {
+  DATASPACE_MODE_AUTO       = 0,
+  DATASPACE_MODE_HDR        = 1,
+  DATASPACE_MODE_WCG        = 2,
+  DATASPACE_MODE_SDR        = 3,
+  DATASPACE_MODE_OTHER      = 4,
+  DATASPACE_MODE_NUM,
+};
+
+enum PixelFormat : int32_t {
+  PIXEL_FORMAT_AUTO         = 0,
+  PIXEL_FORMAT_YUV422_12bit = 1,
+  PIXEL_FORMAT_YUV420_10bit = 2,
+  PIXEL_FORMAT_YUV444_8bit  = 3,
+  PIXEL_FORMAT_RGB888_8bit  = 4,
+  PIXEL_FORMAT_NUM,
+};
+
+enum EnhanceItem : int32_t {
+  ENHANCE_MODE             = 0,
+  ENHANCE_BRIGHT           = 1,
+  ENHANCE_CONTRAST         = 2,
+  ENHANCE_DENOISE          = 3,
+  ENHANCE_DETAIL           = 4,
+  ENHANCE_EDGE             = 5,
+  ENHANCE_SATURATION       = 6,
+};
+

@@ -1,0 +1,5 @@
+optional_subdirs = [
+	"hardware/*/*",
+	"hardware/interface/*/*",
+	"hardware/interface/*/*/*",
+]

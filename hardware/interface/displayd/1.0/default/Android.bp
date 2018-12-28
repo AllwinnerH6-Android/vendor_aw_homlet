@@ -1,0 +1,35 @@
+
+cc_binary {
+    name: "softwinner.homlet.displayd@1.0-service",
+    defaults: ["hidl_defaults"],
+    proprietary: true,
+    srcs: [
+        "service.cpp",
+        "Displayd.cpp",
+    ],
+    cflags: [
+        "-Wall",
+        "-Wunused",
+        "-Wunreachable-code",
+        "-DLOG_TAG=\"displayd\"",
+    ],
+    include_dirs: [
+        "system/core/include",
+        "vendor/aw/homlet/hardware/include/display",
+    ],
+    init_rc: ["softwinner.homlet.displayd@1.0-service.rc"],
+    shared_libs: [
+        "softwinner.homlet.displayd@1.0",
+        "libbase",
+        "libbinder",
+        "libcutils",
+        "libfmq",
+        "libhardware",
+        "libhidlbase",
+        "libhidltransport",
+        "liblog",
+        "libutils",
+        "libdisplayd",
+    ],
+}
+

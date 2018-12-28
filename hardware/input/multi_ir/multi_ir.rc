@@ -1,0 +1,6 @@
+service multi_ir /system/bin/multi_ir
+        class main
+        user system
+        group system input
+        seclabel u:r:multi_ir:s0
+

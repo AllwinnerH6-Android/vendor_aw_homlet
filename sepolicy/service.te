@@ -1,0 +1,1 @@
+type sunxi_displayd_hwservice, hwservice_manager_type;

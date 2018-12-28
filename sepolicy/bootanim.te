@@ -1,0 +1,3 @@
+#============= bootanim ==============
+allow bootanim proc_asound:file { open read };
+allow bootanim proc_asound:dir search;

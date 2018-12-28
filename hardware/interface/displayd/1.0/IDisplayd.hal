@@ -1,0 +1,62 @@
+
+package softwinner.homlet.displayd@1.0;
+
+interface IDisplayd {
+    /**
+     * Querry and set current output type/format.
+     *
+     * @param display Index of display to be querry (1 for primary display,
+     * and 2 for external display).
+     */
+    getType(int32_t display) generates(IfaceType type);
+    getMode(int32_t display) generates(DispFormat fmt);
+    setMode(int32_t display, DispFormat fmt) generates(Error err);
+
+    /**
+     * Get supported formats of current monitor.
+     *
+     * @return supported true on supported and false on unsupported.
+     * @return fmts vector of supported formats.
+     */
+    isSupportedMode(int32_t display, DispFormat fmt) generates(bool supported);
+    getSupportedModes(int32_t display) generates(vec<DispFormat> fmts);
+
+    isSupported3D(int32_t display) generates(bool supported);
+    get3DLayerMode(int32_t display) generates(LayerMode mode);
+    set3DLayerMode(int32_t display, LayerMode mode) generates(Error err);
+
+    /**
+     * Aspect ratio and screen margin api.
+     */
+    setAspectRatio(int32_t display, AspectRatio ratio) generates(Error err);
+    getAspectRatio(int32_t display) generates(AspectRatio ratio);
+    setMargin(int32_t display, ScreenMargin margin) generates(Error err);
+    getMargin(int32_t display) generates(ScreenMargin margin);
+
+    /**
+     * Output pixel format and color depth for HDMI.
+     */
+    getSupportedPixelFormats(int32_t display) generates(vec<PixelFormat> fmts);
+    getPixelFormat(int32_t display) generates(PixelFormat fmt);
+    setPixelFormat(int32_t display, PixelFormat fmt) generates(Error err);
+
+    /**
+     * Apis to get and set dataspace.
+     *
+     *  - getCurrentDataspace : return the actual dataspace, SDR or HDR
+     *  - getDataspaceMode    : return the user config mode
+     */
+    getCurrentDataspace(int32_t display) generates(Dataspace ds);
+    getDataspaceMode(int32_t display) generates(Dataspace mode);
+    setDataspaceMode(int32_t display, Dataspace mode) generates(Error err);
+
+    getEnhanceComponent(int32_t display, EnhanceItem item) generates(int32_t value);
+    setEnhanceComponent(int32_t display, EnhanceItem item, int32_t value) generates(Error err);
+
+    /**
+     * Retrieves implementation-defined debug information
+     * @return debugInfo is a string of debug information.
+     */
+    dumpDebugInfo() generates (string debugInfo);
+};
+

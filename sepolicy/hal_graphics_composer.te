@@ -1,0 +1,9 @@
+#
+# add rules for HWCPrivateService
+#
+allow hal_graphics_composer_default hwc_private_service:service_manager {add};
+allow hal_graphics_composer_default vndservicemanager:binder            {call transfer};
+
+allow vndservicemanager hal_graphics_composer_default:dir     {search};
+allow vndservicemanager hal_graphics_composer_default:file    {read open};
+allow vndservicemanager hal_graphics_composer_default:process {getattr};

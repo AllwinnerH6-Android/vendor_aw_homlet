@@ -1,0 +1,2 @@
+allow shell start_pppoe_exec:file getattr;
+allow shell stop_pppoe_exec:file getattr;
