@@ -71,7 +71,7 @@ public class SmbLoginDB {
         mLoginDB.delete(DB_TABLE, clause, args);
     }
 
-    public Cursor query(String[] columes, String selection, String[] selectionArgs, 
+    public Cursor query(String[] columes, String selection, String[] selectionArgs,
                             String orderBy) {
         init();
         Cursor c = null;

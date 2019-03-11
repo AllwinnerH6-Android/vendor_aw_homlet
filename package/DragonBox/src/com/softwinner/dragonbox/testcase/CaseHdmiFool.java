@@ -24,10 +24,12 @@ import android.view.ViewGroup.LayoutParams;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.util.Log;
 import com.softwinner.dragonbox.platform.AudioManagerProxy;
 
 public class CaseHdmiFool extends IBaseCase implements OnClickListener {
 	
+    public static final String TAG = "DragonBox-CaseHdmiFool";
 	private static final int BUTTON_NUMBER = 5;
 	private static final int FONT_SIZE = 28;
 
@@ -111,6 +113,7 @@ public class CaseHdmiFool extends IBaseCase implements OnClickListener {
 
 	@Override
 	public void onStartCase() {
+        Log.w(TAG,"onStartCase CaseHdmiFool");
 		hm.changeToHDMI();//when supporting hdmi and cvbs output at the same time ,should delete this row.
 		AudioChannelUtil.setOuputChannels(mContext, true ,AudioManagerProxy.AUDIO_NAME_HDMI);
 		musicNum = random.nextInt(BUTTON_NUMBER-1)+1;
@@ -144,6 +147,7 @@ public class CaseHdmiFool extends IBaseCase implements OnClickListener {
 		if ((index+1) == musicNum) {
 			setCaseResult(true);
 			mMaxViewDialog.dismiss();
+            Log.w(TAG,"CaseHdmiFool test over ,test resutl is success");
 		} else {//对测试失败项进行确认
 			AlertDialog alertDialog = new AlertDialog.Builder(mContext).setMessage(R.string.confirm_test_fail)
 					.setPositiveButton(R.string.confirm_yes, new DialogInterface.OnClickListener() {
@@ -152,6 +156,7 @@ public class CaseHdmiFool extends IBaseCase implements OnClickListener {
 						public void onClick(DialogInterface dialog, int which) {
 							setCaseResult(false);
 							mMaxViewDialog.dismiss();
+                            Log.w(TAG,"CaseHdmiFool test over ,test resutl is fail,should choose "+musicNum+",but choose "+(index+1)+"  in fact");
 						}
 
 					}).setNegativeButton(R.string.confirm_no, new DialogInterface.OnClickListener() {

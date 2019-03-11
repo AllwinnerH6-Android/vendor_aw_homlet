@@ -39,7 +39,7 @@ public class SmbFileOperate extends FileOperate {
     }
 
     /**
-     * 
+     *
      * @param old
      *            the file to be copied
      * @param newDir

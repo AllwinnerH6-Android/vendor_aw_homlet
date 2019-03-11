@@ -6,5 +6,21 @@
 allow system_app systemmix:binder call;
 allow appdomain systemmix:binder call;
 allow platform_app systemmix:binder call;
-allow system_app sysfs_soc:dir r_dir_perms;
+allow system_app sysfs:dir r_dir_perms;
 allow system_app sst_storage_device:chr_file {open read ioctl};
+
+#allow Dragonbox to save log on the /sdcard
+allow system_app qw_exec:file rx_file_perms;
+allow system_app qw_daemon_device:dir search;
+allow system_app qw_socket:sock_file rw_file_perms;
+allow system_app qw:unix_stream_socket { connectto };
+allow system_app qw_socket:fifo_file rw_file_perms;
+allow system_app system_prop:property_service set;
+allow system_app sysfs_switch:dir r_dir_perms;
+allow system_app sysfs_hdmi:file r_file_perms;
+allow system_app sysfs_hdmi:dir r_dir_perms;
+allow system_app sysfs_cvbs:file r_file_perms;
+allow system_app sysfs_cvbs:dir r_dir_perms;
+allow system_app sysfs_net_eth0:file r_file_perms;
+allow system_app sysfs_net_eth0:dir r_dir_perms;
+allow system_app sysfs_net:dir r_dir_perms;

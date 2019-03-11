@@ -29,3 +29,5 @@ allow systemmix sysfs_systemmix:file write;
 allow systemmix system_data_file:lnk_file {open read};
 allow systemmix sdcardfs:file r_file_perms;
 allow systemmix sdcardfs:dir r_dir_perms;
+#DragonBox
+allow systemmix sysfs_hpd:file r_file_perms;

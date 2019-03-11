@@ -1,17 +1,17 @@
 /* jcifs smb client library in Java
  * Copyright (C) 2000  "Michael B. Allen" <jcifs at samba dot org>
  *                     "Paul Walker" <jcifs at samba dot org>
- * 
+ *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
  * version 2.1 of the License, or (at your option) any later version.
- * 
+ *
  * This library is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
  * Lesser General Public License for more details.
- * 
+ *
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
@@ -29,11 +29,11 @@ import java.net.UnknownHostException;
 /**
  * This class will allow a Java program to read and write data to Named Pipes
  * and Transact NamedPipes.
- * 
+ *
  * <p>
  * There are three Win32 function calls provided by the Windows SDK that are
  * important in the context of using jCIFS. They are:
- * 
+ *
  * <ul>
  * <li> <code>CallNamedPipe</code> A message-type pipe call that opens, writes
  * to, reads from, and closes the pipe in a single operation.
@@ -43,12 +43,12 @@ import java.net.UnknownHostException;
  * and <code>CloseFile</code> A byte-type pipe can be opened, written to, read
  * from and closed using the standard Win32 file operations.
  * </ul>
- * 
+ *
  * <p>
  * The jCIFS API maps all of these operations into the standard Java
  * <code>XxxputStream</code> interface. A special <code>PIPE_TYPE</code> flags
  * is necessary to distinguish which type of Named Pipe behavior is desired.
- * 
+ *
  * <p>
  * <table border="1" cellpadding="3" cellspacing="0" width="100%">
  * <tr bgcolor="#ccccff">
@@ -59,12 +59,12 @@ import java.net.UnknownHostException;
  * </tr>
  * <tr>
  * <td width="20%">
- * 
+ *
  * <pre>
  * new SmbNamedPipe(&quot;smb://server/IPC$/PIPE/foo&quot;, SmbNamedPipe.PIPE_TYPE_RDWR
  *         | SmbNamedPipe.PIPE_TYPE_CALL);
  * </pre>
- * 
+ *
  * </td>
  * <td>
  * Open the Named Pipe foo for reading and writing. The pipe will behave like
@@ -72,12 +72,12 @@ import java.net.UnknownHostException;
  * </tr>
  * <tr>
  * <td width="20%">
- * 
+ *
  * <pre>
  * new SmbNamedPipe(&quot;smb://server/IPC$/foo&quot;, SmbNamedPipe.PIPE_TYPE_RDWR
  *         | SmbNamedPipe.PIPE_TYPE_TRANSACT);
  * </pre>
- * 
+ *
  * </td>
  * <td>
  * Open the Named Pipe foo for reading and writing. The pipe will behave like
@@ -85,11 +85,11 @@ import java.net.UnknownHostException;
  * </tr>
  * <tr>
  * <td width="20%">
- * 
+ *
  * <pre>
  * new SmbNamedPipe(&quot;smb://server/IPC$/foo&quot;, SmbNamedPipe.PIPE_TYPE_RDWR);
  * </pre>
- * 
+ *
  * </td>
  * <td>
  * Open the Named Pipe foo for reading and writing. The pipe will behave as
@@ -97,12 +97,12 @@ import java.net.UnknownHostException;
  * <code>WriteFile</code>, and <code>CloseFile</code> interface was being used.</td>
  * </tr>
  * </table>
- * 
+ *
  * <p>
  * See <a href="../../../pipes.html">Using jCIFS to Connect to Win32 Named
  * Pipes</a> for a detailed description of how to use jCIFS with Win32 Named
  * Pipe server processes.
- * 
+ *
  */
 
 public class SmbNamedPipe extends SmbFile {

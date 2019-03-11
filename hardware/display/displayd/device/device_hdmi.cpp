@@ -75,6 +75,13 @@ int HdmiDevice::setDisplayModeImpl(int mode)
             break;
         }
     }
+    for (size_t i = 0; i < NELEM(_hdmi_supported_3d_modes); i++) {
+        if (_hdmi_supported_3d_modes[i] == mode) {
+            inSupportedList = true;
+            break;
+        }
+    }
+
     if (!inSupportedList) {
         dd_error("setDisplayModeImpl: mode %d not in supported list", mode);
         return -1;
@@ -321,12 +328,17 @@ int HdmiDevice::performDefaultConfig(int enable)
     return 0;
 }
 
+int HdmiDevice::getHDMIVersionFromEdid(void)
+{
+    return mEdidStrategy.getHDMIVersion();
+}
+
 int HdmiDevice::setPixelFormat(int format)
 {
     switch (format) {
     case PIXEL_FORMAT_YUV422_10bit:
         mPerfectFormat = DISP_CSC_TYPE_YUV422;
-        mPerfectDepth  = DISP_DATA_12BITS;
+        mPerfectDepth  = DISP_DATA_10BITS;
         break;
     case PIXEL_FORMAT_YUV420_10bit:
         mPerfectFormat = DISP_CSC_TYPE_YUV420;
@@ -349,6 +361,27 @@ int HdmiDevice::setPixelFormat(int format)
 
     struct disp_device_config config;
     getDeviceConfig(&config);
+
+    if (config.mode == DISP_TV_MOD_3840_2160P_60HZ ||
+        config.mode == DISP_TV_MOD_3840_2160P_50HZ ||
+        config.mode == DISP_TV_MOD_4096_2160P_60HZ ||
+        config.mode == DISP_TV_MOD_4096_2160P_50HZ) {
+        int ver = 0;
+        /* for 4k, not support YUV422 */
+        switch(mPerfectFormat) {
+        case DISP_CSC_TYPE_YUV422:
+            return -1;
+        case DISP_CSC_TYPE_YUV420:
+            ver = getHDMIVersionFromEdid();
+            if (ver == 0x03) {
+                dd_info("Due to HDMI Version=0x%04x, not support YUV420 10Bits", ver);
+                return -1;
+            }
+            break;
+        default:
+            break;
+        }
+    }
 
     /* perform the best config for auto mode */
     if (mPerfectFormat == -1 || mPerfectDepth == -1) {

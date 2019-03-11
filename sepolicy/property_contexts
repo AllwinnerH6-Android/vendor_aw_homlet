@@ -26,6 +26,9 @@ persist.disp.aspectratio.cvbs     u:object_r:disp_prop:s0
 vendor.sys.disp_config            u:object_r:disp_prop:s0
 vendor.sys.disp_rsl_fex           u:object_r:disp_prop:s0
 vendor.sys.tv_vdid_fex            u:object_r:disp_prop:s0
+persist.display.policy		  u:object_r:disp_prop:s0
 
 #add for usb.
 persist.vendor.usb0device         u:object_r:system_prop:s0
+#add for DragonBox
+dragonbox.sys.rmfile              u:object_r:system_prop:s0

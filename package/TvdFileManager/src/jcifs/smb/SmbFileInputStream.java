@@ -1,16 +1,16 @@
 /* jcifs smb client library in Java
  * Copyright (C) 2000  "Michael B. Allen" <jcifs at samba dot org>
- * 
+ *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
  * version 2.1 of the License, or (at your option) any later version.
- * 
+ *
  * This library is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
  * Lesser General Public License for more details.
- * 
+ *
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
@@ -45,7 +45,7 @@ public class SmbFileInputStream extends InputStream {
      * an SMB server addressed by the <code>url</code> parameter. See
      * {@link jcifs.smb.SmbFile} for a detailed description and examples of the
      * smb URL syntax.
-     * 
+     *
      * @param url
      *            An smb URL string representing the file to read from
      */
@@ -60,7 +60,7 @@ public class SmbFileInputStream extends InputStream {
      * an SMB server represented by the {@link jcifs.smb.SmbFile} parameter. See
      * {@link jcifs.smb.SmbFile} for a detailed description and examples of the
      * smb URL syntax.
-     * 
+     *
      * @param file
      *            An <code>SmbFile</code> specifying the file to read from
      */
@@ -102,7 +102,7 @@ public class SmbFileInputStream extends InputStream {
     /**
      * Closes this input stream and releases any system resources associated
      * with the stream.
-     * 
+     *
      * @throws IOException
      *             if a network error occurs
      */
@@ -118,7 +118,7 @@ public class SmbFileInputStream extends InputStream {
 
     /**
      * Reads a byte of data from this input stream.
-     * 
+     *
      * @throws IOException
      *             if a network error occurs
      */
@@ -134,7 +134,7 @@ public class SmbFileInputStream extends InputStream {
     /**
      * Reads up to b.length bytes of data from this input stream into an array
      * of bytes.
-     * 
+     *
      * @throws IOException
      *             if a network error occurs
      */
@@ -146,7 +146,7 @@ public class SmbFileInputStream extends InputStream {
     /**
      * Reads up to len bytes of data from this input stream into an array of
      * bytes.
-     * 
+     *
      * @throws IOException
      *             if a network error occurs
      */

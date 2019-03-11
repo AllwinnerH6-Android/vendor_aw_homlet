@@ -20,7 +20,7 @@
             android:noHistory="true"
             android:supportsPictureInPicture="true"
             android:launchMode="singleTask"
-            android:theme="@style/Theme" >
+            android:theme="@style/Theme.notAnimation" >
             <!-- android:launchMode="singleTask"  有了这个之后以免再次进入视频播放时，重新启动一个全屏的播放器了   -->
             <!-- configChanges="screenSize... 等界面改变的配置，保证activity在界面发生变化时不会重新调用onCreate -->
 

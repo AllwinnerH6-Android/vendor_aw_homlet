@@ -59,7 +59,7 @@ public class ImageDatabase {
 
     /**
      * 插入一项数据
-     * 
+     *
      * @param origPath
      *            :源图片文件路径
      * @param thumbPath
@@ -78,7 +78,7 @@ public class ImageDatabase {
 
     /**
      * 删除数据库中源文件路径所在的数据
-     * 
+     *
      * @param origPath
      */
     public void delete(String origPath) {
@@ -90,7 +90,7 @@ public class ImageDatabase {
 
     /**
      * 查询数据库中的图片信息
-     * 
+     *
      * @param columns
      *            :查询的列
      * @param selection

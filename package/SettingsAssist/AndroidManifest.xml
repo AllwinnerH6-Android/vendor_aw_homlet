@@ -30,7 +30,7 @@
             android:name="com.softwinner.settingsassist.OtaActivity"
             android:theme="@android:style/Theme.Panel">
             <intent-filter>
-            <action android:name="softwinner.intent.action.otaactivity"/>
+            <action android:name="android.intent.action.otaactivity"/>
             <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
         </activity>

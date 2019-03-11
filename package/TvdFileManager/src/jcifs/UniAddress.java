@@ -1,16 +1,16 @@
 /* jcifs smb client library in Java
  * Copyright (C) 2000  "Michael B. Allen" <jcifs at samba dot org>
- * 
+ *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
  * version 2.1 of the License, or (at your option) any later version.
- * 
+ *
  * This library is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
  * Lesser General Public License for more details.
- * 
+ *
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
@@ -228,7 +228,7 @@ public class UniAddress {
      * Determines the address of a host given it's host name. The name can be a
      * machine name like "jcifs.samba.org", or an IP address like
      * "192.168.1.15".
-     * 
+     *
      * @param hostname
      *            NetBIOS or DNS hostname to resolve
      * @throws java.net.UnknownHostException
@@ -448,7 +448,7 @@ public static UniAddress[] getAllByNameX( String hostname,
      * javax.naming.*; import javax.naming.directory.*; public static String
      * getDomainByName(String name) throws UnknownHostException { DirContext
      * context; UnknownHostException uhe = null;
-     * 
+     *
      * try { context = new InitialDirContext(); for ( ;; ) { try { Attributes
      * attributes = context.getAttributes( "dns:/_ldap._tcp.dc._msdcs." + name,
      * new String[] { "SRV" } ); return name; } catch (NameNotFoundException
@@ -456,7 +456,7 @@ public static UniAddress[] getAllByNameX( String hostname,
      * name.indexOf('.'); if (dot == -1) break; name = name.substring(dot + 1);
      * } } catch (NamingException ne) { if (log.level > 1)
      * ne.printStackTrace(log); }
-     * 
+     *
      * throw uhe != null ? uhe : new UnknownHostException("invalid name"); }
      */
 

@@ -13,6 +13,8 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 
+import com.softwinner.dragonbox.DragonBoxMain;
+
 /**
  * TODO<log日志统计保存>
  *
@@ -48,8 +50,8 @@ public final class LogcatHelper {
             file.mkdirs();
         }
 
-        Log.v("maizirong", "==============Begin Logcat==============");
-        Log.v("maizirong", "========Logcat File========" + file.getPath());
+        Log.v(TAG, "==============Begin Logcat==============");
+        Log.v(TAG, "========Logcat File========" + file.getPath());
 
     }
 
@@ -91,13 +93,12 @@ public final class LogcatHelper {
 
         LogDumper(String pid, String dir) {
             mPID = pid;
-            //try {
-            //    out = new FileOutputStream(new File(dir, "allwinnerAging-" + MyDate.getFileName()
-            //            + ".txt" + ""));
-            //} catch (FileNotFoundException e) {
-            //    // TODO Auto-generated catch block
-            //    e.printStackTrace();
-            //}
+            try {
+                out = new FileOutputStream(new File(dir,"DragonBox-log.txt"),true);
+            } catch (FileNotFoundException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
 
             /**
              *
@@ -122,40 +123,29 @@ public final class LogcatHelper {
         public void run() {
             try {
                 logcatProc = Runtime.getRuntime().exec(cmds);
-                String tempCmd = "/system/bin/logcat -v time -f /sdcard/ALLWINNERBOX/DragonBox-log.txt -n 1 -r 100000\n";
+                String tempCmd = "/system/bin/logcat -v time\n";
                 mWriter = new BufferedWriter(new OutputStreamWriter(logcatProc.getOutputStream()));
                 mReader = new BufferedReader(new InputStreamReader(logcatProc.getInputStream()));
                 mWriter.write(tempCmd);
                 mWriter.flush();
                 String line = null;
                 while (mRunning) {
-                    Log.e(TAG,"readLine,we suppose this thread block here!");
                     line = mReader.readLine();
                     if (!mRunning) {
                         break;
                     }
-                    if (line.length() == 0) {
+                    if ((line == null)||(line.length() == 0)) {
                         continue;
                     }
+                    if (out != null) {
+                        out.write((line + "\n").getBytes());
+                        if(line.contains(DragonBoxMain.LOG_END_FLAG)){
+                            Log.e(TAG,"-------detect LOG_END_FLAG");
+                            out.flush();
+                            out.getFD().sync();//强制将数据写入磁盘
+                        }
+                    }
                 }
-                //while (mRunning) {
-                //    line = mReader.readLine();
-                //    if (line == null) {
-
-                //        break;
-                //    }
-                //    if (!mRunning) {
-                //        break;
-                //    }
-                //    if (line.length() == 0) {
-                //        continue;
-                //    }
-                //    if (out != null) {
-                //    //if (out != null && line.contains(mPID)) {
-                //        out.write((MyDate.getDateEN() + "  " + line + "\n").getBytes());
-                //    }
-                //}
-
             } catch (IOException e) {
                 Log.e(TAG,"exception");
                 e.printStackTrace();
@@ -173,14 +163,14 @@ public final class LogcatHelper {
                         e.printStackTrace();
                     }
                 }
-                //if (mReader != null) {
-                //    try {
-                //        mReader.close();
-                //        mReader = null;
-                //    } catch (IOException e) {
-                //        e.printStackTrace();
-                //    }
-                //}
+                if (mReader != null) {
+                    try {
+                        mReader.close();
+                        mReader = null;
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
                 if (out != null) {
                     try {
                         out.close();

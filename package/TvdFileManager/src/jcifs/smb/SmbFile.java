@@ -1,16 +1,16 @@
 /* jcifs smb client library in Java
  * Copyright (C) 2000  "Michael B. Allen" <jcifs at samba dot org>
- * 
+ *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
  * version 2.1 of the License, or (at your option) any later version.
- * 
+ *
  * This library is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
  * Lesser General Public License for more details.
- * 
+ *
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
@@ -48,25 +48,25 @@ import android.util.Log;
  * {@link java.io.File} class. One fundamental difference is the usage of a URL
  * scheme [1] to specify the target file or directory. SmbFile URLs have the
  * following syntax:
- * 
+ *
  * <blockquote>
- * 
+ *
  * <pre>
  *     smb://[[[domain;]username[:password]@]server[:port]/[[share/[dir/]file]]][?[param=value[param2=value2[...]]]
  * </pre>
- * 
+ *
  * </blockquote>
- * 
+ *
  * This example:
- * 
+ *
  * <blockquote>
- * 
+ *
  * <pre>
  *     smb://storage15/public/foo.txt
  * </pre>
- * 
+ *
  * </blockquote>
- * 
+ *
  * would reference the file <code>foo.txt</code> in the share
  * <code>public</code> on the server <code>storage15</code>. In addition to
  * referencing files and directories, jCIFS can also address servers, and
@@ -94,11 +94,11 @@ import android.util.Log;
  * properties must be specified for jcifs to function (See <a
  * href="../../overview-summary.html#scp">Setting JCIFS Properties</a>). Here
  * are some examples of SMB URLs with brief descriptions of what they do:
- * 
+ *
  * <p>
  * [1] This URL scheme is based largely on the <i>SMB Filesharing URL Scheme</i>
  * IETF draft.
- * 
+ *
  * <p>
  * <table border="1" cellpadding="3" cellspacing="0" width="100%">
  * <tr bgcolor="#ccccff">
@@ -107,7 +107,7 @@ import android.util.Log;
  * <td width="20%"><b>URL</b></td>
  * <td><b>Description</b></td>
  * </tr>
- * 
+ *
  * <tr>
  * <td width="20%"><code>smb://users-nyc;miallen:mypass@angus/tmp/</code></td>
  * <td>
@@ -115,7 +115,7 @@ import android.util.Log;
  * <code>angus</code> as user <code>miallen</code> who's password is
  * <code>mypass</code>.</td>
  * </tr>
- * 
+ *
  * <tr>
  * <td width="20%">
  * <code>smb://Administrator:P%40ss@msmith1/c/WINDOWS/Desktop/foo.txt</code></td>
@@ -124,7 +124,7 @@ import android.util.Log;
  * 's desktop as user <code>Administrator</code>. Notice the '@' is URL encoded
  * with the '%40' hexcode escape.</td>
  * </tr>
- * 
+ *
  * <tr>
  * <td width="20%"><code>smb://angus/</code></td>
  * <td>
@@ -133,7 +133,7 @@ import android.util.Log;
  * might expect the <code>list</code> method will list the available shares on
  * this server.</td>
  * </tr>
- * 
+ *
  * <tr>
  * <td width="20%"><code>smb://myworkgroup/</code></td>
  * <td>
@@ -142,7 +142,7 @@ import android.util.Log;
  * by the name) the <code>list</code> method will return a list of servers that
  * have registered themselves as members of <code>myworkgroup</code>.</td>
  * </tr>
- * 
+ *
  * <tr>
  * <td width="20%"><code>smb://</code></td>
  * <td>
@@ -152,7 +152,7 @@ import android.util.Log;
  * methods are not valid and return default values(e.g. <code>isHidden</code>
  * and <code>renameTo</code> will always return false).</td>
  * </tr>
- * 
+ *
  * <tr>
  * <td width="20%"><code>smb://angus.foo.net/d/jcifs/pipes.doc</code></td>
  * <td>
@@ -160,7 +160,7 @@ import android.util.Log;
  * href="../../../resolver.html">Setting Name Resolution Properties</a> for
  * details.</td>
  * </tr>
- * 
+ *
  * <tr>
  * <td width="20%"><code>smb://192.168.1.15/ADMIN$/</code></td>
  * <td>
@@ -168,21 +168,21 @@ import android.util.Log;
  * href="../../../resolver.html">Setting Name Resolution Properties</a> for
  * details.</td>
  * </tr>
- * 
+ *
  * <tr>
  * <td width="20%">
  * <code>smb://domain;username:password@server/share/path/to/file.txt</code></td>
  * <td>
  * A prototypical example that uses all the fields.</td>
  * </tr>
- * 
+ *
  * <tr>
  * <td width="20%"><code>smb://myworkgroup/angus/ &lt;-- ILLEGAL </code></td>
  * <td>
  * Despite the hierarchial relationship between workgroups, servers, and
  * filesystems this example is not valid.</td>
  * </tr>
- * 
+ *
  * <tr>
  * <td width="20%">
  * <code>smb://server/share/path/to/dir &lt;-- ILLEGAL </code></td>
@@ -190,7 +190,7 @@ import android.util.Log;
  * URLs that represent workgroups, servers, shares, or directories require a
  * trailing slash '/'.</td>
  * </tr>
- * 
+ *
  * <tr>
  * <td width="20%">
  * <code>smb://MYGROUP/?SERVER=192.168.10.15</code></td>
@@ -200,9 +200,9 @@ import android.util.Log;
  * lookup to contact the server 192.168.10.15 (presumably known to be a master
  * browser) for the server list in workgroup <code>MYGROUP</code>.</td>
  * </tr>
- * 
+ *
  * </table>
- * 
+ *
  * <p>
  * A second constructor argument may be specified to augment the URL for better
  * programmatic control when processing many files under a common base. This is
@@ -210,7 +210,7 @@ import android.util.Log;
  * '/' at the beginning of the second parameter will still use the server
  * component of the first parameter. The examples below illustrate the resulting
  * URLs when this second contructor argument is used.
- * 
+ *
  * <p>
  * <table border="1" cellpadding="3" cellspacing="0" width="100%">
  * <tr bgcolor="#ccccff">
@@ -223,7 +223,7 @@ import android.util.Log;
  * <td><b>Second Parameter</b></td>
  * <td><b>Result</b></td>
  * </tr>
- * 
+ *
  * <tr>
  * <td width="20%"><code>
  *  smb://host/share/a/b/
@@ -235,7 +235,7 @@ import android.util.Log;
  *  smb://host/share/a/b/c/d/
  * </code></td>
  * </tr>
- * 
+ *
  * <tr>
  * <td width="20%"><code>
  *  smb://host/share/foo/bar/
@@ -247,7 +247,7 @@ import android.util.Log;
  *  smb://host/share2/zig/zag
  * </code></td>
  * </tr>
- * 
+ *
  * <tr>
  * <td width="20%"><code>
  *  smb://host/share/foo/bar/
@@ -259,7 +259,7 @@ import android.util.Log;
  *  smb://host/share/foo/zip/
  * </code></td>
  * </tr>
- * 
+ *
  * <tr>
  * <td width="20%"><code>
  *  smb://host/share/zig/zag
@@ -271,7 +271,7 @@ import android.util.Log;
  *  smb://foo/bar/
  * </code></td>
  * </tr>
- * 
+ *
  * <tr>
  * <td width="20%"><code>
  *  smb://host/share/foo/
@@ -283,7 +283,7 @@ import android.util.Log;
  *  smb://host/foo/
  * </code></td>
  * </tr>
- * 
+ *
  * <tr>
  * <td width="20%"><code>
  *  smb://host/share/zig/zag
@@ -295,7 +295,7 @@ import android.util.Log;
  *  smb://host/
  * </code></td>
  * </tr>
- * 
+ *
  * <tr>
  * <td width="20%"><code>
  *  smb://server/
@@ -307,7 +307,7 @@ import android.util.Log;
  *  smb://server/
  * </code></td>
  * </tr>
- * 
+ *
  * <tr>
  * <td width="20%"><code>
  *  smb://
@@ -319,7 +319,7 @@ import android.util.Log;
  *  smb://myworkgroup/
  * </code></td>
  * </tr>
- * 
+ *
  * <tr>
  * <td width="20%"><code>
  *  smb://myworkgroup/
@@ -332,14 +332,14 @@ import android.util.Log;
  * </code>
  * </td>
  * </tr>
- * 
+ *
  * </table>
- * 
+ *
  * <p>
  * Instances of the <code>SmbFile</code> class are immutable; that is, once
  * created, the abstract pathname represented by an SmbFile object will never
  * change.
- * 
+ *
  * @see java.io.File
  */
 
@@ -512,7 +512,7 @@ public class SmbFile extends URLConnection implements SmbConstants {
     /**
      * Constructs an SmbFile representing a resource on an SMB network such as a
      * file or directory. See the description and examples of smb URLs above.
-     * 
+     *
      * @param url
      *            A URL string
      * @throws MalformedURLException
@@ -529,7 +529,7 @@ public class SmbFile extends URLConnection implements SmbConstants {
      * file or directory. The second parameter is a relative path from the
      * <code>parent SmbFile</code>. See the description above for examples of
      * using the second <code>name</code> parameter.
-     * 
+     *
      * @param context
      *            A base <code>SmbFile</code>
      * @param name
@@ -552,7 +552,7 @@ public class SmbFile extends URLConnection implements SmbConstants {
      * file or directory. The second parameter is a relative path from the
      * <code>parent</code>. See the description above for examples of using the
      * second <code>chile</code> parameter.
-     * 
+     *
      * @param context
      *            A URL string
      * @param name
@@ -569,7 +569,7 @@ public class SmbFile extends URLConnection implements SmbConstants {
     /**
      * Constructs an SmbFile representing a resource on an SMB network such as a
      * file or directory.
-     * 
+     *
      * @param url
      *            A URL string
      * @param auth
@@ -589,7 +589,7 @@ public class SmbFile extends URLConnection implements SmbConstants {
      * open. This value is either <tt>FILE_NO_SHARE</tt> or any combination of
      * <tt>FILE_SHARE_READ</tt>, <tt>FILE_SHARE_WRITE</tt>, and
      * <tt>FILE_SHARE_DELETE</tt> logically OR'd together.
-     * 
+     *
      * @param url
      *            A URL string
      * @param auth
@@ -615,7 +615,7 @@ public class SmbFile extends URLConnection implements SmbConstants {
      * file or directory. The second parameter is a relative path from the
      * <code>context</code>. See the description above for examples of using the
      * second <code>name</code> parameter.
-     * 
+     *
      * @param context
      *            A URL string
      * @param name
@@ -641,7 +641,7 @@ public class SmbFile extends URLConnection implements SmbConstants {
      * <tt>FILE_NO_SHARE</tt> or any combination of <tt>FILE_SHARE_READ</tt>,
      * <tt>FILE_SHARE_WRITE</tt>, and <tt>FILE_SHARE_DELETE</tt> logically OR'd
      * together.
-     * 
+     *
      * @param context
      *            A URL string
      * @param name
@@ -674,7 +674,7 @@ public class SmbFile extends URLConnection implements SmbConstants {
      * <tt>FILE_NO_SHARE</tt> or any combination of <tt>FILE_SHARE_READ</tt>,
      * <tt>FILE_SHARE_WRITE</tt>, and <tt>FILE_SHARE_DELETE</tt> logically OR'd
      * together.
-     * 
+     *
      * @param context
      *            A base <code>SmbFile</code>
      * @param name
@@ -699,7 +699,7 @@ public class SmbFile extends URLConnection implements SmbConstants {
     /**
      * Constructs an SmbFile representing a resource on an SMB network such as a
      * file or directory from a <tt>URL</tt> object.
-     * 
+     *
      * @param url
      *            The URL of the target resource
      */
@@ -711,7 +711,7 @@ public class SmbFile extends URLConnection implements SmbConstants {
      * Constructs an SmbFile representing a resource on an SMB network such as a
      * file or directory from a <tt>URL</tt> object and an
      * <tt>NtlmPasswordAuthentication</tt> object.
-     * 
+     *
      * @param url
      *            The URL of the target resource
      * @param auth
@@ -1184,7 +1184,7 @@ UniAddress[] getFirstAddressX(SmbFileFilter ff) throws UnknownHostException {
      * <tt>SmbFile</tt> refers to a workgroup, server, share, or directory, the
      * name will include a trailing slash '/' so that composing new
      * <tt>SmbFile</tt>s will maintain the trailing slash requirement.
-     * 
+     *
      * @return The last component of the URL associated with this SMB resource
      *         or <code>smb://</code> if the resource is <code>smb://</code>
      *         itself.
@@ -1211,7 +1211,7 @@ UniAddress[] getFirstAddressX(SmbFileFilter ff) throws UnknownHostException {
      * Everything but the last component of the URL representing this SMB
      * resource is effectivly it's parent. The root URL <code>smb://</code> does
      * not have a parent. In this case <code>smb://</code> is returned.
-     * 
+     *
      * @return The parent directory of this SMB resource or <code>smb://</code>
      *         if the resource refers to the root of the URL hierarchy which
      *         incedentally is also <code>smb://</code>.
@@ -1249,7 +1249,7 @@ UniAddress[] getFirstAddressX(SmbFileFilter ff) throws UnknownHostException {
      * Returns the full uncanonicalized URL of this SMB resource. An
      * <code>SmbFile</code> constructed with the result of this method will
      * result in an <code>SmbFile</code> that is equal to the original.
-     * 
+     *
      * @return The uncanonicalized full URL of this SMB resource.
      */
 
@@ -1330,7 +1330,7 @@ UniAddress[] getFirstAddressX(SmbFileFilter ff) throws UnknownHostException {
     /**
      * Retuns the Windows UNC style path with backslashs intead of forward
      * slashes.
-     * 
+     *
      * @return The UNC path.
      */
     public String getUncPath() {
@@ -1346,7 +1346,7 @@ UniAddress[] getFirstAddressX(SmbFileFilter ff) throws UnknownHostException {
      * factored out. An <code>SmbFile</code> constructed with the result of this
      * method will result in an <code>SmbFile</code> that is equal to the
      * original.
-     * 
+     *
      * @return The canonicalized URL of this SMB resource.
      */
 
@@ -1364,7 +1364,7 @@ UniAddress[] getFirstAddressX(SmbFileFilter ff) throws UnknownHostException {
      * <code>smb://</code>, <code>smb://workgroup/</code>, and
      * <code>smb://server/</code> URLs which do not specify a share,
      * <code>null</code> will be returned.
-     * 
+     *
      * @return The share component or <code>null</code> if there is no share
      */
 
@@ -1384,7 +1384,7 @@ UniAddress[] getFirstAddressX(SmbFileFilter ff) throws UnknownHostException {
      * <code>SmbFile</code> references a workgroup, the name of the workgroup is
      * returned. If this <code>SmbFile</code> refers to the root of this SMB
      * network hierarchy, <code>null</code> is returned.
-     * 
+     *
      * @return The server or workgroup name or <code>null</code> if this
      *         <code>SmbFile</code> refers to the root <code>smb://</code>
      *         resource.
@@ -1400,7 +1400,7 @@ UniAddress[] getFirstAddressX(SmbFileFilter ff) throws UnknownHostException {
 
     /**
      * Returns type of of object this <tt>SmbFile</tt> represents.
-     * 
+     *
      * @return <tt>TYPE_FILESYSTEM, TYPE_WORKGROUP, TYPE_SERVER, TYPE_SHARE,
      * TYPE_PRINTER, TYPE_NAMED_PIPE</tt>, or <tt>TYPE_COMM</tt>.
      */
@@ -1518,7 +1518,7 @@ UniAddress[] getFirstAddressX(SmbFileFilter ff) throws UnknownHostException {
      * <code>smb://</code> resource <code>true</code> is always returned. If
      * this <code>SmbFile</code> is a traditional file or directory, it will be
      * queried for on the specified server as expected.
-     * 
+     *
      * @return <code>true</code> if the resource exists or is alive or
      *         <code>false</code> otherwise
      */
@@ -1580,7 +1580,7 @@ UniAddress[] getFirstAddressX(SmbFileFilter ff) throws UnknownHostException {
      * Tests to see if the file this <code>SmbFile</code> represents can be
      * read. Because any file, directory, or other resource can be read if it
      * exists, this method simply calls the <code>exists</code> method.
-     * 
+     *
      * @return <code>true</code> if the file is read-only
      */
 
@@ -1597,7 +1597,7 @@ UniAddress[] getFirstAddressX(SmbFileFilter ff) throws UnknownHostException {
      * read-only and therefore for <code>smb://</code>,
      * <code>smb://workgroup/</code>, and <code>smb://server/</code> resources
      * will be read-only.
-     * 
+     *
      * @return <code>true</code> if the resource exists is not marked read-only
      */
 
@@ -1611,7 +1611,7 @@ UniAddress[] getFirstAddressX(SmbFileFilter ff) throws UnknownHostException {
     /**
      * Tests to see if the file this <code>SmbFile</code> represents is a
      * directory.
-     * 
+     *
      * @return <code>true</code> if this <code>SmbFile</code> is a directory
      */
 
@@ -1627,7 +1627,7 @@ UniAddress[] getFirstAddressX(SmbFileFilter ff) throws UnknownHostException {
     /**
      * Tests to see if the file this <code>SmbFile</code> represents is not a
      * directory.
-     * 
+     *
      * @return <code>true</code> if this <code>SmbFile</code> is not a directory
      */
 
@@ -1643,7 +1643,7 @@ UniAddress[] getFirstAddressX(SmbFileFilter ff) throws UnknownHostException {
      * Tests to see if the file this SmbFile represents is marked as hidden.
      * This method will also return true for shares with names that end with '$'
      * such as <code>IPC$</code> or <code>C$</code>.
-     * 
+     *
      * @return <code>true</code> if the <code>SmbFile</code> is marked as being
      *         hidden
      */
@@ -1685,10 +1685,10 @@ UniAddress[] getFirstAddressX(SmbFileFilter ff) throws UnknownHostException {
      * returned is suitable for constructing a {@link java.util.Date} object
      * (i.e. seconds since Epoch 1970). Times should be the same as those
      * reported using the properties dialog of the Windows Explorer program.
-     * 
+     *
      * For Win95/98/Me this is actually the last write time. It is currently not
      * possible to retrieve the create time from files on these systems.
-     * 
+     *
      * @return The number of milliseconds since the 00:00:00 GMT, January 1,
      *         1970 as a <code>long</code> value
      */
@@ -1706,7 +1706,7 @@ UniAddress[] getFirstAddressX(SmbFileFilter ff) throws UnknownHostException {
      * {@link java.util.Date} object (i.e. seconds since Epoch 1970). Times
      * should be the same as those reported using the properties dialog of the
      * Windows Explorer program.
-     * 
+     *
      * @return The number of milliseconds since the 00:00:00 GMT, January 1,
      *         1970 as a <code>long</code> value
      */
@@ -1721,7 +1721,7 @@ UniAddress[] getFirstAddressX(SmbFileFilter ff) throws UnknownHostException {
     /**
      * List the contents of this SMB resource. The list returned by this method
      * will be;
-     * 
+     *
      * <ul>
      * <li>files and directories contained within this resource if the resource
      * is a normal disk file directory,
@@ -1734,7 +1734,7 @@ UniAddress[] getFirstAddressX(SmbFileFilter ff) throws UnknownHostException {
      * <code>smb://server/</code>,
      * <li>or <code>null</code> if the resource cannot be resolved.
      * </ul>
-     * 
+     *
      * @return A <code>String[]</code> array of files and directories,
      *         workgroups, servers, or shares depending on the context of the
      *         resource URL
@@ -1747,7 +1747,7 @@ UniAddress[] getFirstAddressX(SmbFileFilter ff) throws UnknownHostException {
      * List the contents of this SMB resource. The list returned will be
      * identical to the list returned by the parameterless <code>list()</code>
      * method minus filenames filtered by the specified filter.
-     * 
+     *
      * @param filter
      *            a filename filter to exclude filenames from the results
      * @throws SmbException
@@ -1764,7 +1764,7 @@ UniAddress[] getFirstAddressX(SmbFileFilter ff) throws UnknownHostException {
      * the result set.
      * <p>
      * The list of <code>SmbFile</code>s returned by this method will be;
-     * 
+     *
      * <ul>
      * <li>files and directories contained within this resource if the resource
      * is a normal disk file directory,
@@ -1777,7 +1777,7 @@ UniAddress[] getFirstAddressX(SmbFileFilter ff) throws UnknownHostException {
      * <code>smb://server/</code>,
      * <li>or <code>null</code> if the resource cannot be resolved.
      * </ul>
-     * 
+     *
      * @return An array of <code>SmbFile</code> objects representing file and
      *         directories, workgroups, servers, or shares depending on the
      *         context of the resource URL
@@ -1798,18 +1798,18 @@ UniAddress[] getFirstAddressX(SmbFileFilter ff) throws UnknownHostException {
      * it ends with '?'s it will match that many characters <i>or less</i>.
      * <p>
      * Wildcard expressions will not filter workgroup names or server names.
-     * 
+     *
      * <blockquote>
-     * 
+     *
      * <pre>
      * winnt> ls c?o*
      * clock.avi                  -rw--      82944 Mon Oct 14 1996 1:38 AM
      * Cookies                    drw--          0 Fri Nov 13 1998 9:42 PM
      * 2 items in 5ms
      * </pre>
-     * 
+     *
      * </blockquote>
-     * 
+     *
      * @param wildcard
      *            a wildcard expression
      * @throws SmbException
@@ -1827,7 +1827,7 @@ UniAddress[] getFirstAddressX(SmbFileFilter ff) throws UnknownHostException {
      * identical to the list returned by the parameterless
      * <code>listFiles()</code> method minus files filtered by the specified
      * filename filter.
-     * 
+     *
      * @param filter
      *            a filter to exclude files from the results
      * @return An array of <tt>SmbFile</tt> objects
@@ -1842,7 +1842,7 @@ UniAddress[] getFirstAddressX(SmbFileFilter ff) throws UnknownHostException {
      * identical to the list returned by the parameterless
      * <code>listFiles()</code> method minus filenames filtered by the specified
      * filter.
-     * 
+     *
      * @param filter
      *            a file filter to exclude files from the results
      * @return An array of <tt>SmbFile</tt> objects
@@ -2185,7 +2185,7 @@ UniAddress[] getFirstAddressX(SmbFileFilter ff) throws UnknownHostException {
      * associated with this <code>SmbFile</code> object will not change). To
      * access the renamed file it is necessary to construct a new
      * <tt>SmbFile</tt></i>.
-     * 
+     *
      * @param dest
      *            An <code>SmbFile</code> that represents the new pathname
      * @return <code>true</code> if the file or directory was successfully
@@ -2409,7 +2409,7 @@ UniAddress[] getFirstAddressX(SmbFileFilter ff) throws UnknownHostException {
      * write data concurrently.
      * <p/>
      * It is not possible (nor meaningful) to copy entire workgroups or servers.
-     * 
+     *
      * @param dest
      *            the destination file or directory
      * @throws SmbException
@@ -2491,7 +2491,7 @@ UniAddress[] getFirstAddressX(SmbFileFilter ff) throws UnknownHostException {
      * directory will be deleted as well. If a file within the directory or it's
      * sub-directories is marked read-only, the read-only status will be removed
      * and the file will be deleted.
-     * 
+     *
      * @throws SmbException
      */
     public void delete() throws SmbException {
@@ -2567,7 +2567,7 @@ UniAddress[] getFirstAddressX(SmbFileFilter ff) throws UnknownHostException {
      * <tt>TYPE_SHARE</tt> the total capacity of the disk shared in bytes is
      * returned. If this object is a directory or a type other than
      * <tt>TYPE_SHARE</tt>, 0L is returned.
-     * 
+     *
      * @return The length of the file in bytes or 0 if this <code>SmbFile</code>
      *         is not a file.
      * @throws SmbException
@@ -2602,7 +2602,7 @@ UniAddress[] getFirstAddressX(SmbFileFilter ff) throws UnknownHostException {
      * represents or the drive on which the directory or file resides. Objects
      * other than <tt>TYPE_SHARE</tt> or <tt>TYPE_FILESYSTEM</tt> will result in
      * 0L being returned.
-     * 
+     *
      * @return the free disk space in bytes of the drive on which this file or
      *         directory resides
      */
@@ -2648,7 +2648,7 @@ UniAddress[] getFirstAddressX(SmbFileFilter ff) throws UnknownHostException {
      * <code>smb://server/share/</code> URLs because workgroups, servers, and
      * shares cannot be dynamically created (although in the future it may be
      * possible to create shares).
-     * 
+     *
      * @throws SmbException
      */
     public void mkdir() throws SmbException {
@@ -2677,7 +2677,7 @@ UniAddress[] getFirstAddressX(SmbFileFilter ff) throws UnknownHostException {
      * <code>smb://server/</code>, or <code>smb://server/share/</code> URLs
      * because workgroups, servers, and shares cannot be dynamically created
      * (although in the future it may be possible to create shares).
-     * 
+     *
      * @throws SmbException
      */
     public void mkdirs() throws SmbException {
@@ -2726,7 +2726,7 @@ UniAddress[] getFirstAddressX(SmbFileFilter ff) throws UnknownHostException {
      * <tt>createTime()</tt> method.
      * <p/>
      * This method does not apply to workgroups, servers, or shares.
-     * 
+     *
      * @param time
      *            the create time as milliseconds since Jan 1, 1970
      */
@@ -2745,7 +2745,7 @@ UniAddress[] getFirstAddressX(SmbFileFilter ff) throws UnknownHostException {
      * <tt>getDate()</tt> methods.
      * <p/>
      * This method does not apply to workgroups, servers, or shares.
-     * 
+     *
      * @param time
      *            the last modified time as milliseconds since Jan 1, 1970
      */
@@ -2762,7 +2762,7 @@ UniAddress[] getFirstAddressX(SmbFileFilter ff) throws UnknownHostException {
      * bitset that must be masked with <tt>ATTR_*</tt> constants to determine if
      * they are set or unset. The value returned is suitable for use with the
      * <tt>setAttributes()</tt> method.
-     * 
+     *
      * @return the <tt>ATTR_*</tt> attributes associated with this file
      * @throws SmbException
      */
@@ -2779,7 +2779,7 @@ UniAddress[] getFirstAddressX(SmbFileFilter ff) throws UnknownHostException {
      * bitwise ORing the <tt>ATTR_*</tt> constants. Setting the value returned
      * by <tt>getAttributes</tt> will result in both files having the same
      * attributes.
-     * 
+     *
      * @throws SmbException
      */
     public void setAttributes(int attrs) throws SmbException {
@@ -2792,7 +2792,7 @@ UniAddress[] getFirstAddressX(SmbFileFilter ff) throws UnknownHostException {
     /**
      * Make this file read-only. This is shorthand for <tt>setAttributes(
      * getAttributes() | ATTR_READ_ONLY )</tt>.
-     * 
+     *
      * @throws SmbException
      */
     public void setReadOnly() throws SmbException {
@@ -2802,7 +2802,7 @@ UniAddress[] getFirstAddressX(SmbFileFilter ff) throws UnknownHostException {
     /**
      * Turn off the read-only attribute of this file. This is shorthand for
      * <tt>setAttributes( getAttributes() & ~ATTR_READONLY )</tt>.
-     * 
+     *
      * @throws SmbException
      */
     public void setReadWrite() throws SmbException {
@@ -2814,7 +2814,7 @@ UniAddress[] getFirstAddressX(SmbFileFilter ff) throws UnknownHostException {
      * <code>URL</code> may be used as any other <code>URL</code> might to
      * access an SMB resource. Currently only retrieving data and information is
      * supported (i.e. no <tt>doOutput</tt>).
-     * 
+     *
      * @deprecated Use getURL() instead
      * @return A new <code>{@link java.net.URL}</code> for this
      *         <code>SmbFile</code>
@@ -2831,7 +2831,7 @@ UniAddress[] getFirstAddressX(SmbFileFilter ff) throws UnknownHostException {
      * authentication information. In essance, two <code>SmbFile</code> objects
      * that refer to the same file should generate the same hashcode provided it
      * is possible to make such a determination.
-     * 
+     *
      * @return A hashcode for this abstract file
      * @throws SmbException
      */
@@ -2877,17 +2877,17 @@ UniAddress[] getFirstAddressX(SmbFileFilter ff) throws UnknownHostException {
      * For example, assuming the server <code>angus</code> resolves to the
      * <code>192.168.1.15</code> IP address, the below URLs would result in
      * <code>SmbFile</code>s that are equal.
-     * 
+     *
      * <p>
      * <blockquote>
-     * 
+     *
      * <pre>
      * smb://192.168.1.15/share/DIR/foo.txt
      * smb://angus/share/data/../dir/foo.txt
      * </pre>
-     * 
+     *
      * </blockquote>
-     * 
+     *
      * @param obj
      *            Another <code>SmbFile</code> object to compare for equality
      * @return <code>true</code> if the two objects refer to the same SMB
@@ -2935,7 +2935,7 @@ UniAddress[] getFirstAddressX(SmbFileFilter ff) throws UnknownHostException {
      * Returns the string representation of this SmbFile object. This will be
      * the same as the URL used to construct this <code>SmbFile</code>. This
      * method will return the same value as <code>getPath</code>.
-     * 
+     *
      * @return The original URL representation of this SMB resource
      * @throws SmbException
      */
@@ -2947,7 +2947,7 @@ UniAddress[] getFirstAddressX(SmbFileFilter ff) throws UnknownHostException {
     /* URLConnection implementation */
     /**
      * This URLConnection method just returns the result of <tt>length()</tt>.
-     * 
+     *
      * @return the length of this file or 0 if it refers to a directory
      */
 
@@ -2962,7 +2962,7 @@ UniAddress[] getFirstAddressX(SmbFileFilter ff) throws UnknownHostException {
     /**
      * This URLConnection method just returns the result of
      * <tt>lastModified</tt>.
-     * 
+     *
      * @return the last modified data as milliseconds since Jan 1, 1970
      */
     public long getDate() {
@@ -2976,7 +2976,7 @@ UniAddress[] getFirstAddressX(SmbFileFilter ff) throws UnknownHostException {
     /**
      * This URLConnection method just returns the result of
      * <tt>lastModified</tt>.
-     * 
+     *
      * @return the last modified data as milliseconds since Jan 1, 1970
      */
     public long getLastModified() {
@@ -2990,7 +2990,7 @@ UniAddress[] getFirstAddressX(SmbFileFilter ff) throws UnknownHostException {
     /**
      * This URLConnection method just returns a new <tt>SmbFileInputStream</tt>
      * created with this file.
-     * 
+     *
      * @throws IOException
      *             thrown by <tt>SmbFileInputStream</tt> constructor
      */
@@ -3001,7 +3001,7 @@ UniAddress[] getFirstAddressX(SmbFileFilter ff) throws UnknownHostException {
     /**
      * This URLConnection method just returns a new <tt>SmbFileOutputStream</tt>
      * created with this file.
-     * 
+     *
      * @throws IOException
      *             thrown by <tt>SmbFileOutputStream</tt> constructor
      */
@@ -3040,7 +3040,7 @@ UniAddress[] getFirstAddressX(SmbFileFilter ff) throws UnknownHostException {
      * security descriptor associated with this file or directory. If no DACL is
      * present, null is returned. If the DACL is empty, an array with 0 elements
      * is returned.
-     * 
+     *
      * @param resolveSids
      *            Attempt to resolve the SIDs within each ACE form their numeric
      *            representation to their corresponding account names.
@@ -3085,7 +3085,7 @@ UniAddress[] getFirstAddressX(SmbFileFilter ff) throws UnknownHostException {
      * for "Share Permissions" and another for "Security". These correspond to
      * the ACLs returned by <tt>getShareSecurity</tt> and <tt>getSecurity</tt>
      * respectively.
-     * 
+     *
      * @param resolveSids
      *            Attempt to resolve the SIDs within each ACE form their numeric
      *            representation to their corresponding account names.

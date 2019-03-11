@@ -3,7 +3,7 @@
     <string name="hello">Hello World, MainUI!</string>
     <string name="app_name">FileManager</string>
     <string name="path">path is</string>
-    
+
     <string name="sort">sort</string>
     <string name="copy">copy</string>
     <string name="paste">paste</string>
@@ -13,7 +13,8 @@
     <string name="add_new_dev">Add Device</string>
     <string name="del_dev">Del Devive</string>
     <string name="umount_dev">umount</string>
-    
+    <string name="umount_internal">can not umount Local Memory</string>
+
     <string name="directory">directory:</string>
     <string name="equipment">Device</string>
     <string name="video">Video</string>
@@ -22,7 +23,7 @@
     <string name="file">File</string>
     <string name="open_file">Select the type of file</string>
     <string name="text">Text</string>
-    
+
     <!-- length of string is 12 -->
     <string name="target">Target     : </string>
 	<string name="local_disk">Local Memory</string>

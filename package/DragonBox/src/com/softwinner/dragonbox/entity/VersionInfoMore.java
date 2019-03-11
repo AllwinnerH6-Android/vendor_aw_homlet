@@ -11,7 +11,7 @@ public class VersionInfoMore extends VersionInfo{
 	private String mSN;
 	
 	public VersionInfoMore() {
-		super(SystemProperties.get("ro.product.firmware","null"), Build.MODEL, Build.DISPLAY, "");
+		super(SystemProperties.get("ro.product.firmware",""), Build.MODEL, Build.DISPLAY, "");
 	}
 	
 	public String getWifiMac() {

@@ -7,6 +7,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnKeyListener;
+import android.content.DialogInterface.OnShowListener;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.SharedPreferences;
@@ -22,6 +23,7 @@ import android.media.MediaPlayer.OnVideoSizeChangedListener;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.PowerManager;
+import android.os.AsyncTask;
 import android.os.storage.StorageVolume;
 import static android.os.storage.StorageVolume.EXTRA_STORAGE_VOLUME;
 import android.util.DisplayMetrics;
@@ -42,6 +44,8 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.Manifest;
+import android.content.pm.PackageManager;
 
 import java.io.File;
 import java.util.Timer;
@@ -101,6 +105,7 @@ public class MainUI extends ListActivity implements SurfaceHolder.Callback, OnPr
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
+        mContext = this;
 
 		Os.umask(0);
 
@@ -108,6 +113,13 @@ public class MainUI extends ListActivity implements SurfaceHolder.Callback, OnPr
         SharedPreferences pf = getSharedPreferences("partition", 0);
         SharedPreferences.Editor editor = pf.edit();
         editor.clear();
+
+        if(checkSelfPermission(Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED){
+
+            //if(!shouldShowRequestPermissionRationale(Manifest.permission.READ_EXTERNAL_STORAGE)){
+                requestPermissions(new String[] {Manifest.permission.READ_EXTERNAL_STORAGE}, 0);
+            //}
+        }
 
         pm = (PowerManager) getSystemService(Context.POWER_SERVICE);
 
@@ -280,6 +292,14 @@ public class MainUI extends ListActivity implements SurfaceHolder.Callback, OnPr
                     return false;
                 }
             });
+            //menuDialog dismiss方法多处被调用，而menuDialog只被创建一次，造成高概率出现menuDialog显示后没有焦点，遥控器无法使用
+            //因此需在onShow中强行设置该窗口为焦点窗口
+            menuDialog.setOnShowListener(new OnShowListener() {
+                public void onShow(DialogInterface dialog){
+                    Window dialogWindow = menuDialog.getWindow();
+                    dialogWindow.setLocalFocus(true, true);
+                }
+            });
             mMenuListener.setListenedMenu(menuDialog);
             menuDialog.setCanceledOnTouchOutside(true);
             menuDialog.setContentView(menuView);
@@ -439,18 +459,25 @@ public class MainUI extends ListActivity implements SurfaceHolder.Callback, OnPr
     }
 
     public void playVideo(String path) {
-        if (player != null) {
-            player.release();
-            player = null;
-        }
-        player = new MediaPlayer();
-        pathname = path;
-        holder = this.mVideo.getHolder();
-        holder.setType(SurfaceHolder.SURFACE_TYPE_PUSH_BUFFERS);
-        holder.addCallback(this);
-        mImage.setVisibility(View.GONE);
-        mVideo.setVisibility(View.GONE);
-        mVideo.setVisibility(View.VISIBLE);
+        runOnUiThread(new Runnable(){
+            public void run(){
+                if (player != null) {
+                    player.release();
+                    player = null;
+                }
+                player = new MediaPlayer();
+                pathname = path;
+                if (holder == null) {
+                    holder = mVideo.getHolder();
+                    holder.setType(SurfaceHolder.SURFACE_TYPE_PUSH_BUFFERS);
+                    holder.addCallback((SurfaceHolder.Callback)mContext);
+                }
+
+                mImage.setVisibility(View.GONE);
+                mVideo.setVisibility(View.VISIBLE);
+
+            }
+        });
     }
 
     private MediaPlayer player;
@@ -459,29 +486,40 @@ public class MainUI extends ListActivity implements SurfaceHolder.Callback, OnPr
     private static final String VTAG = "VideoPlayer";
 
     private void play() {
+        OnPreparedListener Pl = this;
+        OnCompletionListener Cl = this;
+        OnVideoSizeChangedListener Vcl = this;
+        //use AsyncTask to operate MediaPlayer, otherwise it maybe cause ANR
+        //change by chongyuzhao at 2019.01.19
+        Thread thread = new Thread(){
+            @Override
+            public void run(){
 
-        try {
-            player.setDataSource(pathname);
+                try {
+                    player.setDataSource(pathname);
 
-            player.setDisplay(holder);
-            /*
-             * int w = mVideo.getWidth(); int h = mVideo.getHeight()>(w * 3 /
-             * 4)?mVideo.getHeight():(w * 3 / 4); if (w != 0 && h != 0) {
-             * player.enableScaleMode(true, w, h); Log.d(TAG, "set scale mode:"
-             * + String.valueOf(mVideo.getWidth()) + "*" +
-             * String.valueOf(mVideo.getHeight())); }
-             */
-            player.prepareAsync();
-            player.setOnPreparedListener(this);
-            player.setOnCompletionListener(this);
-            // add by liuanlong 14/9/30
-            player.setOnVideoSizeChangedListener(this);
-            // end
-            player.setAudioStreamType(AudioManager.STREAM_MUSIC);
-        } catch (Exception e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
+                    player.setDisplay(holder);
+                    /*
+                    * int w = mVideo.getWidth(); int h = mVideo.getHeight()>(w * 3 /
+                    * 4)?mVideo.getHeight():(w * 3 / 4); if (w != 0 && h != 0) {
+                    * player.enableScaleMode(true, w, h); Log.d(TAG, "set scale mode:"
+                    * + String.valueOf(mVideo.getWidth()) + "*" +
+                    * String.valueOf(mVideo.getHeight())); }
+                    */
+                    player.prepareAsync();
+                    player.setOnPreparedListener(Pl);
+                    player.setOnCompletionListener(Cl);
+                    // add by liuanlong 14/9/30
+                    player.setOnVideoSizeChangedListener(Vcl);
+                    // end
+                    player.setAudioStreamType(AudioManager.STREAM_MUSIC);
+                } catch (Exception e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                }
+            }
+        };
+        thread.start();
     }
 
     @Override
@@ -504,26 +542,21 @@ public class MainUI extends ListActivity implements SurfaceHolder.Callback, OnPr
     @Override
     public void surfaceDestroyed(SurfaceHolder holder1) {
         Log.d(VTAG, "surfaceview is destroyed");
-        synchronized (syncObject) {
-            if (player != null) {
-                player.reset();
-                player.release();
-                player = null;
-            }
-        }
+        releaseMediaPlayerAsync();
     }
 
     @Override
     public void onPrepared(MediaPlayer mp) {
         Log.d(VTAG, "media is prepared");
+        //run in UI Thread,otherwise Video preview will not play
         try {
             if (player != null) {
                 setVideoRatio(pathname);
                 /**
-                 * if (player.setSubGate(false) != 0) { Log.d(TAG,
-                 * "fail to close subtitles"); } else { Log.d(TAG,
-                 * "success close subtitles"); }
-                 */
+                * if (player.setSubGate(false) != 0) { Log.d(TAG,
+                * "fail to close subtitles"); } else { Log.d(TAG,
+                * "success close subtitles"); }
+                */
                 startVideoPlayback();
                 showVideoMassage(pathname);
             }
@@ -590,27 +623,23 @@ public class MainUI extends ListActivity implements SurfaceHolder.Callback, OnPr
         Thread thread = new Thread() {
             @Override
             public void run() {
+                MediaPlayer tmp = player;
                 synchronized (syncObject) {
-                    if (player != null) {
-                        player.reset();
-                        player.release();
-                        player = null;
-                    }
+                    player = null;
+                }
+                if (tmp != null) {
+                    tmp.reset();
+                    tmp.release();
                 }
             }
         };
         thread.start();
+        mHandler.removeVideoMessage();
     }
 
     @Override
     public void releaseMediaPlayerSync() {
-        synchronized (syncObject) {
-            if (player != null) {
-                player.reset();
-                player.release();
-                player = null;
-            }
-        }
+        releaseMediaPlayerAsync();
     }
 
     @Override
@@ -649,7 +678,11 @@ public class MainUI extends ListActivity implements SurfaceHolder.Callback, OnPr
         String display1 = size1 + duration1 + resolution1;
         // modified by liuanlong 14/9/30
         if (mediaData.getVideoWidth() != 0 && mediaData.getVideoHeight() != 0) {
-            mPreview.setText2(display1);
+            runOnUiThread(new Runnable(){
+                public void run(){
+                    mPreview.setText2(display1);
+                }
+            });
         }
         // end
     }

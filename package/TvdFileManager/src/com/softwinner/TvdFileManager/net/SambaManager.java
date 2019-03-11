@@ -16,7 +16,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
+import android.widget.Toast;
 
 import java.io.File;
 import java.net.MalformedURLException;
@@ -152,7 +152,7 @@ public class SambaManager {
         return prDialog;
     }
 
-    private int addFileList(SmbFile samba, final ArrayList<SmbFile> list, 
+    private int addFileList(SmbFile samba, final ArrayList<SmbFile> list,
                                    final OnSearchListener ls) {
         Log.d(TAG, "start search " + samba.getPath());
         SmbFileFilter filter = new SmbFileFilter() {
@@ -251,7 +251,7 @@ public class SambaManager {
     }
 
     /**
-     * 
+     *
      * @param samba
      * @param ls
      * @return true: login success false: login failed
@@ -522,7 +522,7 @@ public class SambaManager {
 
     /**
      * Add login information to database
-     * 
+     *
      * @param ntlm
      * @param smbPath
      */
@@ -660,7 +660,7 @@ public class SambaManager {
 
     /**
      * Get current all shared folder
-     * 
+     *
      * @return
      */
     public ArrayList<SmbFile> getAllSmbShared() {
@@ -669,7 +669,7 @@ public class SambaManager {
 
     /**
      * Create smb mounted point on local disk
-     * 
+     *
      * @param path
      * @return
      */
@@ -719,7 +719,7 @@ public class SambaManager {
 
     /**
      * Mount smb shared folder on local disk
-     * 
+     *
      * @param source
      * @param target
      * @param username
@@ -727,7 +727,7 @@ public class SambaManager {
      * @param ip
      * @return
      */
-    private int mountSmb(String source, String target, String username, 
+    private int mountSmb(String source, String target, String username,
                                String password, String ip) {
         if (source.endsWith("/")) {
             source = source.substring(0, source.length() - 1);
@@ -758,7 +758,7 @@ public class SambaManager {
 
     /**
      * Umount smb shared folder from local disk
-     * 
+     *
      * @param target
      * @return
      */

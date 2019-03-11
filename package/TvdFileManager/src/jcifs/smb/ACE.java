@@ -31,13 +31,13 @@ import java.io.IOException;
  * access bits <tt>0x00000003</tt> (<tt>FILE_READ_DATA |
  * FILE_WRITE_DATA</tt>) and the target file has the following security
  * descriptor ACEs:
- * 
+ *
  * <pre>
  * Allow WNET\alice     0x001200A9  Direct
  * Allow Administrators 0x001F01FF  Inherited
  * Allow SYSTEM         0x001F01FF  Inherited
  * </pre>
- * 
+ *
  * the access check would fail because the direct ACE has an access mask of
  * <tt>0x001200A9</tt> which doesn't have the <tt>FILE_WRITE_DATA</tt> bit on
  * (bit <tt>0x00000002</tt>). Actually, this isn't quite correct. If

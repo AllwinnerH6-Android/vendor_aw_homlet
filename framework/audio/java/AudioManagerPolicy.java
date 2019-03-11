@@ -43,6 +43,7 @@ import android.media.AudioDevicePort;
 import android.media.AudioFormat;
 import android.app.ActivityManagerNative;
 import android.os.UserHandle;
+import android.app.NotificationChannel;
 
 /**
 *@hide
@@ -63,6 +64,8 @@ public class AudioManagerPolicy extends BroadcastReceiver {
     private boolean mBooting = false;
     private ExecutorService mThreadExecutor = Executors.newSingleThreadExecutor();
     private AlertDialog alertDialog = null;
+    //NotificationChannel
+    private NotificationChannel mChannel = null;
 
     public AudioManagerPolicy(Context context) {
         mCtx = context;
@@ -352,8 +355,7 @@ public class AudioManagerPolicy extends BroadcastReceiver {
         }
         intent_hdmi_audio.setAction(AudioManager.ACTION_HDMI_AUDIO_PLUG);
         if(name.equals(AudioManagerEx.AUDIO_NAME_HDMI)){
-            if(state == AudioDeviceManagerObserver.PLUG_IN &&
-                mDisplayOutputManager.getDisplayOutputType(0) == DisplayOutputManager.DISPLAY_OUTPUT_TYPE_HDMI){
+            if(state == AudioDeviceManagerObserver.PLUG_IN) {
                 notifyHdmiAvailable();
                 {
                     Log.v(TAG, "chengkan-------------   hdmi active");
@@ -505,17 +507,23 @@ public class AudioManagerPolicy extends BroadcastReceiver {
     }
 
     private void toastPlugInNotification(String title, int id){
-        Notification notification = new Notification(com.android.internal.R.drawable.stat_sys_data_usb,
-                title,System.currentTimeMillis());
-        String contentTitle = title;
-        String contextText = title;
-        notification.setLatestEventInfo(mCtx, contentTitle, contextText, null);
+
+        NotificationManager notificationManager = (NotificationManager) mCtx
+            .getSystemService(Context.NOTIFICATION_SERVICE);
+        if(null == mChannel){
+            mChannel = new NotificationChannel("Audio_PlugIn", "PlugInToast", NotificationManager.IMPORTANCE_DEFAULT);
+            notificationManager.createNotificationChannel(mChannel);
+        }
+        Notification notification = new Notification.Builder(mCtx).setWhen(System.currentTimeMillis())
+            .setSmallIcon(com.android.internal.R.drawable.stat_sys_data_usb)
+            .setTicker(title)
+            .setContentTitle(title)
+            .setContentText(title)
+            .setChannel("Audio_PlugIn").build();
 
         notification.defaults &= ~Notification.DEFAULT_SOUND;
         notification.flags = Notification.FLAG_AUTO_CANCEL;
 
-        NotificationManager notificationManager = (NotificationManager) mCtx
-            .getSystemService(Context.NOTIFICATION_SERVICE);
         notificationManager.notify(id, notification);
 
         handleToastMessage(title);

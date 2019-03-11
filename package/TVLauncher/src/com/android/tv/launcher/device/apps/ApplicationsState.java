@@ -36,8 +36,15 @@ import android.os.Process;
 import android.os.SystemClock;
 import android.os.UserHandle;
 import android.text.format.Formatter;
+import android.os.storage.StorageManager;
+import android.app.usage.StorageStats;
+import android.app.usage.StorageStatsManager;
+import com.android.settingslib.applications.StorageStatsSource;
+import com.android.settingslib.applications.StorageStatsSource.AppStorageStats;
+import android.os.RemoteException;
 import android.util.Log;
 
+import java.io.IOException;
 import java.io.File;
 import java.text.Collator;
 import java.text.Normalizer;
@@ -287,6 +294,7 @@ public class ApplicationsState {
 
     private final Context mContext;
     private final PackageManager mPackManager;
+    private final StorageStatsSource mSource;
     private final int mRetrieveFlags;
     private PackageIntentReceiver mPackageIntentReceiver;
     private final HandlerThread mThread;
@@ -294,6 +302,7 @@ public class ApplicationsState {
     private boolean mResumed;
     private static ApplicationsState sInstance;
     private static final Object sLock = new Object();
+    final StorageStatsManager mStats;
     //单例
     public static ApplicationsState getInstance(Context app) {
 
@@ -310,7 +319,9 @@ public class ApplicationsState {
 
         mContext = app;
         mPackManager = mContext.getPackageManager();
+        mSource = new StorageStatsSource(mContext);
         mThread = new HandlerThread("ApplicationsState.Loader", Process.THREAD_PRIORITY_BACKGROUND);
+        mStats = mContext.getSystemService(StorageStatsManager.class);
         mThread.start();
         mBackgroundHandler = new BackgroundHandler(mThread.getLooper());
 
@@ -471,15 +482,56 @@ public class ApplicationsState {
         }
     }
 
+    private String getSizeStr(long size) {
+        if (size >= 0) {
+            return Formatter.formatFileSize(mContext, size);
+        }
+        return null;
+    }
+
     void requestSize(String packageName) {
         synchronized (mEntriesMap) {
-
             AppEntry entry = mEntriesMap.get(packageName);
-            if (entry != null) {
-                mPackManager.getPackageSizeInfo(packageName, mBackgroundHandler.mStatsObserver);
+            int userId = UserHandle.myUserId();
+            if (entry != null && hasFlag(entry.info.flags, ApplicationInfo.FLAG_INSTALLED)) {
+                mBackgroundHandler.postDelayed(
+                        () -> {
+                            try {
+                                final StorageStats stats =
+                                        mStats.queryStatsForPackage(
+                                                entry.info.storageUuid,
+                                                packageName,
+                                                UserHandle.of(userId));
+                                final long cacheQuota =
+                                        mStats.getCacheQuotaBytes(
+                                                entry.info.storageUuid.toString(), entry.info.uid);
+                                final PackageStats legacy = new PackageStats(packageName, userId);
+                                legacy.codeSize = stats.getCodeBytes();
+                                legacy.dataSize = stats.getDataBytes();
+                                legacy.cacheSize = Math.min(stats.getCacheBytes(), cacheQuota);
+                                try {
+                                    mBackgroundHandler.mStatsObserver.onGetStatsCompleted(
+                                            legacy, true);
+                                } catch (RemoteException ignored) {
+                                }
+                            } catch (NameNotFoundException | IOException e) {
+                                Log.w(TAG, "Failed to query stats: " + e);
+                                try {
+                                    mBackgroundHandler.mStatsObserver.onGetStatsCompleted(
+                                            null, false);
+                                } catch (RemoteException ignored) {
+                                }
+                            }
+                        }, 1000);
             }
         }
+
     }
+
+    private static boolean hasFlag(int flags, int flag) {
+        return (flags & flag) != 0;
+    }
+
 
     //返回pkgName在mApplications中的下标位置,其实就是来表明是否有在mApplications列表中
     private int indexOfApplicationInfoLocked(String pkgName) {
@@ -693,13 +745,6 @@ public class ApplicationsState {
             return SIZE_INVALID;
         }
 
-        private String getSizeStr(long size) {
-
-            if (size >= 0) {
-                return Formatter.formatFileSize(mContext, size);
-            }
-            return null;
-        }
     } //BackGroundHandler
 
 }//Class ApplicationsState

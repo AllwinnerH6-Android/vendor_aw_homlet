@@ -137,6 +137,7 @@ public class CaseWifi extends IBaseCase implements OnWifiConnChangeListener {
 
 	@Override
 	public void onStartCase() {
+        Log.w(TAG,"onStartCase CaseWifi");
         mhandler.sendEmptyMessageDelayed(WHAT_TEST_TIMEOUT, WIFI_TEST_TIMEOUT);
 		if(useSFC.equals("false"))
 			NetUtil.connectWifi(mContext, CaseWifi.SSID, CaseWifi.password);
@@ -219,8 +220,10 @@ public class CaseWifi extends IBaseCase implements OnWifiConnChangeListener {
 			setDialogPositiveButtonEnable(wifiConnResult);
             //setCaseResult(wifiConnResult);
 		}
-        if(wifiConnResult)
+        if(wifiConnResult){
             setCaseResult(true);
+            Log.w(TAG,"CaseWifi test over, test result is "+getCaseResult());
+        } 
 
 		mConnListAdapter.setWifiConnInfos(wifiInfos);
 	}

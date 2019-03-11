@@ -33,10 +33,10 @@
         android:icon="@drawable/preferences"
         canvassettings:preference="@xml/preferences" />
 
-    <header
+    <!--<header
         android:id="@+id/personal"
         android:title="@string/header_category_personal"
         android:icon="@drawable/personal"
-        canvassettings:preference="@xml/personal" />
+        canvassettings:preference="@xml/personal" />-->
 
 </preference-headers>

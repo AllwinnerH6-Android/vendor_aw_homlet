@@ -127,7 +127,7 @@
 			
 		        	<!--  grid view layout -->
 	    	<LinearLayout android:id="@+id/grid_layout"
-				android:layout_width="247dip"
+				android:layout_width="200dip"
 				android:layout_height="fill_parent"
 				android:visibility="gone"
 				android:orientation="vertical" >	        	
@@ -153,7 +153,7 @@
 			</LinearLayout>		   	
 	    			<!-- sublist view layout -->
 	    	<LinearLayout android:id="@+id/sublist_layout"
-				android:layout_width="247dip"
+				android:layout_width="200dip"
 				android:layout_height="fill_parent"
 				android:visibility="gone"
 				android:orientation="vertical" >
@@ -172,7 +172,7 @@
 			</LinearLayout>		
 		    					<!-- list view layout -->
 			<RelativeLayout
-			    android:layout_width="247dip"
+			    android:layout_width="200dip"
 			    android:layout_height="fill_parent"
 			    android:orientation="vertical">
 			    <ListView android:id="@+id/list"

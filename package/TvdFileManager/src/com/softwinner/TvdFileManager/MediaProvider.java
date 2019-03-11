@@ -16,7 +16,7 @@ import java.util.ArrayList;
 import java.util.Comparator;
 
 /**
- * 
+ *
  * @author chenjd
  * @help <br>
  *       1.用于缩略图的管理 <br>
@@ -308,7 +308,7 @@ public class MediaProvider {
 
     /**
      * 从数据库中查询返回缩略图
-     * 
+     *
      * @param origPath
      * @return null如果查询不到该缩略图文件
      */
@@ -339,7 +339,7 @@ public class MediaProvider {
     }
 
     /**
-     * 
+     *
      * @param origPath
      *            源图片文件路径
      * @param width

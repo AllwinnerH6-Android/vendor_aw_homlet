@@ -85,7 +85,9 @@ public class DragonBoxMain extends Activity implements IBaseCase.onResultChangeL
 	private static final int RETRY_CONNECT_SERVER_TIMES =5;//重连服务器次数。
 	private static final String TIME_WEBSITE="http://www.mi.com";
 	public static final String TAG="DragonBox-DragonBoxMain";
+    public static final String LOG_END_FLAG="DragonBox-test_over";
 	private static final String PROPERTY_DRAGONAGING_NEXTBOOT = "persist.sys.dragonaging";
+	private static final String PROPERTY_DRAGONAGING_TIME = "persist.sys.dragonaging_time";
 	private static final String PROPERTY_DRAGONBOX_SMT = "persist.sys.smt_dragonbox";
 	private static final String PROPERTY_SMT_DRAGONBOX_TESTCASE = "persist.sys.dragonbox_case";
 	private static final String PROPERTY_SMT_DRAGONBOX_TESTRESULT = "persist.sys.dragonbox_result";
@@ -190,7 +192,9 @@ public class DragonBoxMain extends Activity implements IBaseCase.onResultChangeL
                     otherOptionResult += "\n"+Utils.readFile(Utils.RID_FILE_PATH);
                     if(new File(DRAGONAGING_LOG).exists()){
                         otherOptionResult += "\nDragonAging日志：未删除!";
+                        Log.e(TAG,"DragonAging日志：未删除");
                     }
+                    Log.e(TAG,"assy "+LOG_END_FLAG);
 					showAlertDialogToFinish(getString(R.string.test_success)+otherOptionResult);
 				}else {
 					showAlertDialogToFinish("SAVESSN_NEW failed: "+mCheckSSNResult.sReason);
@@ -287,18 +291,28 @@ public class DragonBoxMain extends Activity implements IBaseCase.onResultChangeL
 		intentFilter.addAction(WifiManager.NETWORK_STATE_CHANGED_ACTION);
 		Log.e(TAG, "useSFC = "+ CaseWifi.useSFC);
 		if(CaseWifi.useSFC == null || CaseWifi.useSFC.equals("false")) {
+            Log.w(TAG,"begin to test--------SMT");
 			useSFC = false;
             Utils.setPropertySecure(PROPERTY_DRAGONBOX_SMT,"start_test");
 			restartAllTest();
 		}else {
-            boolean isDragonAgingTesting = SystemProperties.getBoolean(PROPERTY_DRAGONAGING_NEXTBOOT,false);
+            String isDragonAgingTesting = SystemProperties.get(PROPERTY_DRAGONAGING_NEXTBOOT,"null");
             Log.e(TAG, "isDragonAgingTesting = "+ isDragonAgingTesting);
-            if(!isDragonAgingTesting){
+            if(isDragonAgingTesting.equals("false")){
+                Log.w(TAG,"begin to test----------assy");
                 useSFC = true;
                 registerReceiver(wifiReceiver, intentFilter);
                 readyToStartTest();
+            }else if(isDragonAgingTesting.equals("true")){
+                int agingTime = SystemProperties.getInt(PROPERTY_DRAGONAGING_TIME,0);
+                Log.w(TAG,"已经老化"+Utils.formatTime(agingTime)+"\n"+"老化测试未完成!\n不能开始组装接口测试!\n"+"请将板子归类送至老化工站继续老化");
+                showAlertDialogToFinish("已经老化"+Utils.formatTime(agingTime)+"\n"+"老化测试未完成!\n不能开始组装接口测试!\n"+"请将板子归类送至老化工站继续老化",30);
+            }else if(isDragonAgingTesting.equals("null")){
+                Log.w(TAG,"SMT未完成DragonBox测试!\n"+"老化测试未完成!\n不能开始组装接口测试!\n"+"请将板子归类送至SMT进行DragonBox测试");
+                showAlertDialogToFinish("SMT未完成DragonBox测试!\n"+"老化测试未完成!\n不能开始组装接口测试!\n"+"请将板子归类送至SMT进行DragonBox测试",30);
             }else{
-                showAlertDialogToFinish("老化测试未完成!\n不能开始组装接口测试!",35);
+                Log.w(TAG,"DragonAging属性获取异常!value="+isDragonAgingTesting);
+                showAlertDialogToFinish("DragonAging属性获取异常!value="+isDragonAgingTesting,30);
             }
 		}
 	}
@@ -650,7 +664,9 @@ public class DragonBoxMain extends Activity implements IBaseCase.onResultChangeL
         if(mTestValues.length()>0)
             mTestValues = mTestValues.substring(0,mTestValues.length()-1);//列举每个测试项对应的结果,","分割
 
+		Log.e(TAG, "mTestItems = "+mTestItems+"\n mTestValues = "+mTestValues);
         if(!useSFC) {
+            Log.e(TAG,"before setproperty "+LOG_END_FLAG);//通知LogcatHelper强制将log写入磁盘
             Utils.setPropertySecure(PROPERTY_SMT_DRAGONBOX_TESTCASE,mTestItems);
             Utils.setPropertySecure(PROPERTY_SMT_DRAGONBOX_TESTRESULT,mTestValues);
             if(mTestResult.equals("PASS")) {
@@ -659,6 +675,9 @@ public class DragonBoxMain extends Activity implements IBaseCase.onResultChangeL
             }
             NetUtil.forgetWifi(DragonBoxMain.this);
             Utils.setPropertySecure(PROPERTY_DRAGONBOX_SMT,"test_over");
+        }
+        Log.e(TAG,LOG_END_FLAG);
+        if(!useSFC) {
             if(mTestResult.equals("PASS")){
                 showAlertDialogToFinish("成功!",40);
             }else{
@@ -671,7 +690,6 @@ public class DragonBoxMain extends Activity implements IBaseCase.onResultChangeL
             Log.e(TAG,"alreadyUpload ,donot upload agagin!");
             return;
         }
-		Log.e(TAG, "mTestItems = "+mTestItems+"\n mTestValues = "+mTestValues);
 		progressDialog.setMessage(getString(R.string.GET_NETWORK_TIME));
 		progressDialog.show();
         alreadyUpload = true;

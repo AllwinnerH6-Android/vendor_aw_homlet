@@ -25,7 +25,7 @@ public class Base64 {
     /**
      * Base-64 encodes the supplied block of data. Line wrapping is not applied
      * on output.
-     * 
+     *
      * @param bytes
      *            The block of data that is to be Base-64 encoded.
      * @return A <code>String</code> containing the encoded data.
@@ -65,7 +65,7 @@ public class Base64 {
 
     /**
      * Decodes the supplied Base-64 encoded string.
-     * 
+     *
      * @param string
      *            The Base-64 encoded string that is to be decoded.
      * @return A <code>byte[]</code> containing the decoded data block.

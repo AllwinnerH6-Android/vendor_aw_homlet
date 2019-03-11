@@ -51,6 +51,7 @@ import android.widget.ListView;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.text.format.Formatter;
 
 import java.io.BufferedWriter;
 import java.io.File;
@@ -121,6 +122,10 @@ public class EventHandler implements OnClickListener, OnItemSelectedListener, On
     private static final String GO_INTO_DIR = "goIntoDir";
     private static final String BACK_TO_PRE = "backToPreDir";
     private static final String NONE = "NONE";
+    //when goIntoDir, we press return key so fast, it will cause mDataSource is not current. so we dont
+    //backToPreDir when scaningFile, and do it after scaned.
+    private boolean scaningFile = false;
+    private boolean scaningBack = false;
 
     /* 定义过滤类型 */
     private Comparator sort = MediaProvider.ALPH;
@@ -181,28 +186,26 @@ public class EventHandler implements OnClickListener, OnItemSelectedListener, On
         mHandler = new Handler() {
             @Override
             public void handleMessage(Message msg) {
+                //use AsyncTask to operate file, because nfs/samba maybe cause ANR
                 switch (msg.what) {
                     case PICTURE:
-                        Rect rect = getPicResolution(picPath);
-                        int width = imageThumb.getWidth();
-                        int height = imageThumb.getHeight();
-                        float radio = ((float) rect.height()) / rect.width();
-                        if (rect.width() == 0 || rect.height() == 0) {
-                            int k = 0;
-                        } else if ((((float) height) / width) > radio) {
-                            height = width * rect.height() / rect.width();
-                        } else {
-                            width = height * rect.width() / rect.height();
-                        }
-                        Bitmap bm = mMedia.getImageThumbFromMK(picPath, width, height);
-                        if (picPath.equals(mDataSource.get(currentPosition))) {
-                            imageThumb.setBackground(null);
-                            imageThumb.setImageBitmap(bm);
-                            getPicDetail(picPath, rect.width(), rect.height());
-                        }
+                        Integer[] rect = {imageThumb.getWidth(), imageThumb.getHeight()};
+                        new AsyncTask<Integer, Void, Void>(){
+                            @Override
+                            protected Void doInBackground(Integer... params){
+                                handlePictureMessage(params[0], params[1]);
+                                return null;
+                            }
+                        }.execute(rect);
                         break;
                     case VIDEO:
-                        mCallbacks1.playThumbVideo(videoPath);
+                        new AsyncTask<Void, Void, Void>(){
+                            @Override
+                            protected Void doInBackground(Void... params){
+                                mCallbacks1.playThumbVideo(videoPath);
+                                return null;
+                            }
+                        }.execute();
                         break;
                     default:
                         break;
@@ -271,6 +274,27 @@ public class EventHandler implements OnClickListener, OnItemSelectedListener, On
         mContext.registerReceiver(mNetStateReceiver, mNetFilter);
     }
 
+    private void handlePictureMessage(int width, int height){
+        Rect rect = getPicResolution(picPath);
+        float radio = ((float) rect.height()) / rect.width();
+        if (rect.width() == 0 || rect.height() == 0) {
+            int k = 0;
+        } else if ((((float) height) / width) > radio) {
+            height = width * rect.height() / rect.width();
+        } else {
+            width = height * rect.width() / rect.height();
+        }
+        Bitmap bm = mMedia.getImageThumbFromMK(picPath, width, height);
+        if (picPath.equals(mDataSource.get(currentPosition))) {
+            ((Activity)mContext).runOnUiThread(new Runnable(){
+                public void run(){
+                    imageThumb.setBackground(null);
+                    imageThumb.setImageBitmap(bm);
+                    getPicDetail(picPath, rect.width(), rect.height());
+                }
+            });
+        }
+    }
     public void setViewResource(SurfaceView video, ImageView image, MTextView preview1,
             TextView path1, TextView index1) {
         this.videoThumb = video;
@@ -287,7 +311,7 @@ public class EventHandler implements OnClickListener, OnItemSelectedListener, On
         setButtonSelected(view);
 
         mCallbacks.releaseMediaPlayerSync();
-        imageThumb.setVisibility(View.VISIBLE);
+        //imageThumb.setVisibility(View.VISIBLE);
         videoThumb.setVisibility(View.GONE);
         mTimer.cancel();
         if (currentDir.equals(MediaProvider.NETWORK_NEIGHBORHOOD)) {
@@ -377,7 +401,9 @@ public class EventHandler implements OnClickListener, OnItemSelectedListener, On
             mDataSource.addAll(netlist);
         }
         mTable.notifyDataSetChanged();
-
+        //update Detail info when switch other tag,such as Video,Picture
+        getDetailForPosition(currentPosition);
+        list.setSelection(currentPosition);
     }
 
     private void mapPartitionName(String devices) {
@@ -539,7 +565,7 @@ public class EventHandler implements OnClickListener, OnItemSelectedListener, On
         if (mTimer != null) {
             mTimer.cancel();
         }
-        mCallbacks.releaseMediaPlayerAsync();
+        //mCallbacks.releaseMediaPlayerAsync();
         currentPosition = position;
         showNothing();
         getDetailForPosition(position);
@@ -839,7 +865,7 @@ public class EventHandler implements OnClickListener, OnItemSelectedListener, On
          * "findBlurayVideo()  st=" + st + "  pre=" + pre); Integer itg =
          * Integer.valueOf(pre); if (itg != null) Log.d("chen", "integer  " +
          * itg.intValue()); if (itg == null || pre.length() != 5) { continue; }
-         * 
+         *
          * return file.getAbsolutePath(); } } return null;
          */
     }
@@ -921,7 +947,7 @@ public class EventHandler implements OnClickListener, OnItemSelectedListener, On
         //movieIntent.putExtra(MediaStore.EXTRA_BD_FOLDER_PLAY_MODE, false);
         movieIntent.setAction(android.content.Intent.ACTION_VIEW);
         movieIntent.setDataAndType(Uri.fromFile(file), "video/*");
-      movieIntent.setClassName("com.softwinner.TvdVideo","com.softwinner.TvdVideo.TvdVideoActivity");
+      movieIntent.setClassName("com.softwinner.TvdVideo","com.softwinner.TvdVideo.TvdVideoActivity");
         /* make sure that media must be reset */
         mCallbacks.releaseMediaPlayerSync();
         Log.d(TAG, "Start");
@@ -1092,21 +1118,27 @@ public class EventHandler implements OnClickListener, OnItemSelectedListener, On
     }
 
     private void showNothing() {
-        // imageThumb.setImageDrawable(null);
-        imageThumb.setBackgroundResource(R.drawable.thumbnail_bg);
-        imageThumb.setImageResource(R.drawable.thumbnail_equipment);
-        preview.setBackgroundDrawable(null);
-        preview.setText2("");
-        index.setText("");
-        path.setText("");
+        ((Activity)mContext).runOnUiThread(new Runnable(){
+            public void run(){
+                // imageThumb.setImageDrawable(null);
+                imageThumb.setBackgroundResource(R.drawable.thumbnail_bg);
+                imageThumb.setImageResource(R.drawable.thumbnail_equipment);
+                preview.setBackgroundDrawable(null);
+                preview.setText2("");
+                index.setText("");
+                path.setText("");
+            }
+        });
     }
 
-    private void showDeviceMessage(String path1) {
-        String target = null;
+    private void showDeviceMessagePre(){
         imageThumb.setBackgroundResource(R.drawable.thumbnail_bg);
         imageThumb.setImageResource(R.drawable.thumbnail_equipment);
-        target = getDeviceName(path1);
         preview.setBackgroundResource(R.drawable.preview);
+    }
+    private String showDeviceMessageExec(String path1) {
+        String target = null;
+        target = getDeviceName(path1);
         try {
             long totalsize = 0;
             long availsize = 0;
@@ -1133,13 +1165,29 @@ public class EventHandler implements OnClickListener, OnItemSelectedListener, On
             String availsize1 = mContext.getResources().getString(R.string.avail_size) + availSize;
             String display1 = target1 + usedsize1 + availsize1;
 
-            preview.setText2(display1);
+            return display1;
+
         } catch (Exception e) {
             Log.e(TAG, "fail to catch the size of the devices");
         }
+        return null;
 
     }
 
+    private void showDeviceMessage(String path1){
+        showDeviceMessagePre();
+        new AsyncTask<String, Void, String>(){
+            @Override
+            protected String doInBackground(String... params){
+                return showDeviceMessageExec(params[0]);
+            }
+
+            @Override
+            protected void onPostExecute(String value){
+                preview.setText2(value);
+            }
+        }.execute(path1);
+    }
     /* 获取全部空间,..GB */
     private long getTotalSize(String path1) {
         StatFs statfs = new StatFs(path1);
@@ -1158,10 +1206,13 @@ public class EventHandler implements OnClickListener, OnItemSelectedListener, On
         return availsize;
     }
 
-    private void showMusicMessage(String path1) {
+    private void showMusicMessagePre(){
         imageThumb.setBackgroundResource(R.drawable.thumbnail_bg);
         imageThumb.setImageResource(R.drawable.thumbnail_music);
+        preview.setBackgroundResource(R.drawable.preview);
+    }
 
+    private String showMusicMessageExec(String path1) {
         final String externalVolume = "external";
         final int pathIndex = 0;
         final int artistIndex = 1;
@@ -1202,13 +1253,27 @@ public class EventHandler implements OnClickListener, OnItemSelectedListener, On
         } else {
             Log.d(TAG, "cursor is null");
         }
-        preview.setBackgroundResource(R.drawable.preview);
         if (singer1 == null || title1 == null || duration1 == null || size1 == null) {
             /* 不能获取该信息,返回 */
-            return;
+            return null;
         }
         String display1 = singer1 + title1 + duration1 + size1;
-        preview.setText2(display1);
+        return display1;
+    }
+
+    private void showMusicMessage(String path1){
+        showMusicMessagePre();
+        new AsyncTask<String, Void, String>(){
+            @Override
+            protected String doInBackground(String... params){
+                return showMusicMessageExec(params[0]);
+            }
+
+            @Override
+            protected void onPostExecute(String value){
+                preview.setText2(value);
+            }
+        }.execute(path1);
     }
 
     private void showVideoMessage(String path1) {
@@ -1216,22 +1281,14 @@ public class EventHandler implements OnClickListener, OnItemSelectedListener, On
         imageThumb.setImageResource(R.drawable.thumbnail_video);
         preview.setBackgroundResource(R.drawable.preview);
         videoPath = path1;
-        if (mTimer != null) {
-            mTimer.cancel();
-            mTimer = null;
-        }
-        mTimer = new Timer();
-        mTask = new TimerTask() {
+        // 延时播放
+        Message msg = new Message();
+        msg.what = VIDEO;
+        mHandler.sendMessageDelayed(msg, VIDEO_DELAY);
+    }
 
-            @Override
-            public void run() {
-                // 延时播放
-                Message msg = new Message();
-                msg.what = VIDEO;
-                mHandler.sendMessage(msg);
-            }
-        };
-        mTimer.schedule(mTask, VIDEO_DELAY);
+    public void removeVideoMessage() {
+        mHandler.removeMessages(VIDEO);
     }
 
     private void showPictureMessage(String path1) {
@@ -1368,20 +1425,10 @@ public class EventHandler implements OnClickListener, OnItemSelectedListener, On
         return "";
     }
 
-    private int kb = 1024;
-    private int mb = 1024 * 1024;
-    private int gb = 1024 * 1024 * 1024;
 
-    public String toSize(long mbyte) {
-        if (mbyte >= gb) {
-            return String.format("%.2f Gb ", (double) mbyte / gb);
-        } else if (mbyte >= mb) {
-            return String.format("%.2f Mb ", (double) mbyte / mb);
-        } else if (mbyte >= kb) {
-            return String.format("%.2f Kb ", (double) mbyte / kb);
-        } else {
-            return String.format("%d byte", mbyte);
-        }
+    public String toSize(long mbyte){
+        return (mbyte < 0)? "invalid byte"
+                : Formatter.formatShortFileSize(mContext, mbyte);
     }
 
     public String toDuration(long ms) {
@@ -1446,6 +1493,10 @@ public class EventHandler implements OnClickListener, OnItemSelectedListener, On
         }
         mCallbacks.releaseMediaPlayerAsync();
         showNothing();
+        if (scaningFile) {
+            scaningBack = true;
+            return true;
+        }
         /* 如果所在目录是某个设备的根目录，则返回设备总列表 根目录 */
         int i;
         int j;
@@ -1456,11 +1507,12 @@ public class EventHandler implements OnClickListener, OnItemSelectedListener, On
                 getDeviceList();
                 mTable.notifyDataSetChanged();
                 i = mPathStack.pop().intValue();
-                if (currentPosition == i) {
+                //setSelection when backToPreDir anyway. Because currentPosition has update, and Selection was not
+                //if (currentPosition == i) {
                     getDetailForPosition(i);
-                } else {
+                //} else {
                     list.setSelection(i);
-                }
+                //}
                 saveBrowseDir();
                 return true;
             }
@@ -1613,11 +1665,13 @@ public class EventHandler implements OnClickListener, OnItemSelectedListener, On
      */
     public void getDetailForPosition(int position) {
         try {
+            mCallbacks.releaseMediaPlayerSync();
             String path1 = mDataSource.get(position);
+
             /* 显示索引条 */
             showFileIndex(path1, position);
             /* 显示预览信息 */
-            File file = new File(path1);
+
             int i;
             ArrayList<StorageVolume> devicesList = mDevices.getLocalDevicesList();
             for (i = 0; i < devicesList.size(); i++) {
@@ -1628,20 +1682,54 @@ public class EventHandler implements OnClickListener, OnItemSelectedListener, On
             }
             if (path1.equals(MediaProvider.RETURN)) {
                 showDeviceMessage(currentDir);
-            } else if (!file.exists()) {
-                /* 有可能显示的只是一个字符串,如"网络邻居",或者其他非文件,这时什么都不做 */
-                int k = 0;
             } else {
-                if (file.isDirectory()) {
-                    showDeviceMessage(path1);
-                } else if (TypeFilter.isMovieFile(path1)) {
-                    showVideoMessage(path1);
-                } else if (TypeFilter.isMusicFile(path1)) {
-                    showMusicMessage(path1);
-                } else if (TypeFilter.isPictureFile(path1)) {
-                    showPictureMessage(path1);
-                } else {
-                    showNothing();
+                if(isInSambaMountDir() || isNFSServer()){
+                    new AsyncTask<String, Void, Boolean>(){
+                        private File file;
+                        @Override
+                        protected Boolean doInBackground(String... params){
+                            file =new File(params[0]);
+                            if(!file.exists()){
+                                return false;
+                            }else {
+                                return true;
+                            }
+                        }
+                        @Override
+                        protected void onPostExecute(Boolean value){
+                            if(value){
+                                if (file.isDirectory()) {
+                                    showDeviceMessage(path1);
+                                } else if (TypeFilter.isMovieFile(path1)) {
+                                    showVideoMessage(path1);
+                                } else if (TypeFilter.isMusicFile(path1)) {
+                                    showMusicMessage(path1);
+                                } else if (TypeFilter.isPictureFile(path1)) {
+                                    showPictureMessage(path1);
+                                } else {
+                                    showNothing();
+                                }
+                            }
+                        }
+                    }.execute(path1);
+                }else{
+                    File file = new File(path1);
+                    if(!file.exists()){
+                        /* 有可能显示的只是一个字符串,如"网络邻居",或者其他非文件,这时什么都不做 */
+                        int k = 0;
+                    }else {
+                        if (file.isDirectory()) {
+                            showDeviceMessage(path1);
+                        } else if (TypeFilter.isMovieFile(path1)) {
+                            showVideoMessage(path1);
+                        } else if (TypeFilter.isMusicFile(path1)) {
+                            showMusicMessage(path1);
+                        } else if (TypeFilter.isPictureFile(path1)) {
+                            showPictureMessage(path1);
+                        } else {
+                            showNothing();
+                        }
+                    }
                 }
             }
         } catch (Exception e) {
@@ -1657,6 +1745,7 @@ public class EventHandler implements OnClickListener, OnItemSelectedListener, On
         currentDir = path1;
         String[] st = {path1, extraFlag};
         mTable.notifyDataSetChanged();
+        scaningFile = true;
         new BackgroundWork(SCANFILES).execute(st);
     }
 
@@ -1727,7 +1816,7 @@ public class EventHandler implements OnClickListener, OnItemSelectedListener, On
 
     /**
      * Current folder is NFS Share, list all NFS Server
-     * 
+     *
      * @return
      */
     public boolean isNFSShare() {
@@ -1739,7 +1828,7 @@ public class EventHandler implements OnClickListener, OnItemSelectedListener, On
 
     /**
      * Current folder is NFS Server, list all Server shared folder
-     * 
+     *
      * @return
      */
     public boolean isNFSServer() {
@@ -2125,7 +2214,18 @@ public class EventHandler implements OnClickListener, OnItemSelectedListener, On
                     delDev();
                     break;
                 case R.id.umount_button:
-                    mDevices.doUmount(getDeviceSelectedPath());
+                    String volPath = getDeviceSelectedPath();
+                    if(mDevices.isInterStoragePath(volPath)){
+                        displayToast(mContext.getResources().getString(R.string.umount_internal));
+                        break;
+                    }
+                    new AsyncTask<Void, Void, Void>(){
+                        @Override
+                        protected Void doInBackground(Void... parmas){
+                            mDevices.doUmount(volPath);
+                            return null;
+                        }
+                    }.execute();
                     break;
                 default:
                     break;
@@ -2535,7 +2635,9 @@ public class EventHandler implements OnClickListener, OnItemSelectedListener, On
             switch (type) {
                 case SEARCH_TYPE:
                     return null;
+
                 case COPY_TYPE:
+                    int prePri = Thread.currentThread().getPriority();
                     copyFile = params[0];
                     newFile = params[1] + copyFile.substring(copyFile.lastIndexOf("/"));
 
@@ -2569,6 +2671,7 @@ public class EventHandler implements OnClickListener, OnItemSelectedListener, On
                         return null;
                     }
 
+                    Thread.currentThread().setPriority(5);
                     time = new Timer();
                     task = new TimerTask() {
                         @Override
@@ -2600,6 +2703,8 @@ public class EventHandler implements OnClickListener, OnItemSelectedListener, On
                         publishProgress(Integer.valueOf(DELETE_OLD_FILES));
                         fp.deleteTarget(params[0]);
                     }
+
+                    Thread.currentThread().setPriority(prePri);
                     return null;
                 case DELETE_TYPE:
                     deletedFile = params[0];
@@ -2718,13 +2823,13 @@ public class EventHandler implements OnClickListener, OnItemSelectedListener, On
                     break;
 
                 case SCANFILES:
-
                     isScanning = false;
                     if (time != null) {
                         time.cancel();
                     }
                     mDataSource.clear();
                     mDataSource.addAll(file);
+
                     sorting();
                     if (prDialog != null) {
                         prDialog.dismiss();
@@ -2748,6 +2853,12 @@ public class EventHandler implements OnClickListener, OnItemSelectedListener, On
                         }
                     } else {
                         list.setSelection(0);
+                    }
+                    scaningFile = false;
+                    if (scaningBack) {
+                        scaningBack = false;
+                        backToPreDir();
+                        return;
                     }
                     break;
                 default:

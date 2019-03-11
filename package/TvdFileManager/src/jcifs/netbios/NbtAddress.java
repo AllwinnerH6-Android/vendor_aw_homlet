@@ -354,7 +354,7 @@ public final class NbtAddress {
 
     /**
      * Retrieves the local host address.
-     * 
+     *
      * @throws UnknownHostException
      *             This is not likely as the IP returned by
      *             <code>InetAddress</code> should be available
@@ -374,7 +374,7 @@ public final class NbtAddress {
      * be a DNS name; the analygous {@link jcifs.UniAddress} or
      * {@link java.net.InetAddress} <code>getByName</code> methods can be used
      * for that.
-     * 
+     *
      * @param host
      *            hostname to resolve
      * @throws java.net.UnknownHostException
@@ -393,7 +393,7 @@ public final class NbtAddress {
      * still functional in other NetBIOS products and so for completeness it has
      * been implemented. A <code>scope</code> of <code>null</code> or
      * <code>""</code> signifies no scope.
-     * 
+     *
      * @param host
      *            the name to resolve
      * @param type
@@ -476,7 +476,7 @@ public final class NbtAddress {
      * many names for a given IP address. The name and IP address make the
      * NetBIOS address. This provides a way to retrieve the other names for a
      * host with the same IP address.
-     * 
+     *
      * @param host
      *            hostname to lookup all addresses for
      * @throws java.net.UnknownHostException
@@ -493,7 +493,7 @@ public final class NbtAddress {
      * NetBIOS address. This provides a way to retrieve the other names for a
      * host with the same IP address. See {@link #getByName} for a description
      * of <code>type</code> and <code>scope</code>.
-     * 
+     *
      * @param host
      *            hostname to lookup all addresses for
      * @param type
@@ -514,7 +514,7 @@ public final class NbtAddress {
      * many names for a given IP address. The name and IP address make the
      * NetBIOS address. This provides a way to retrieve the other names for a
      * host with the same IP address.
-     * 
+     *
      * @param addr
      *            the address to query
      * @throws UnknownHostException
@@ -662,23 +662,23 @@ public final class NbtAddress {
 
     /*
      * There are three degrees of state that any NbtAddress can have.
-     * 
+     *
      * 1) IP Address - If a dot-quad IP string is used with getByName (or used
      * to create an NbtAddress internal to this netbios package), no query is
      * sent on the wire and the only state this object has is it's IP address
      * (but that's enough to connect to a host using *SMBSERVER for
      * CallingName).
-     * 
+     *
      * 2) IP Address, NetBIOS name, nodeType, groupName - If however a legal
      * NetBIOS name string is used a name query request will retreive the IP,
      * node type, and whether or not this NbtAddress represents a group name.
      * This degree of state can be obtained with a Name Query Request or Node
      * Status Request.
-     * 
+     *
      * 3) All - The NbtAddress will be populated with all state such as mac
      * address, isPermanent, isBeingDeleted, ...etc. This information can only
      * be retrieved with the Node Status request.
-     * 
+     *
      * The degree of state that an NbtAddress has is dependant on how it was
      * created and what is required of it. The second degree of state is the
      * most common. This is the state information that would be retrieved from
@@ -703,7 +703,7 @@ public final class NbtAddress {
     /**
      * Determines if the address is a group address. This is also known as a
      * workgroup name or group name.
-     * 
+     *
      * @throws UnknownHostException
      *             if the host cannot be resolved to find out.
      */
@@ -715,12 +715,12 @@ public final class NbtAddress {
 
     /**
      * Checks the node type of this address.
-     * 
+     *
      * @return {@link jcifs.netbios.NbtAddress#B_NODE},
      *         {@link jcifs.netbios.NbtAddress#P_NODE},
      *         {@link jcifs.netbios.NbtAddress#M_NODE},
      *         {@link jcifs.netbios.NbtAddress#H_NODE}
-     * 
+     *
      * @throws UnknownHostException
      *             if the host cannot be resolved to find out.
      */
@@ -732,7 +732,7 @@ public final class NbtAddress {
 
     /**
      * Determines if this address in the process of being deleted.
-     * 
+     *
      * @throws UnknownHostException
      *             if the host cannot be resolved to find out.
      */
@@ -744,7 +744,7 @@ public final class NbtAddress {
 
     /**
      * Determines if this address in conflict with another address.
-     * 
+     *
      * @throws UnknownHostException
      *             if the host cannot be resolved to find out.
      */
@@ -756,7 +756,7 @@ public final class NbtAddress {
 
     /**
      * Determines if this address is active.
-     * 
+     *
      * @throws UnknownHostException
      *             if the host cannot be resolved to find out.
      */
@@ -768,7 +768,7 @@ public final class NbtAddress {
 
     /**
      * Determines if this address is set to be permanent.
-     * 
+     *
      * @throws UnknownHostException
      *             if the host cannot be resolved to find out.
      */
@@ -781,7 +781,7 @@ public final class NbtAddress {
     /**
      * Retrieves the MAC address of the remote network interface. Samba returns
      * all zeros.
-     * 
+     *
      * @return the MAC address as an array of six bytes
      * @throws UnknownHostException
      *             if the host cannot be resolved to determine the MAC address.
@@ -795,7 +795,7 @@ public final class NbtAddress {
     /**
      * The hostname of this address. If the hostname is null the local machines
      * IP address is returned.
-     * 
+     *
      * @return the text representation of the hostname associated with this
      *         address
      */
@@ -812,7 +812,7 @@ public final class NbtAddress {
     /**
      * Returns the raw IP address of this NbtAddress. The result is in network
      * byte order: the highest order byte of the address is in getAddress()[0].
-     * 
+     *
      * @return a four byte array
      */
 
@@ -828,7 +828,7 @@ public final class NbtAddress {
 
     /**
      * To convert this address to an <code>InetAddress</code>.
-     * 
+     *
      * @return the {@link java.net.InetAddress} representation of this address.
      */
 

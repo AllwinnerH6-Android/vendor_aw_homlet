@@ -2,7 +2,7 @@
 <resources>
     <string name="app_name">"文件管理器"</string>
     <string name="path">"目录"</string>
-    
+
     <string name="sort">"排序"</string>
     <string name="copy">"复制"</string>
     <string name="paste">"粘贴"</string>
@@ -12,7 +12,8 @@
     <string name="add_new_dev">"添加设备"</string>
     <string name="del_dev">"删除设备"</string>
     <string name="umount_dev">"卸载设备"</string>
-    
+    <string name="umount_internal">不能卸载本地存储</string>
+
     <string name="directory">"目录"</string>
     <string name="equipment">"设备"</string>
     <string name="video">"视频"</string>
@@ -21,7 +22,7 @@
     <string name="file">"全部"</string>
     <string name="open_file">"选择文件的类型"</string>
     <string name="text">"文档"</string>
-    
+
     <!-- length of string is 12 -->
     <string name="target">"目标: "</string>
     <string name="local_disk">"本地存储"</string>

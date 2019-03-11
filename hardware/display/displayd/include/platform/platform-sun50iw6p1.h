@@ -36,9 +36,12 @@ const int _hdmi_supported_modes[] = {
 
     DISP_TV_MOD_4096_2160P_50HZ,
     DISP_TV_MOD_4096_2160P_60HZ,
+};
 
-    /* should not display 3D Mode */
-    //DISP_TV_MOD_1080P_24HZ_3D_FP,
+const int _hdmi_supported_3d_modes[] = {
+    DISP_TV_MOD_720P_50HZ_3D_FP,
+    DISP_TV_MOD_720P_60HZ_3D_FP,
+    DISP_TV_MOD_1080P_24HZ_3D_FP,
 };
 
 const int _hdmi_perfect_modes[] = {

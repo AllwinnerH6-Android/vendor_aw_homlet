@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 import android.media.AudioManager;
+import android.util.Log;
 
 import com.softwinner.dragonbox.utils.AudioChannelUtil;
 import com.softwinner.dragonbox.R;
@@ -23,6 +24,7 @@ import com.softwinner.dragonbox.platform.AudioManagerProxy;
 public class CaseCvbs extends IBaseCase implements OnClickListener,
 		onResultChangeListener {
 
+    public static final String TAG = "DragonBox-CaseCvbs";
 	Button leftButtonPass;
 	Button leftButtonFail;
 	Button rightButtonPass;
@@ -134,6 +136,7 @@ public class CaseCvbs extends IBaseCase implements OnClickListener,
 
 	@Override
 	public void onStartCase() {
+        Log.w(TAG,"onStartCase CaseCvbs");
 		cvbsManager.changeToCvbs();//when supporting hdmi and cvbs output at the same time ,should delete this row.
         AudioChannelUtil.setOuputChannels(mContext, true,AudioManagerProxy.AUDIO_NAME_CODEC);
 		mHandler.sendEmptyMessage(WHAT_CHECK_CVBS_STATUS);
@@ -152,6 +155,7 @@ public class CaseCvbs extends IBaseCase implements OnClickListener,
 		mMinRightResultTV
 				.setText(cvbsManager.isRightPlaySuccess() ? R.string.case_cvbs_right_success
 						: R.string.case_cvbs_right_fail);
+        Log.w(TAG,"CaseCvbs test over, test result is "+getCaseResult());
 	}
 
 	@Override
@@ -166,9 +170,14 @@ public class CaseCvbs extends IBaseCase implements OnClickListener,
 	public void onClick(View view) {
 		switch (view.getId()) {
 		case R.id.case_cvbs_left_button_passed:
-			resetTest(false);
-			cvbsManager.setLeftPlaySuccess(true);
-			break;
+            cvbsManager.setLeftPlaySuccess(true);
+            Log.w(TAG,"CaseCvbs left play success");
+            try{
+                Thread.sleep(300);//休眠300ms，防止连击
+            }catch(Exception e){
+            }
+            resetTest(false);
+            break;
 		case R.id.case_cvbs_left_button_fail:
 			//对测试失败项进行确认
 			AlertDialog alertDialog = new AlertDialog.Builder(mContext).setMessage(R.string.confirm_test_fail)
@@ -177,6 +186,7 @@ public class CaseCvbs extends IBaseCase implements OnClickListener,
 						public void onClick(DialogInterface dialog, int which) {
 							resetTest(false);
 							cvbsManager.setLeftPlaySuccess(false);
+                            Log.w(TAG,"CaseCvbs left play fail");
 						}
 					}).setNegativeButton(R.string.confirm_no, new DialogInterface.OnClickListener() {
 
@@ -191,6 +201,7 @@ public class CaseCvbs extends IBaseCase implements OnClickListener,
 		case R.id.case_cvbs_right_button_passed:
 			cvbsManager.setRightPlaySuccess(true);
 			mMaxViewDialog.dismiss();
+            Log.w(TAG,"CaseCvbs right play success");
 			break;
 		case R.id.case_cvbs_right_button_fail:
 			//对测试失败项进行确认
@@ -200,6 +211,7 @@ public class CaseCvbs extends IBaseCase implements OnClickListener,
 						public void onClick(DialogInterface dialog, int which) {
 							cvbsManager.setRightPlaySuccess(false);
 							mMaxViewDialog.dismiss();
+                            Log.w(TAG,"CaseCvbs right play fail");
 						}
 					}).setNegativeButton(R.string.confirm_no, new DialogInterface.OnClickListener() {
 

@@ -48,7 +48,11 @@ public class AudioManagerEx extends AudioManager {
     }
 
     private static void writeFileVal(String filename, int avail){
-        SystemProperties.set(filename, String.valueOf(avail));
+        try {
+            SystemProperties.set(filename, String.valueOf(avail));
+        } catch (Throwable e) {
+            Log.e(TAG,"Failure set property "  +  filename + ", avail " + ", error " + e);
+        }
     }
 
     private static int readFileVal(String filename){

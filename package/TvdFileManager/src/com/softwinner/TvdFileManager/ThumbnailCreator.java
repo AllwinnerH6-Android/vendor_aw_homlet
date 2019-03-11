@@ -19,7 +19,7 @@ public class ThumbnailCreator {
 
     /**
      * 创建缩略图
-     * 
+     *
      * @param imageSrc
      * @return 返回null,如果这时无法获得缩略图
      */

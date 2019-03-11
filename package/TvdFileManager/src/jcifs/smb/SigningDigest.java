@@ -95,7 +95,7 @@ public class SigningDigest implements SmbConstants {
      * field of the SMB is overwritted with the sequence number; The MD5 digest
      * of the MAC signing key + the entire SMB is taken; The first 8 bytes of
      * this are placed in the signature field.
-     * 
+     *
      * @param data
      *            The data.
      * @param offset
@@ -130,7 +130,7 @@ public class SigningDigest implements SmbConstants {
     /**
      * Performs MAC signature verification. This calculates the signature of the
      * SMB and compares it to the signature field on the SMB itself.
-     * 
+     *
      * @param data
      *            The data.
      * @param offset

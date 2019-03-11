@@ -1,9 +1,0 @@
-#pppoe
-/system/bin/pppoe              u:object_r:start_pppoe_exec:s0
-/system/bin/pppoe-disconnect   u:object_r:stop_pppoe_exec:s0
-/system/bin/pppoe-connect      u:object_r:start_pppoe_exec:s0
-/data/misc/pppoe(/.*)?         u:object_r:pppoe_data_file:s0
-
-#net
-/sys/devices/platform/soc/gmac0/net/eth0(/.*)?  u:object_r:sysfs_net_eth0:s0 
-/sys/devices/platform/xradio_device.0/net/wlan0(/.*)?  u:object_r:sysfs_wlan0:s0 

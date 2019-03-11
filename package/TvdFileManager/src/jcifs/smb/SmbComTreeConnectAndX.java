@@ -35,7 +35,7 @@ class SmbComTreeConnectAndX extends AndXServerMessageBlock {
 
     /*
      * batchLimits indecies
-     * 
+     *
      * 0 = SMB_COM_CHECK_DIRECTORY 2 = SMB_COM_CREATE_DIRECTORY 3 =
      * SMB_COM_DELETE 4 = SMB_COM_DELETE_DIRECTORY 5 = SMB_COM_OPEN_ANDX 6 =
      * SMB_COM_RENAME 7 = SMB_COM_TRANSACTION 8 = SMB_COM_QUERY_INFORMATION

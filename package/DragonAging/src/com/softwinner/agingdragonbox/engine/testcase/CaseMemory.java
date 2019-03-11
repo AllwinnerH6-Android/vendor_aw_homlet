@@ -4,6 +4,7 @@ import android.content.SharedPreferences;
 import android.os.Handler;
 import android.os.Message;
 import android.os.storage.StorageManager;
+import android.os.SystemProperties;
 import android.util.Log;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
@@ -27,6 +28,7 @@ import com.softwinner.agingdragonbox.R;
 import com.softwinner.agingdragonbox.ThreadVar;
 import com.softwinner.agingdragonbox.engine.BaseCase;
 import com.softwinner.agingdragonbox.xml.Node;
+import com.softwinner.agingdragonbox.engine.Utils;
 
 public class CaseMemory extends BaseCase {
 
@@ -53,6 +55,7 @@ public class CaseMemory extends BaseCase {
     private static final int         HANDLER_PROGRESS      = 2;
     private ProgressBar              mProgressBar;
     private TextView                 mResultTextView;
+    private TextView                 mTitleTextView;//title+aging time
     private TextView                 outputWindow;
     private ScrollView               svMeminfo;   
     private boolean                  threadExitDdr;
@@ -60,7 +63,7 @@ public class CaseMemory extends BaseCase {
     StringBuilder                    sb                    = new StringBuilder();
     String                           cmd;
     private boolean                  isShow;
-    private static final int         MAX_INFO_LINE         = 500;
+    private static final int         MAX_INFO_LINE         = 50;
     private int                      currentLine           = 0;
 
     private static int               ledTime               = 500;
@@ -148,10 +151,29 @@ public class CaseMemory extends BaseCase {
 
     private void refeshOutputWindow() {
         outputWindow.setText(sb.toString());
+        if(mTitleTextView!=null){
+            String title = mContext.getResources().getString(R.string.memory_testing);
+            int agingtime = SystemProperties.getInt(Utils.PROPERTY_DRAGONAGING_TIME,0);
+            mTitleTextView.setText(title+"  "+formatTime(agingtime));
+        }
         svMeminfo.fullScroll(ScrollView.FOCUS_DOWN);
         if (isShow) {
             myHandler.sendEmptyMessageDelayed(HANDLER_UPDATE_OUTPUT, 1000);
         }
+    }
+
+    private String formatTime(int millionSeconds){
+        int msRemained = millionSeconds%1000;//毫秒余数
+        int secondsTotal = millionSeconds/1000;//总秒数
+        int secondsRemained = secondsTotal%60;//秒余数
+        int minutesTotal = secondsTotal/60;//总分钟数
+        int minutesRemained = minutesTotal%60;//分钟余数
+        int hours = minutesTotal/60;//总小时数
+        if(msRemained!=0)
+            return hours+"小时"+minutesRemained+"分"+secondsRemained+"秒"+msRemained;
+        else if(secondsRemained!=0)
+            return hours+"小时"+minutesRemained+"分"+secondsRemained+"秒";
+        else return hours+"小时"+minutesRemained+"分";
     }
 
     class TestRunnable implements Runnable {
@@ -340,6 +362,7 @@ public class CaseMemory extends BaseCase {
         setView(R.layout.memory_test);
         setName(R.string.case_memory_name);
         outputWindow = (TextView) getView().findViewById(R.id.output_window);
+        mTitleTextView = (TextView) getView().findViewById(R.id.memory_result_textview);
         svMeminfo = (ScrollView) getView().findViewById(R.id.sv_meminfo);
     }
 

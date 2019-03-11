@@ -1,16 +1,16 @@
 /* jcifs smb client library in Java
  * Copyright (C) 2000  "Michael B. Allen" <jcifs at samba dot org>
- * 
+ *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
  * version 2.1 of the License, or (at your option) any later version.
- * 
+ *
  * This library is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
  * Lesser General Public License for more details.
- * 
+ *
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
@@ -443,7 +443,7 @@ class NameServiceClient implements Runnable {
                                     ioe.printStackTrace(log);
                                 throw new UnknownHostException(name.name);
                             }
-                            if (response.received && response.resultCode == 0) {
+                            if (response.received && response.resultCode == 0 && response.addrEntry.length > 0) {
 
                                 /*
                                  * Before we return, in anticipation of this
@@ -501,7 +501,7 @@ class NameServiceClient implements Runnable {
                  * lookup for FOO fails and caches unknownAddress for FOO, a
                  * subsequent lookup for FOO using BCAST should not fail because
                  * of that name cached from WINS.
-                 * 
+                 *
                  * So, here we apply the source addresses hashCode to each name
                  * to make them specific to who resolved the name.
                  */

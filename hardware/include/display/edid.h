@@ -55,6 +55,11 @@ enum sink_type_e {
     SINK_TYPE_HDMI = 2,
 };
 
+enum hdmi_registration_identifier_e {
+    HDMI1X_Version = 0x000C03,
+    HDMI20_Version = 0xC45DD8,
+};
+
 class EdidParser {
 public:
     EdidParser(const char *path);
@@ -141,6 +146,7 @@ private:
     int m3Dpresent;
     int mRGBOnly;
     int mSinkType;
+    int mHDMIVersion;
     std::vector<videoInformationCode *> mHdmi4k2kVIC;
 
     /* HDMI 2.0 HF-VSDB */

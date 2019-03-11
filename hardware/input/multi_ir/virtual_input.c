@@ -305,7 +305,7 @@ int setup_virtual_input_dev(char *inputdev_name)
 	memset(&virtual_inputdev, 0, sizeof(virtual_inputdev));
 	strncpy(virtual_inputdev.name, inputdev_name, UINPUT_MAX_NAME_SIZE);
 	virtual_inputdev.id.version = 4;
-	virtual_inputdev.id.bustype = BUS_USB;
+	virtual_inputdev.id.bustype = BUS_HOST;
 
     ioctl(uinputfd, UI_SET_EVBIT, EV_KEY);
    	ioctl(uinputfd, UI_SET_EVBIT, EV_MSC);

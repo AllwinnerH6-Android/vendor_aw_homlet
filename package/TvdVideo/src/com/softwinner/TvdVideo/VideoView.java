@@ -275,15 +275,18 @@ public class VideoView extends SurfaceView implements MediaPlayerControl,
             public void onAudioFocusChange(int focusChange) {
                 if (focusChange == AudioManager.AUDIOFOCUS_LOSS_TRANSIENT) {
                         // Pause playback
-                        pause();
+                       Log.v(TAG,"AudioManager.AUDIOFOCUS_LOSS_TRANSIENT");
+                       //pause();
                 } else if (focusChange == AudioManager.AUDIOFOCUS_GAIN) {
                         // Resume playback
+                        Log.v(TAG,"AudioManager.AUDIOFOCUS_GAIN");
                         resume();
                 } else if (focusChange == AudioManager.AUDIOFOCUS_LOSS) {
                         // mAm.unregisterMediaButtonEventReceiver(RemoteControlReceiver);
+                        Log.v(TAG,"AudioManager.AUDIOFOCUS_LOSS");
                         mAm.abandonAudioFocus(afChangeListener);
                         // Stop playback
-                        stopPlayback();
+                        //stopPlayback();
                 }
 
             }
@@ -299,6 +302,12 @@ public class VideoView extends SurfaceView implements MediaPlayerControl,
     public void setVideoURI(Uri uri) {
         setVideoURI(uri, null);
     }
+    public void setSilentVolume() {
+        if(mMediaPlayer!=null){
+            mMediaPlayer.setVolume(0,0);
+        }
+    }
+
 
     /**
      * @hide
@@ -497,6 +506,9 @@ public class VideoView extends SurfaceView implements MediaPlayerControl,
             // Modify by HM
             mMediaPlayer.setDisplay(mSurfaceHolder);
             mMediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
+            if( ((Activity)mContext).isInPictureInPictureMode()){
+               mMediaPlayer.setVolume(0,0);
+            }
             mMediaPlayer.setScreenOnWhilePlaying(true);
             mIsPreparing = true;
             mMediaPlayer.prepareAsync();
@@ -627,24 +639,24 @@ public class VideoView extends SurfaceView implements MediaPlayerControl,
                 } else {
                     getHolder().setFixedSize(1920, 1080);
                 }
-                if ((mSurfaceWidth == mVideoWidth && mSurfaceHeight == mVideoHeight)
-                        || mVideoHeight > 1080) {
-                    // We didn't actually change the size (it was already at the
-                    // size
-                    // we need), so we won't get a "surface changed" callback,
-                    // so
-                    // start the video here instead of in the callback.
-                    if (mTargetState == STATE_PLAYING) {
-                        start();
-                        if (mMediaController != null) {
-                            mMediaController.show();
-                        }
-                    } else if (!isPlaying() && (seekToPosition != 0 || getCurrentPosition() > 0)) {
-                        if (mMediaController != null) {
-                            // Show the media controls when we're paused into a
-                            // video and make 'em stick.
-                            mMediaController.show(0);
-                        }
+	    }
+	    if ((mSurfaceWidth == mVideoWidth && mSurfaceHeight == mVideoHeight)
+			    || mVideoHeight > 1080) {
+                // We didn't actually change the size (it was already at the
+                // size
+                // we need), so we won't get a "surface changed" callback,
+                // so
+                // start the video here instead of in the callback.
+                if (mTargetState == STATE_PLAYING) {
+                    start();
+                    if (mMediaController != null) {
+                        mMediaController.show();
+                    }
+                } else if (!isPlaying() && (seekToPosition != 0 || getCurrentPosition() > 0)) {
+                    if (mMediaController != null) {
+                        // Show the media controls when we're paused into a
+                        // video and make 'em stick.
+                        mMediaController.show(0);
                     }
                 }
             } else {
@@ -893,7 +905,6 @@ public class VideoView extends SurfaceView implements MediaPlayerControl,
                 if (mSeekWhenPrepared != 0) {
                     seekTo(mSeekWhenPrepared);
                 }
-                start();
                 if (mMediaController != null) {
                     if (mMediaController.isShowing()) {
                         // ensure the controller will get repositioned later
@@ -1014,15 +1025,21 @@ public class VideoView extends SurfaceView implements MediaPlayerControl,
     }
 
     public void start() {
-      if(requestAudioFocus()){
-        if (isInPlaybackState()) {
+        if(((Activity)mContext).isInPictureInPictureMode()){
+           play();
+        }else{
+           if(requestAudioFocus()){
+              play();
+           }
+        }
+    }
+    public void play(){
+       if (isInPlaybackState()) {
             mMediaPlayer.start();
             mCurrentState = STATE_PLAYING;
-        }
-        mTargetState = STATE_PLAYING;
-      }
+          }
+          mTargetState = STATE_PLAYING;
     }
-
     public void pause() {
         if (isInPlaybackState()) {
             if (mMediaPlayer.isPlaying()) {

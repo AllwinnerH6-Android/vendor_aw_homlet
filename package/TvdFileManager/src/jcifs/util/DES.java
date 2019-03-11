@@ -64,7 +64,7 @@ import java.io.*;
 
 /**
  * This code is derived from the above source JCIFS API Norbert Hranitzky
- * 
+ *
  * <p>
  * and modified again by Michael B. Allen
  */

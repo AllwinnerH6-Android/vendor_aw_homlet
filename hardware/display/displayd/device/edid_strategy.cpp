@@ -61,7 +61,6 @@ int dispmode2vic(int mode)
 EdidStrategy::EdidStrategy()
   : mParser("/sys/class/hdmi/hdmi/attr/edid")
 {
-
 }
 
 int EdidStrategy::update()
@@ -70,6 +69,11 @@ int EdidStrategy::update()
     ret = mParser.reload();
     property_set("vendor.sys.tv_vdid_fex", mParser.mMonitorName);
     return ret;
+}
+
+int EdidStrategy::getHDMIVersion()
+{
+    return mParser.mHDMIVersion;
 }
 
 /*
@@ -115,6 +119,8 @@ int EdidStrategy::checkAndCorrectDeviceConfig(struct disp_device_config *config)
         config->mode == DISP_TV_MOD_4096_2160P_60HZ ||
         config->mode == DISP_TV_MOD_4096_2160P_50HZ) {
         /* for 2160P60/2160P50 , perfer to YUV420 */
+        if (pixelformat != DISP_CSC_TYPE_YUV420)
+            dirty++;
         pixelformat = config->format = DISP_CSC_TYPE_YUV420;
     }
     if (config->format == DISP_CSC_TYPE_YUV420) {
@@ -132,7 +138,18 @@ int EdidStrategy::checkAndCorrectDeviceConfig(struct disp_device_config *config)
         config->format = (enum disp_csc_type)pixelformat;
     }
 
-    int bits = checkSamplingBits(config->format, config->bits);
+    /* bits detech */
+    int bits = config->bits;
+    if (config->mode == DISP_TV_MOD_3840_2160P_60HZ ||
+        config->mode == DISP_TV_MOD_3840_2160P_50HZ ||
+        config->mode == DISP_TV_MOD_4096_2160P_60HZ ||
+        config->mode == DISP_TV_MOD_4096_2160P_50HZ) {
+        /* for 2160P60/2160P50 , perfer to 8bits */
+        if (bits != DISP_DATA_8BITS)
+            dirty++;
+        bits = config->bits = DISP_DATA_8BITS;
+    }
+    bits = checkSamplingBits(config->format, config->bits);
     if (config->bits != bits) {
         dirty++;
         config->bits = (enum disp_data_bits)bits;

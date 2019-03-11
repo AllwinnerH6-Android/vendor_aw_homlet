@@ -1,17 +1,17 @@
 /* jcifs msrpc client library in Java
  * Copyright (C) 2006  "Michael B. Allen" <jcifs at samba dot org>
  *                     "Eric Glass" <jcifs at samba dot org>
- * 
+ *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
  * version 2.1 of the License, or (at your option) any later version.
- * 
+ *
  * This library is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
  * Lesser General Public License for more details.
- * 
+ *
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
@@ -32,11 +32,11 @@ public abstract class DcerpcHandle implements DcerpcConstants {
     /*
      * Bindings are in the form: proto:\\server[key1=val1,key2=val2] or
      * proto:server[key1=val1,key2=val2] or proto:[key1=val1,key2=val2]
-     * 
+     *
      * If a key is absent it is assumed to be 'endpoint'. Thus the following are
      * equivalent: proto:\\ts0.win.net[endpoint=\pipe\srvsvc]
      * proto:ts0.win.net[\pipe\srvsvc]
-     * 
+     *
      * If the server is absent it is set to "127.0.0.1"
      */
     protected static DcerpcBinding parseBinding(String str) throws DcerpcException {

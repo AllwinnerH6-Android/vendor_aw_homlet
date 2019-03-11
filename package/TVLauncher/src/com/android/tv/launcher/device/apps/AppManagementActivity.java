@@ -86,7 +86,7 @@ public class AppManagementActivity extends DialogActivity implements ActionAdapt
         mDefaultClearer = new DefaultClearer(this, mAppInfo);
         mCacheClearer = new CacheClearer(this, mAppInfo);
         //add by zhangmm 17/03/21:Fix bug:there are not data size and cache size shown before clear cache
-        //mApplicationsState.requestSize(mPackageName);
+        mApplicationsState.requestSize(mPackageName);
         mActionFragment = ActionFragment.newInstance(getActions());
 
         setContentAndActionFragments(ContentFragment.newInstance(mAppInfo.getName(),
@@ -205,6 +205,7 @@ public class AppManagementActivity extends DialogActivity implements ActionAdapt
 
     @Override
     public void onPackageSizeChanged(String packageName) {
+        updateActions();
     }
 
     @Override
@@ -218,8 +219,8 @@ public class AppManagementActivity extends DialogActivity implements ActionAdapt
             mApplicationsState.requestSize(mPackageName);
         } else {
             Log.w(TAG, "Failed to clear data!");
-            updateActions();
         }
+        //updateActions();
     }
 
     @Override
@@ -233,8 +234,8 @@ public class AppManagementActivity extends DialogActivity implements ActionAdapt
             mApplicationsState.requestSize(mPackageName);
         } else {
             Log.w(TAG, "Failed to clear cache!");
-            updateActions();
         }
+        //updateActions();
     }
 
     private void onInit(ActionType actionType, Action action) {

@@ -13,6 +13,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Handler;
 import android.util.TypedValue;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup.LayoutParams;
@@ -30,6 +31,7 @@ import com.softwinner.dragonbox.platform.AudioManagerProxy;
 
 public class CaseCvbsFool extends IBaseCase implements OnClickListener,
 		onResultChangeListener {
+    public static final String TAG = "DragonBox-CaseCvbsFool";
 	private static final int BUTTON_NUMBER = 5;
 	private static final int FONT_SIZE = 28;//按钮字体大小
 	private List<Button> lstLeftButton = new ArrayList<Button>();
@@ -192,6 +194,7 @@ public class CaseCvbsFool extends IBaseCase implements OnClickListener,
 
 	@Override
 	public void onStartCase() {
+        Log.w(TAG,"onStartCase CaseCvbsFool");
 		cvbsManager.changeToCvbs();//when supporting hdmi and cvbs output at the same time ,should delete this row.
         AudioChannelUtil.setOuputChannels(mContext, true,AudioManagerProxy.AUDIO_NAME_CODEC);
 		mHandler.sendEmptyMessage(WHAT_CHECK_CVBS_STATUS);
@@ -203,6 +206,7 @@ public class CaseCvbsFool extends IBaseCase implements OnClickListener,
 		cvbsManager.changeToHdmi();
 		cvbsManager.stopPlaying();
 		setCaseResult(cvbsManager.getResult());
+        Log.w(TAG,"CaseCvbsFool test over, test result is "+getCaseResult());
         AudioChannelUtil.setOuputChannels(mContext, false,AudioManagerProxy.AUDIO_NAME_CODEC);
 		mMinLeftResultTV
 				.setText(cvbsManager.isLeftPlaySuccess() ? R.string.case_cvbs_left_success
@@ -231,6 +235,7 @@ public class CaseCvbsFool extends IBaseCase implements OnClickListener,
 			int index = lstLeftButton.indexOf(button);
 			if ((index+1) == leftMusic) {
 				cvbsManager.setLeftPlaySuccess(true);
+                Log.w(TAG,"CaseCvbsFool left channel test result success");
                 try{
                     Thread.sleep(300);//休眠300ms，防止连击
                 }catch(Exception e){
@@ -242,6 +247,7 @@ public class CaseCvbsFool extends IBaseCase implements OnClickListener,
 						.setPositiveButton(R.string.confirm_yes, new DialogInterface.OnClickListener() {
 							@Override
 							public void onClick(DialogInterface dialog, int which) {
+                                Log.w(TAG,"CaseCvbsFool left channel test result fail,should choose "+leftMusic+",but choose "+(index+1)+" in fact");
 								resetTest(false);
 								cvbsManager.setLeftPlaySuccess(false);
 							}
@@ -258,6 +264,7 @@ public class CaseCvbsFool extends IBaseCase implements OnClickListener,
 		} else {
 			int index = lstRightButton.indexOf(button);
 			if ((index+1) == rightMusic) {
+                Log.w(TAG,"CaseCvbsFool right channel test result success");
 				cvbsManager.setRightPlaySuccess(true);
 				mMaxViewDialog.dismiss();
 			} else {
@@ -266,6 +273,7 @@ public class CaseCvbsFool extends IBaseCase implements OnClickListener,
 						.setPositiveButton(R.string.confirm_yes, new DialogInterface.OnClickListener() {
 							@Override
 							public void onClick(DialogInterface dialog, int which) {
+                                Log.w(TAG,"CaseCvbsFool right channel test result fail,should choose "+rightMusic+",but choose "+(index+1)+" in fact");
 								cvbsManager.setRightPlaySuccess(false);
 								mMaxViewDialog.dismiss();
 							}

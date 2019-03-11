@@ -7,10 +7,12 @@ genfscon cifs / u:object_r:cifs:s0
 genfscon nfs / u:object_r:nfs:s0
 genfscon proc /sunxi_ir_protocol u:object_r:proc_ir:s0
 genfscon sysfs /devices/virtual/disp/disp/attr u:object_r:sysfs_disp:s0
-genfscon sysfs /devices/platform/soc/ u:object_r:sysfs_soc:s0
 genfscon sysfs /class/disp/disp/attr u:object_r:sysfs_disp:s0
 genfscon sysfs /class/gpio_sw/ u:object_r:sysfs_gpio:s0
 genfscon sysfs /devices/platform/gpio_sw.0/ u:object_r:sysfs_gpio:s0
 genfscon sysfs /devices/platform/gpio_sw.1/ u:object_r:sysfs_gpio:s0
+genfscon sysfs /devices/platform/soc/hdmi u:object_r:sysfs_hdmi:s0
+genfscon sysfs /devices/platform/soc/twi3/i2c-3/3-0010/tv/extcon/cvbs u:object_r:sysfs_cvbs:s0
+genfscon sysfs /devices/virtual/hdmi/hdmi/attr/hpd_mask u:object_r:sysfs_hpd:s0
 genfscon sysfs /devices/virtual/hdmi/hdmi/attr/edid u:object_r:sysfs_edid:s0
 genfscon sysfs /class/hdmi/hdmi/attr/edid u:object_r:sysfs_edid:s0

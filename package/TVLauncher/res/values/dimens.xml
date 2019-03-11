@@ -27,6 +27,7 @@
     <dimen name="browse_item_description_marginBottom">9dp</dimen>
     <!-- 20dp between lines + 12dp below text - 3dp of font padding = 29dp -->
     <dimen name="browse_item_title_marginBottom">29dp</dimen>
+    <dimen name="browse_item_title_marginTop">90dp</dimen>
 
     <dimen name="text_size_heading">48sp</dimen>
     <dimen name="text_size_heading2">36sp</dimen>

@@ -61,7 +61,7 @@ ifeq (H6, $(SW_CHIP_PLATFORM))
     LOCAL_JAVA_LIBRARIES:= org.apache.http.legacy.boot
     endif
     ifneq (,$(filter 9%,$(PLATFORM_VERSION)))
-    LOCAL_SRC_FILES += $(call all-java-files-under, platform/AndroidN)
+    LOCAL_SRC_FILES += $(call all-java-files-under, platform/AndroidP)
     LOCAL_JAVA_LIBRARIES:= org.apache.http.legacy.boot
     LOCAL_PRIVATE_PLATFORM_APIS := true
     LOCAL_STATIC_JAVA_LIBRARIES += libgpio softwinner.audio.static libsystemmix

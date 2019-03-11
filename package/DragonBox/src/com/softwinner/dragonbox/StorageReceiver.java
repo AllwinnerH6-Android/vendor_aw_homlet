@@ -47,6 +47,7 @@ public class StorageReceiver extends BroadcastReceiver {
         if(ConfigManager.isConfigFileExist(context,ConfigManager.CONFIG_USB_DEVICE)){
             SystemProperties.set("persist.sys.usb.config","mtp,adb");
             SystemProperties.set("persist.sys.usb0device","1");
+            SystemProperties.set("persist.vendor.usb0device","1");
             return;
         }
 		if (ConfigManager.isConfigFileExist(context, "/DragonBox/TimeCamera")) {

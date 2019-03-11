@@ -34,7 +34,7 @@ public class FileOperate {
     }
 
     /**
-     * 
+     *
      * @param old
      *            the file to be copied
      * @param newDir
@@ -72,7 +72,7 @@ public class FileOperate {
                     }
 
                     oStream.write(data, 0, read);
-                    SystemClock.sleep(5);
+                    SystemClock.sleep(2); //sleep 5ms -> 2ms
                     copySize += read;
                 }
                 oStream.flush();

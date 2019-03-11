@@ -208,8 +208,8 @@ public class DisplayController extends Dialog implements SeekBar.OnSeekBarChange
 
     private void setLayoutSelected(int index) {
         for (int i = 0; i < MAX_CTRL; i++)
-            mLayout[i].setBackgroundColor(0x3f666666);
-        mLayout[index].setBackgroundColor(0x70ffffff);
+            mLayout[i].setBackgroundColor(0x70666666);
+        mLayout[index].setBackgroundColor(0xc00845cc);
     }
 
     private void setAllSeekBarState(boolean state){
@@ -395,6 +395,9 @@ public class DisplayController extends Dialog implements SeekBar.OnSeekBarChange
     @Override
     public void onStart(){
         Log.d(TAG, "onStart");
+        //set current Index to 0 when menu show, otherwise the ctrl index will different with focus.
+        mCtrlIndex = 0;
+        setLayoutSelected(mCtrlIndex);
         syncControllerState();
     }
 
@@ -402,7 +405,7 @@ public class DisplayController extends Dialog implements SeekBar.OnSeekBarChange
     public void dismiss() {
         Log.d(TAG, "on dismiss");
         super.dismiss();
-    }   
+    }
 
     public void onStopTrackingTouch(SeekBar seekBar) {}
 

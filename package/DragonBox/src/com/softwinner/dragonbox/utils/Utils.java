@@ -265,13 +265,31 @@ public class Utils {
                 Log.d(TAG,"set property success,stop invoke setpropperty method");
                 break;
             }
-            try {
-                Thread.sleep(100);
-            } catch (InterruptedException e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
-            }
+            //try {
+            //    Thread.sleep(100);
+            //} catch (InterruptedException e) {
+            //    // TODO Auto-generated catch block
+            //    e.printStackTrace();
+            //}
         }
 
+    }
+    /**
+     *格式化DragonAging的老化时长
+     *@param millionSeconds DragonAging当前的老化时长
+     *@return 格式：xx小时xx分
+     */
+    public static String formatTime(int millionSeconds){
+        int msRemained = millionSeconds%1000;//毫秒余数
+        int secondsTotal = millionSeconds/1000;//总秒数
+        int secondsRemained = secondsTotal%60;//秒余数
+        int minutesTotal = secondsTotal/60;//总分钟数
+        int minutesRemained = minutesTotal%60;//分钟余数
+        int hours = minutesTotal/60;//总小时数
+        if(msRemained!=0)
+            return hours+"小时"+minutesRemained+"分"+secondsRemained+"秒"+msRemained;
+        else if(secondsRemained!=0)
+            return hours+"小时"+minutesRemained+"分"+secondsRemained+"秒";
+        else return hours+"小时"+minutesRemained+"分";
     }
 }

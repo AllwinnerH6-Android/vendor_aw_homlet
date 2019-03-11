@@ -38,7 +38,7 @@ public abstract class NtlmMessage implements NtlmFlags {
 
     /**
      * Returns the flags currently in use for this message.
-     * 
+     *
      * @return An <code>int</code> containing the flags in use for this message.
      */
     public int getFlags() {
@@ -47,7 +47,7 @@ public abstract class NtlmMessage implements NtlmFlags {
 
     /**
      * Sets the flags for this message.
-     * 
+     *
      * @param flags
      *            The flags for this message.
      */
@@ -57,7 +57,7 @@ public abstract class NtlmMessage implements NtlmFlags {
 
     /**
      * Returns the status of the specified flag.
-     * 
+     *
      * @param flag
      *            The flag to test (i.e., <code>NTLMSSP_NEGOTIATE_OEM</code>).
      * @return A <code>boolean</code> indicating whether the flag is set.
@@ -68,7 +68,7 @@ public abstract class NtlmMessage implements NtlmFlags {
 
     /**
      * Sets or clears the specified flag.
-     * 
+     *
      * @param flag
      *            The flag to set/clear (i.e.,
      *            <code>NTLMSSP_NEGOTIATE_OEM</code>).
@@ -125,7 +125,7 @@ public abstract class NtlmMessage implements NtlmFlags {
 
     /**
      * Returns the raw byte representation of this message.
-     * 
+     *
      * @return A <code>byte[]</code> containing the raw message material.
      */
     public abstract byte[] toByteArray();

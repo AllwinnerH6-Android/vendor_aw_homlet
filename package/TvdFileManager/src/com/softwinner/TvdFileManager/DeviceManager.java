@@ -14,6 +14,7 @@ import android.os.ServiceManager;
 import android.os.storage.IStorageManager;
 import android.os.storage.StorageVolume;
 import android.os.storage.StorageManager;
+import android.os.storage.VolumeInfo;
 import android.util.Log;
 
 import java.io.File;
@@ -24,9 +25,9 @@ import jcifs.util.LocalNetwork;
 
 /**
  * manager of flash,sdcard,usbhost
- * 
+ *
  * @author chenjd
- * 
+ *
  */
 public class DeviceManager {
 
@@ -98,7 +99,7 @@ public class DeviceManager {
 
     /**
      * 获取总设备的列表
-     * 
+     *
      * @return
      */
     public ArrayList<StorageVolume> getLocalDevicesList() {
@@ -290,8 +291,17 @@ public class DeviceManager {
     }
 
     public void doUmount(String path) {
+        String volId = null;
         try {
-            mMountService.unmount(path);
+            VolumeInfo[] vols = mMountService.getVolumes(0);
+            for(int i = 0; i < vols.length; i++){
+                final VolumeInfo vol = vols[i];
+                if (vol.path != null && path.startsWith(vol.path)) {
+                    volId = vol.id;
+                }
+            }
+            if(volId != null)
+                mMountService.unmount(volId);
         } catch (RemoteException e) {
             e.printStackTrace();
         }

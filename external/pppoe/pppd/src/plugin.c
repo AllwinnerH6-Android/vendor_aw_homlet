@@ -267,17 +267,12 @@ PPPOEDisconnectDevice(void)
     memcpy(sp.sa_addr.pppoe.dev, conn->ifName, IFNAMSIZ);
     memcpy(sp.sa_addr.pppoe.remote, conn->peerEth, ETH_ALEN);
     if (connect(conn->sessionSocket, (struct sockaddr *) &sp,
-		sizeof(struct sockaddr_pppox)) < 0) {
-	fatal("Failed to disconnect PPPoE socket: %d %m", errno);
-	return;
-    }
+               sizeof(struct sockaddr_pppox)) < 0)
+    error("Failed to disconnect PPPoE socket: %d %m", errno);
     close(conn->sessionSocket);
-    if (conn->discoverySocket >= 0) {
-        /* PPPoE disconnect device, Sent PADT */
-        info("send PADT beforce disconnect pppoe");
-        sendPADT(conn, "PPPoE disconnect device");
-        close(conn->discoverySocket);
-    }
+    /* don't send PADT?? */
+    if (conn->discoverySocket >= 0)
+    close(conn->discoverySocket);
 }
 
 static void

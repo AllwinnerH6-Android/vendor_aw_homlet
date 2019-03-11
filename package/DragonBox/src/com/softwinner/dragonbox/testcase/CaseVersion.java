@@ -15,6 +15,7 @@ import com.softwinner.dragonbox.entity.VersionInfoMore;
 import com.softwinner.dragonbox.manager.VersionManager;
 
 public class CaseVersion extends IBaseCase {
+    public static final String TAG = "DragonBox-CaseVersion";
 	public VersionManager versiomManager;
 
 	private TextView mMinFireware;
@@ -84,6 +85,7 @@ public class CaseVersion extends IBaseCase {
 
 	@Override
 	public void onStartCase() {
+        Log.w(TAG,"onStartCase CaseVersion");
 		updateView();
 		setDialogPositiveButtonEnable(false);
 	}
@@ -143,6 +145,7 @@ public class CaseVersion extends IBaseCase {
 		boolean result = confInfo.equals(sysInfo);
 		stopCase();
 		setCaseResult(result);
+        Log.w(TAG,"CaseVersion test over ,test result is "+getCaseResult());
 		setDialogPositiveButtonEnable(result);
 	}
 

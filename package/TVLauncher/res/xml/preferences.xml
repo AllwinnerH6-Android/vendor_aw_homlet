@@ -20,16 +20,16 @@
         android:key="date_time"
         android:title="@string/system_date_time" >
         <intent
-            android:targetClass="com.android.tv.launcher.system.DateTimeActivity"
-            android:targetPackage="com.android.tv.launcher" />
+            android:targetClass="com.android.tv.settings.system.DateTimeActivity"
+            android:targetPackage="com.android.tv.settings" />
     </Preference>
     <Preference
         android:icon="@drawable/aw_language_icon"
         android:key="language"
         android:title="@string/system_language" >
         <intent
-            android:targetClass="com.android.tv.launcher.system.LanguageActivity"
-            android:targetPackage="com.android.tv.launcher" />
+            android:targetClass="com.android.tv.settings.system.LanguageActivity"
+            android:targetPackage="com.android.tv.settings" />
     </Preference>
     
     <Preference
@@ -37,16 +37,25 @@
         android:key="keyboard"
         android:title="@string/system_security" >
         <intent
-            android:targetClass="com.android.tv.launcher.system.SecurityActivity"
-            android:targetPackage="com.android.tv.launcher" />
+            android:targetClass="com.android.tv.settings.system.SecurityActivity"
+            android:targetPackage="com.android.tv.settings" />
     </Preference>
     
-    <Preference
+    <!--<Preference
         android:icon="@drawable/aw_settings_developeroptions"
         android:key="developer"
         android:title="@string/system_developer_options" >
         <intent
-            android:targetClass="com.android.tv.launcher.system.DeveloperOptionsActivity"
-            android:targetPackage="com.android.tv.launcher" />
+            android:targetClass="com.android.tv.settings.system.DeveloperOptionsActivity"
+            android:targetPackage="com.android.tv.settings" />
+    </Preference>-->
+
+    <Preference
+        android:icon="@drawable/aw_about_icon"
+        android:key="about_device"
+        android:title="@string/about_preference">
+        <intent
+            android:targetClass="com.android.tv.settings.about.AboutActivity"
+            android:targetPackage="com.android.tv.settings" />
     </Preference>
 </PreferenceScreen>

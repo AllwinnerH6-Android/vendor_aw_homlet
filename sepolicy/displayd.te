@@ -36,9 +36,12 @@ allow displayd sunxi_displayd_hwservice:hwservice_manager {add};
 allow displayd hidl_base_hwservice:hwservice_manager {add};
 allow displayd hal_graphics_composer_default:binder {call transfer};
 #allow displayd default_prop:file {read};
-allow displayd sysfs_soc:file {read open getattr};
-allow displayd sysfs_soc:dir {search};
+allow displayd sysfs:file {read open getattr};
+allow displayd sysfs_cvbs:file {read open getattr};
+allow displayd sysfs_cvbs:dir {search};
 allow displayd sysfs_edid:file { getattr open read };
+allow displayd sysfs_hdmi:file {read open getattr};
+allow displayd sysfs_hdmi:dir {search};
 
 #============= vndservicemanager ==============
 allow vndservicemanager displayd:dir search;

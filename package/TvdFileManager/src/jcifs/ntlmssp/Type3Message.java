@@ -92,7 +92,7 @@ public class Type3Message extends NtlmMessage {
     /**
      * Creates a Type-3 message in response to the given Type-2 message using
      * default values from the current environment.
-     * 
+     *
      * @param type2
      *            The Type-2 message which this represents a response to.
      */
@@ -134,7 +134,7 @@ public class Type3Message extends NtlmMessage {
 
     /**
      * Creates a Type-3 message in response to the given Type-2 message.
-     * 
+     *
      * @param type2
      *            The Type-2 message which this represents a response to.
      * @param password
@@ -182,7 +182,7 @@ public class Type3Message extends NtlmMessage {
 
     /**
      * Creates a Type-3 message with the specified parameters.
-     * 
+     *
      * @param flags
      *            The flags to apply to this message.
      * @param lmResponse
@@ -208,7 +208,7 @@ public class Type3Message extends NtlmMessage {
 
     /**
      * Creates a Type-3 message using the given raw Type-3 material.
-     * 
+     *
      * @param material
      *            The raw Type-3 material used to construct this message.
      * @throws IOException
@@ -220,7 +220,7 @@ public class Type3Message extends NtlmMessage {
 
     /**
      * Returns the LanManager/LMv2 response.
-     * 
+     *
      * @return A <code>byte[]</code> containing the LanManager response.
      */
     public byte[] getLMResponse() {
@@ -229,7 +229,7 @@ public class Type3Message extends NtlmMessage {
 
     /**
      * Sets the LanManager/LMv2 response for this message.
-     * 
+     *
      * @param lmResponse
      *            The LanManager response.
      */
@@ -239,7 +239,7 @@ public class Type3Message extends NtlmMessage {
 
     /**
      * Returns the NT/NTLMv2 response.
-     * 
+     *
      * @return A <code>byte[]</code> containing the NT/NTLMv2 response.
      */
     public byte[] getNTResponse() {
@@ -248,7 +248,7 @@ public class Type3Message extends NtlmMessage {
 
     /**
      * Sets the NT/NTLMv2 response for this message.
-     * 
+     *
      * @param ntResponse
      *            The NT/NTLMv2 response.
      */
@@ -258,7 +258,7 @@ public class Type3Message extends NtlmMessage {
 
     /**
      * Returns the domain in which the user has an account.
-     * 
+     *
      * @return A <code>String</code> containing the domain for the user.
      */
     public String getDomain() {
@@ -267,7 +267,7 @@ public class Type3Message extends NtlmMessage {
 
     /**
      * Sets the domain for this message.
-     * 
+     *
      * @param domain
      *            The domain.
      */
@@ -277,7 +277,7 @@ public class Type3Message extends NtlmMessage {
 
     /**
      * Returns the username for the authenticating user.
-     * 
+     *
      * @return A <code>String</code> containing the user for this message.
      */
     public String getUser() {
@@ -286,7 +286,7 @@ public class Type3Message extends NtlmMessage {
 
     /**
      * Sets the user for this message.
-     * 
+     *
      * @param user
      *            The user.
      */
@@ -296,7 +296,7 @@ public class Type3Message extends NtlmMessage {
 
     /**
      * Returns the workstation from which authentication is being performed.
-     * 
+     *
      * @return A <code>String</code> containing the workstation.
      */
     public String getWorkstation() {
@@ -305,7 +305,7 @@ public class Type3Message extends NtlmMessage {
 
     /**
      * Sets the workstation for this message.
-     * 
+     *
      * @param workstation
      *            The workstation.
      */
@@ -315,7 +315,7 @@ public class Type3Message extends NtlmMessage {
 
     /**
      * Returns the session key.
-     * 
+     *
      * @return A <code>byte[]</code> containing the session key.
      */
     public byte[] getSessionKey() {
@@ -324,7 +324,7 @@ public class Type3Message extends NtlmMessage {
 
     /**
      * Sets the session key.
-     * 
+     *
      * @param sessionKey
      *            The session key.
      */
@@ -459,7 +459,7 @@ public class Type3Message extends NtlmMessage {
     /**
      * Returns the default flags for a generic Type-3 message in the current
      * environment.
-     * 
+     *
      * @return An <code>int</code> containing the default flags.
      */
     public static int getDefaultFlags() {
@@ -469,7 +469,7 @@ public class Type3Message extends NtlmMessage {
     /**
      * Returns the default flags for a Type-3 message created in response to the
      * given Type-2 message in the current environment.
-     * 
+     *
      * @return An <code>int</code> containing the default flags.
      */
     public static int getDefaultFlags(Type2Message type2) {
@@ -484,7 +484,7 @@ public class Type3Message extends NtlmMessage {
     /**
      * Constructs the LanManager response to the given Type-2 message using the
      * supplied password.
-     * 
+     *
      * @param type2
      *            The Type-2 message.
      * @param password
@@ -510,7 +510,7 @@ public class Type3Message extends NtlmMessage {
     /**
      * Constructs the NT response to the given Type-2 message using the supplied
      * password.
-     * 
+     *
      * @param type2
      *            The Type-2 message.
      * @param password
@@ -525,7 +525,7 @@ public class Type3Message extends NtlmMessage {
 
     /**
      * Returns the default domain from the current environment.
-     * 
+     *
      * @return The default domain.
      */
     public static String getDefaultDomain() {
@@ -534,7 +534,7 @@ public class Type3Message extends NtlmMessage {
 
     /**
      * Returns the default user from the current environment.
-     * 
+     *
      * @return The default user.
      */
     public static String getDefaultUser() {
@@ -543,7 +543,7 @@ public class Type3Message extends NtlmMessage {
 
     /**
      * Returns the default password from the current environment.
-     * 
+     *
      * @return The default password.
      */
     public static String getDefaultPassword() {
@@ -552,7 +552,7 @@ public class Type3Message extends NtlmMessage {
 
     /**
      * Returns the default workstation from the current environment.
-     * 
+     *
      * @return The default workstation.
      */
     public static String getDefaultWorkstation() {

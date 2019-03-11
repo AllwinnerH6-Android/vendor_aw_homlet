@@ -103,7 +103,7 @@ public class Type2Message extends NtlmMessage {
     /**
      * Creates a Type-2 message in response to the given Type-1 message using
      * default values from the current environment.
-     * 
+     *
      * @param type1
      *            The Type-1 message which this represents a response to.
      */
@@ -113,7 +113,7 @@ public class Type2Message extends NtlmMessage {
 
     /**
      * Creates a Type-2 message in response to the given Type-1 message.
-     * 
+     *
      * @param type1
      *            The Type-1 message which this represents a response to.
      * @param challenge
@@ -128,7 +128,7 @@ public class Type2Message extends NtlmMessage {
 
     /**
      * Creates a Type-2 message with the specified parameters.
-     * 
+     *
      * @param flags
      *            The flags to apply to this message.
      * @param challenge
@@ -146,7 +146,7 @@ public class Type2Message extends NtlmMessage {
 
     /**
      * Creates a Type-2 message using the given raw Type-2 material.
-     * 
+     *
      * @param material
      *            The raw Type-2 material used to construct this message.
      * @throws IOException
@@ -158,7 +158,7 @@ public class Type2Message extends NtlmMessage {
 
     /**
      * Returns the challenge for this message.
-     * 
+     *
      * @return A <code>byte[]</code> containing the challenge.
      */
     public byte[] getChallenge() {
@@ -167,7 +167,7 @@ public class Type2Message extends NtlmMessage {
 
     /**
      * Sets the challenge for this message.
-     * 
+     *
      * @param challenge
      *            The challenge from the domain controller/server.
      */
@@ -177,7 +177,7 @@ public class Type2Message extends NtlmMessage {
 
     /**
      * Returns the authentication target.
-     * 
+     *
      * @return A <code>String</code> containing the authentication target.
      */
     public String getTarget() {
@@ -186,7 +186,7 @@ public class Type2Message extends NtlmMessage {
 
     /**
      * Sets the authentication target.
-     * 
+     *
      * @param target
      *            The authentication target.
      */
@@ -196,7 +196,7 @@ public class Type2Message extends NtlmMessage {
 
     /**
      * Returns the target information block.
-     * 
+     *
      * @return A <code>byte[]</code> containing the target information block.
      *         The target information block is used by the client to create an
      *         NTLMv2 response.
@@ -208,7 +208,7 @@ public class Type2Message extends NtlmMessage {
     /**
      * Sets the target information block. The target information block is used
      * by the client to create an NTLMv2 response.
-     * 
+     *
      * @param targetInformation
      *            The target information block.
      */
@@ -218,7 +218,7 @@ public class Type2Message extends NtlmMessage {
 
     /**
      * Returns the local security context.
-     * 
+     *
      * @return A <code>byte[]</code> containing the local security context. This
      *         is used by the client to negotiate local authentication.
      */
@@ -229,7 +229,7 @@ public class Type2Message extends NtlmMessage {
     /**
      * Sets the local security context. This is used by the client to negotiate
      * local authentication.
-     * 
+     *
      * @param context
      *            The local security context.
      */
@@ -343,7 +343,7 @@ public class Type2Message extends NtlmMessage {
     /**
      * Returns the default flags for a generic Type-2 message in the current
      * environment.
-     * 
+     *
      * @return An <code>int</code> containing the default flags.
      */
     public static int getDefaultFlags() {
@@ -353,7 +353,7 @@ public class Type2Message extends NtlmMessage {
     /**
      * Returns the default flags for a Type-2 message created in response to the
      * given Type-1 message in the current environment.
-     * 
+     *
      * @return An <code>int</code> containing the default flags.
      */
     public static int getDefaultFlags(Type1Message type1) {
@@ -374,7 +374,7 @@ public class Type2Message extends NtlmMessage {
 
     /**
      * Returns the default domain from the current environment.
-     * 
+     *
      * @return A <code>String</code> containing the domain.
      */
     public static String getDefaultDomain() {

@@ -90,13 +90,13 @@ int CvbsDevice::performDefaultConfig(int enable)
                 config.mode, newconfig.mode);
     }
 
-    if (dirty) {
-        setDeviceConfig(&newconfig);
-    }
     dd_info("performDefaultConfig dirty=%d", dirty);
     dumpDeviceConfig("Old config", &config);
-    dumpDeviceConfig("New config", &newconfig);
-    updateDisplayAttribute(&newconfig);
+    if (dirty) {
+        setDeviceConfig(&newconfig);
+        dumpDeviceConfig("New config", &newconfig);
+        updateDisplayAttribute(&newconfig);
+    }
 
     mConnectState.setPending(1);
     mConnectState.latch();

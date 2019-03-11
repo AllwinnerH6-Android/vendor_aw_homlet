@@ -41,7 +41,7 @@ public class HMACT64 extends MessageDigest implements Cloneable {
 
     /**
      * Creates an HMACT64 instance which uses the given secret key material.
-     * 
+     *
      * @param key
      *            The key material to use in hashing.
      */

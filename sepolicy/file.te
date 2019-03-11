@@ -4,5 +4,7 @@ type nfs, fs_type, sdcard_type, mlstrustedobject;
 type sysfs_systemmix, fs_type, sysfs_type;
 type sysfs_disp, fs_type, sysfs_type;
 type sysfs_gpio, fs_type, sysfs_type;
-type sysfs_soc, fs_type, sysfs_type;
 type sysfs_edid, fs_type, sysfs_type;
+type sysfs_hdmi, fs_type, sysfs_type;
+type sysfs_cvbs, fs_type, sysfs_type;
+type sysfs_hpd, fs_type, sysfs_type;

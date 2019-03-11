@@ -446,7 +446,9 @@ public class MovieViewControl implements MediaPlayer.OnErrorListener,
         Log.v(TAG, "======mScreenWidth======" + mScreenWidth);
         Log.v(TAG, "======mScreenHeight======" + mScreenHeight);
     }
-
+    public void setSilentVolume(){
+       mVideoView.setSilentVolume();
+    }
     private Uri uri2File2Uri(Uri videoUri) {
         String scheme = videoUri.getScheme();
         String mPathName = null;
@@ -1554,7 +1556,7 @@ public class MovieViewControl implements MediaPlayer.OnErrorListener,
                         + "___mCurrentTrackSave" + mCurrentTrackSave + "___mCurrentSubColorSave"
                         + mCurrentSubColorSave + "___mCurrentSubSizeSave" + mCurrentSubSizeSave);
             }
-        }, 1000);
+        }, 0);
     }
 
     public void onStop() {

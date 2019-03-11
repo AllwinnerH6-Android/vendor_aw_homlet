@@ -1,16 +1,16 @@
 /* jcifs smb client library in Java
  * Copyright (C) 2000  "Michael B. Allen" <jcifs at samba dot org>
- * 
+ *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
  * version 2.1 of the License, or (at your option) any later version.
- * 
+ *
  * This library is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
  * Lesser General Public License for more details.
- * 
+ *
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
@@ -46,7 +46,7 @@ public class SmbFileOutputStream extends OutputStream {
      * Creates an {@link java.io.OutputStream} for writing to a file on an SMB
      * server addressed by the URL parameter. See {@link jcifs.smb.SmbFile} for
      * a detailed description and examples of the smb URL syntax.
-     * 
+     *
      * @param url
      *            An smb URL string representing the file to write to
      */
@@ -61,7 +61,7 @@ public class SmbFileOutputStream extends OutputStream {
      * SMB server represented by the {@link jcifs.smb.SmbFile} parameter. See
      * {@link jcifs.smb.SmbFile} for a detailed description and examples of the
      * smb URL syntax.
-     * 
+     *
      * @param file
      *            An <code>SmbFile</code> specifying the file to write to
      */
@@ -77,7 +77,7 @@ public class SmbFileOutputStream extends OutputStream {
      * for a detailed description and examples of the smb URL syntax. If the
      * second argument is <code>true</code>, then bytes will be written to the
      * end of the file rather than the beginning.
-     * 
+     *
      * @param url
      *            An smb URL string representing the file to write to
      * @param append
@@ -95,7 +95,7 @@ public class SmbFileOutputStream extends OutputStream {
      * {@link jcifs.smb.SmbFile} for a detailed description and examples of the
      * smb URL syntax. If the second argument is <code>true</code>, then bytes
      * will be written to the end of the file rather than the beginning.
-     * 
+     *
      * @param file
      *            An <code>SmbFile</code> representing the file to write to
      * @param append
@@ -123,7 +123,7 @@ public class SmbFileOutputStream extends OutputStream {
      * combined with the bitwise OR '|' to specify that other peocesses may
      * read, write, and/or delete the file while the jCIFS user has the file
      * open.
-     * 
+     *
      * @param url
      *            An smb URL representing the file to write to
      * @param shareAccess
@@ -177,7 +177,7 @@ public class SmbFileOutputStream extends OutputStream {
     /**
      * Closes this output stream and releases any system resources associated
      * with it.
-     * 
+     *
      * @throws IOException
      *             if a network error occurs
      */
@@ -189,7 +189,7 @@ public class SmbFileOutputStream extends OutputStream {
 
     /**
      * Writes the specified byte to this file output stream.
-     * 
+     *
      * @throws IOException
      *             if a network error occurs
      */
@@ -202,7 +202,7 @@ public class SmbFileOutputStream extends OutputStream {
     /**
      * Writes b.length bytes from the specified byte array to this file output
      * stream.
-     * 
+     *
      * @throws IOException
      *             if a network error occurs
      */
@@ -224,7 +224,7 @@ public class SmbFileOutputStream extends OutputStream {
     /**
      * Writes len bytes from the specified byte array starting at offset off to
      * this file output stream.
-     * 
+     *
      * @param b
      *            The array
      * @throws IOException

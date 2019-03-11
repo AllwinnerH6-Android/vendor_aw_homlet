@@ -21,9 +21,9 @@ import java.util.Enumeration;
 import com.softwinner.SystemMix;
 
 /**
- * 
+ *
  * @author Ethan Shan
- * 
+ *
  */
 public final class NfsManager {
     private static final String TAG = "NFS_LIB";
@@ -156,7 +156,7 @@ public final class NfsManager {
     public static final int ERANGE = 34; /* Math result not representable */
 
     /**
-     * 
+     *
      * @param context
      *            : context object(Need it to judge which interface is connected
      *            internet)
@@ -178,7 +178,7 @@ public final class NfsManager {
      * Obtain self ip. Some times, device will have more than one network
      * interface(physical/virtual). Other situation not test, current this code
      * run well.(Need Test)
-     * 
+     *
      * @return success: String object contain connected interface ip address
      *         fail: null
      */
@@ -234,7 +234,7 @@ public final class NfsManager {
     /**
      * Obtain self subnet Example: if IP=192.168.1.192, Result is 192.168.1 This
      * function not run very well in subnet mask not /24.(Need Solve)
-     * 
+     *
      * @return success: String object contain subnet fail: null
      */
 
@@ -257,7 +257,7 @@ public final class NfsManager {
 
     /**
      * Get local domain all NFS Server information
-     * 
+     *
      * @return success: ArrayList object contain NFSServer object which running
      *         NFS Server fail: ArrayList object contain 0 NFSServer object
      */
@@ -292,7 +292,7 @@ public final class NfsManager {
 
     /**
      * Get the NFS Server export foler list
-     * 
+     *
      * @param server
      *            : NFSServer object
      * @return success: ArrayList object contains all shared folder of the
@@ -350,7 +350,7 @@ public final class NfsManager {
      * Mount the server's all shared folder to local disk busybox mount -o
      * nolock -t nfs 192.168.99.112:/home/wanran/share /sdcard/share There will
      * use jni call system function mount.
-     * 
+     *
      * @param source
      *            : source(remote) dir, example: /home/wanran/share
      * @param target
@@ -377,7 +377,7 @@ public final class NfsManager {
     /**
      * Unmount the server's all shared folder from local disk busybox umount
      * /sdcard/share There will use jni call system function unmount
-     * 
+     *
      * @param target
      *            : target(local) dir, example: /sdcard/share
      * @return success: true fail: false
@@ -389,7 +389,7 @@ public final class NfsManager {
 
     /**
      * Thread to scan a host whether running NFS Server
-     * 
+     *
      * @author A
      */
     private class ScanThread extends Thread {

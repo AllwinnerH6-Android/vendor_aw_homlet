@@ -28,10 +28,10 @@ import java.security.MessageDigest;
  * <li>Ronald L. Rivest, "<a href="http://www.roxen.com/rfc/rfc1320.html"> The
  * MD4 Message-Digest Algorithm</a>", IETF RFC-1320 (informational).
  * </ol>
- * 
+ *
  * <p>
  * <b>$Revision: 1.2 $</b>
- * 
+ *
  * @author Raif S. Naffah
  */
 public class MD4 extends MessageDigest implements Cloneable {
@@ -129,7 +129,7 @@ public class MD4 extends MessageDigest implements Cloneable {
      * transform(ing) data in 512-bit message block(s), updating the variables
      * context and count, and leaving (buffering) the remaining bytes in buffer
      * for the next update or finish.
-     * 
+     *
      * @param input
      *            input block
      * @param offset
@@ -164,7 +164,7 @@ public class MD4 extends MessageDigest implements Cloneable {
     /**
      * Completes the hash computation by performing final operations such as
      * padding. At the return of this engineDigest, the MD engine is reset.
-     * 
+     *
      * @return the array of bytes for the resulting hash value.
      */
     public byte[] engineDigest() {
@@ -203,7 +203,7 @@ public class MD4 extends MessageDigest implements Cloneable {
      * <p>
      * Transforms context based on 512 bits from input block starting from the
      * offset'th byte.
-     * 
+     *
      * @param block
      *            input sub-array.
      * @param offset

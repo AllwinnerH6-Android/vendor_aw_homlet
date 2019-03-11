@@ -1,16 +1,16 @@
 /* jcifs smb client library in Java
  * Copyright (C) 2000  "Michael B. Allen" <jcifs at samba dot org>
- * 
+ *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
  * version 2.1 of the License, or (at your option) any later version.
- * 
+ *
  * This library is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
  * Lesser General Public License for more details.
- * 
+ *
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
@@ -34,7 +34,7 @@ import jcifs.netbios.NbtAddress;
  * therefore does not use the NETLOGON procedure. Instead, it simply performs a
  * "tree connect" to IPC$ using the supplied credentials. This is only a subset
  * of the NETLOGON procedure but is achives the same effect.
- * 
+ *
  * Note that it is possible to change the resource against which clients are
  * authenticated to be something other than <tt>IPC$</tt> using the
  * <tt>jcifs.smb.client.logonShare</tt> property. This can be used to provide
@@ -152,7 +152,7 @@ public final class SmbSession {
      * occurs an <tt>SmbException</tt> will be thrown. If the credentials are
      * valid, the method will return without throwing an exception. See the last
      * <a href="../../../faq.html">FAQ</a> question.
-     * 
+     *
      * See also the <tt>jcifs.smb.client.logonShare</tt> property.
      */
     public static void logon(UniAddress dc, NtlmPasswordAuthentication auth) throws SmbException {

@@ -68,6 +68,7 @@ public class CaseUsbVolume extends IBaseCase {
 
 	@Override
 	public void onStartCase() {
+        Log.w(TAG,"onStartCase CaseUsbVolume");
 		setDialogPositiveButtonEnable(false);
 		IntentFilter filter = new IntentFilter();
 		filter.addDataScheme("file");
@@ -106,6 +107,7 @@ public class CaseUsbVolume extends IBaseCase {
 		mMinRWStatus.setText(mContext.getString(rwResultRes, testUSBNum, mountedCount));
 
 		setCaseResult(testUSBNum <= mountedCount && testUSBNum <= rwSuccessCount);
+        Log.w(TAG,"CaseUsbVolume test over, test result is "+getCaseResult());
 		setDialogPositiveButtonEnable(testUSBNum <= mountedCount && testUSBNum <= rwSuccessCount);
 	}
 

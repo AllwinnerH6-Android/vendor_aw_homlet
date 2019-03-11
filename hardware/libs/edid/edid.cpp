@@ -105,6 +105,7 @@ void EdidParser::clear()
     mRGBOnly = 1;
     mSinkType = SINK_TYPE_DVI;
     mExtensionBlock = 0;
+    mHDMIVersion = 0;
 
     mEotf = 0;
     mMetadataDescriptor = 0;
@@ -469,13 +470,15 @@ void EdidParser::vendorSpecificDataBlock(const unsigned char *x)
 {
     unsigned int oui = (x[3] << 16) + (x[2] << 8) + x[1];
     switch (oui) {
-    case 0x000C03:
+    case HDMI1X_Version:
         hdmi1p4VSDB(x);
         mSinkType = SINK_TYPE_HDMI;
+        mHDMIVersion |= 1 << 0;
         break;
-    case 0xC45DD8:
+    case HDMI20_Version:
         hdmi2p0VSDB(x);
         mSinkType = SINK_TYPE_HDMI;
+        mHDMIVersion |= 1 << 1;
         break;
     default:
         dd_error("Unknow IEEE Registration Identifier (0x%08X)", oui);
@@ -737,6 +740,8 @@ void EdidParser::dump(android::String8& out)
     out.appendFormat("    RGB Only  : %d\n", mRGBOnly);
     out.appendFormat("    Max tmds character rate (1.x) : %3d MHz\n", mMaxTmdsCharacterRate1p4);
     out.appendFormat("    Max tmds character rate (2.0) : %3d MHz\n", mMaxTmdsCharacterRate2p0);
+    out.appendFormat("    HDMI Version: %s\n", (mHDMIVersion & 0x01) == 1 ? "support 1.x VSDB" : "not support 1.x VSDB");
+    out.appendFormat("    HDMI Version: %s\n", (mHDMIVersion & 0x02) == 1 ? "support 2.0 VSDB" : "not support 2.0 VSDB");
 }
 
 int EdidParser::reload()

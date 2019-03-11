@@ -25,6 +25,7 @@ public:
     EdidStrategy();
 
     int update();
+    int getHDMIVersion();
     int checkAndCorrectDeviceConfig(struct disp_device_config *config);
     bool supportedHDR();
     bool supported3DPresent();

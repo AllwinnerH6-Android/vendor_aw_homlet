@@ -115,6 +115,7 @@ public void onWindowFocusChanged(boolean hasFocus)
     @Override
     public void onPause() {
         if(TRACE) Log.v(TAG, "onPause in");
+        overridePendingTransition(0,0);
         mControl.onPause();
         super.onPause();
     }
@@ -148,6 +149,7 @@ public void onWindowFocusChanged(boolean hasFocus)
             if(TRACE) Log.v(TAG, "onPictureInPictureModeChanged isInPictureInPictureMode ");
             if(mControl != null)
                 mControl.hideAllControls(); //隐藏控制条
+                mControl.setSilentVolume();
                 //回到其他界面，开始监听MediaButton
                 IntentFilter filter = new IntentFilter();
                 filter.addAction("android.intent.action.MEDIABUTTON_BROADCAST");

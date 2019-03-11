@@ -65,7 +65,7 @@ public class Type1Message extends NtlmMessage {
 
     /**
      * Creates a Type-1 message with the specified parameters.
-     * 
+     *
      * @param flags
      *            The flags to apply to this message.
      * @param suppliedDomain
@@ -81,7 +81,7 @@ public class Type1Message extends NtlmMessage {
 
     /**
      * Creates a Type-1 message using the given raw Type-1 material.
-     * 
+     *
      * @param material
      *            The raw Type-1 material used to construct this message.
      * @throws IOException
@@ -93,7 +93,7 @@ public class Type1Message extends NtlmMessage {
 
     /**
      * Returns the supplied authentication domain.
-     * 
+     *
      * @return A <code>String</code> containing the supplied domain.
      */
     public String getSuppliedDomain() {
@@ -102,7 +102,7 @@ public class Type1Message extends NtlmMessage {
 
     /**
      * Sets the supplied authentication domain for this message.
-     * 
+     *
      * @param suppliedDomain
      *            The supplied domain for this message.
      */
@@ -112,7 +112,7 @@ public class Type1Message extends NtlmMessage {
 
     /**
      * Returns the supplied workstation name.
-     * 
+     *
      * @return A <code>String</code> containing the supplied workstation name.
      */
     public String getSuppliedWorkstation() {
@@ -121,7 +121,7 @@ public class Type1Message extends NtlmMessage {
 
     /**
      * Sets the supplied workstation name for this message.
-     * 
+     *
      * @param suppliedWorkstation
      *            The supplied workstation for this message.
      */
@@ -198,7 +198,7 @@ public class Type1Message extends NtlmMessage {
     /**
      * Returns the default flags for a generic Type-1 message in the current
      * environment.
-     * 
+     *
      * @return An <code>int</code> containing the default flags.
      */
     public static int getDefaultFlags() {
@@ -207,7 +207,7 @@ public class Type1Message extends NtlmMessage {
 
     /**
      * Returns the default domain from the current environment.
-     * 
+     *
      * @return A <code>String</code> containing the default domain.
      */
     public static String getDefaultDomain() {
@@ -216,7 +216,7 @@ public class Type1Message extends NtlmMessage {
 
     /**
      * Returns the default workstation from the current environment.
-     * 
+     *
      * @return A <code>String</code> containing the default workstation.
      */
     public static String getDefaultWorkstation() {

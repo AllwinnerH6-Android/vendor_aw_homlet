@@ -1,17 +1,17 @@
 /* jcifs smb client library in Java
  * Copyright (C) 2006  "Michael B. Allen" <jcifs at samba dot org>
  *                     "Eric Glass" <jcifs at samba dot org>
- * 
+ *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
  * version 2.1 of the License, or (at your option) any later version.
- * 
+ *
  * This library is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
  * Lesser General Public License for more details.
- * 
+ *
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
@@ -34,7 +34,7 @@ import jcifs.dcerpc.msrpc.*;
  * <tt>Administrators</tt> or <tt>MYDOM\alice</tt>.
  * <p>
  * Consider the following output of <tt>examples/SidLookup.java</tt>:
- * 
+ *
  * <pre>
  *        toString: S-1-5-21-4133388617-793952518-2001621813-512
  * toDisplayString: WNET\Domain Admins
@@ -168,7 +168,7 @@ public class SID extends rpc.sid_t {
      * results of any SIDs that required resolving with the authority. SID cache
      * entries are currently not expired because under normal circumstances SID
      * information never changes.
-     * 
+     *
      * @param authorityServerName
      *            The hostname of the server that should be queried. For maximum
      *            efficiency this should be the hostname of a domain controller
@@ -505,7 +505,7 @@ public class SID extends rpc.sid_t {
      * JCIFS will have no knowledge of the server that created the SID and
      * therefore cannot possibly resolve it automatically. In this case, this
      * method will be necessary.
-     * 
+     *
      * @param authorityServerName
      *            The FQDN of the server that is an authority for the SID.
      * @param auth
@@ -607,7 +607,7 @@ public class SID extends rpc.sid_t {
      * Domain groups nested inside a local group are currently not expanded. In
      * this case the key (SID) type will be SID_TYPE_DOM_GRP rather than
      * SID_TYPE_USER.
-     * 
+     *
      * @param authorityServerName
      *            The server from which the local groups will be queried.
      * @param auth

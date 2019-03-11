@@ -129,7 +129,7 @@ public final class NtlmPasswordAuthentication implements Principal, Serializable
 
     /**
      * Creates the LMv2 response for the supplied information.
-     * 
+     *
      * @param domain
      *            The domain in which the username exists.
      * @param user
@@ -350,7 +350,7 @@ public final class NtlmPasswordAuthentication implements Principal, Serializable
 
     /**
      * Returns the effective user session key.
-     * 
+     *
      * @param challenge
      *            The server challenge.
      * @return A <code>byte[]</code> containing the effective user session key,
@@ -371,7 +371,7 @@ public final class NtlmPasswordAuthentication implements Principal, Serializable
 
     /**
      * Calculates the effective user session key.
-     * 
+     *
      * @param challenge
      *            The server challenge.
      * @param dest

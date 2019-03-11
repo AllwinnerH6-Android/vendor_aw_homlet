@@ -9,6 +9,7 @@ PRODUCT_PACKAGES += \
     WebScreensaver \
     DragonBox \
     DragonAgingTV \
+    GalleryTV \
     #DragonSN  \
 
 #service
@@ -73,8 +74,8 @@ PRODUCT_PACKAGES += \
     softwinner.display \
     DisplayDaemon \
     DisplayDaemonService \
-    ubootparam
-
+    ubootparam \
+    dispdebug
 # secure storage support
 PRODUCT_PACKAGES += \
     libsst \

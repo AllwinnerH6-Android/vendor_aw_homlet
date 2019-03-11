@@ -2,9 +2,9 @@ package com.softwinner.tmp.nfs;
 
 /**
  * NFS Server shared folder wrapper
- * 
+ *
  * @author A
- * 
+ *
  */
 public class NFSFolder {
     private String folderPath = ""; // NFS server shared one folder path

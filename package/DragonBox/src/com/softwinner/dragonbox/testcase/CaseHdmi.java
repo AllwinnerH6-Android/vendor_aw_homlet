@@ -11,10 +11,12 @@ import android.app.Dialog;
 import android.content.Context;
 import android.os.Handler;
 import android.widget.TextView;
+import android.util.Log;
 import com.softwinner.dragonbox.platform.AudioManagerProxy;
 
 public class CaseHdmi extends IBaseCase {
 
+    public static final String TAG = "DragonBox-CaseHdmi";
 	private TextView mMaxStatusTV;
 	private TextView mMinStatusTV;
 	private TextView mMinSoundStatusTV;
@@ -57,6 +59,7 @@ public class CaseHdmi extends IBaseCase {
 
 	@Override
 	public void onStartCase() {
+        Log.w(TAG,"onStartCase CaseHdmi");
 		hm.changeToHDMI();//when supporting hdmi and cvbs output at the same time ,should delete this row.
 		AudioChannelUtil.setOuputChannels(mContext, true ,AudioManagerProxy.AUDIO_NAME_HDMI);
 		hm.playMusic();
@@ -65,6 +68,7 @@ public class CaseHdmi extends IBaseCase {
 
 	@Override
 	public void onStopCase() {
+        Log.w(TAG,"CaseHdmi test over,test result is "+getCaseResult());
 		hm.stopMusic();
 		AudioChannelUtil.setOuputChannels(mContext, false,AudioManagerProxy.AUDIO_NAME_HDMI);
 		mMinSoundStatusTV.setText(getCaseResult() ? R.string.case_hdmi_sound_status_success_text

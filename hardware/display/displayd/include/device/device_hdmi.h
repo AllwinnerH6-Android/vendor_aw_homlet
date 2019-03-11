@@ -33,6 +33,7 @@ public:
     int getSupportDataspace(std::vector<int>& out);
     bool isSupportMode(int mode);
     bool isSupport3D();
+    int getHDMIVersionFromEdid();
 
     int setDisplayModeImpl(int mode);
     int setDataspaceMode(int mode);

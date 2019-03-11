@@ -1,3 +1,5 @@
 allow shell display_output_service:service_manager add;
 allow shell displayd:binder call;
 allow shell sunxi_displayd_hwservice:hwservice_manager find;
+allow shell start_pppoe_exec:file getattr;
+allow shell stop_pppoe_exec:file getattr;
