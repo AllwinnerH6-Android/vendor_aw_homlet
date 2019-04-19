@@ -953,7 +953,17 @@ public class EventHandler implements OnClickListener, OnItemSelectedListener, On
         Log.d(TAG, "Start");
         try {
             mContext.startActivity(movieIntent);
+            return;
         } catch (ActivityNotFoundException e) {
+            Log.d(TAG, "no TvdVideo, use default player");
+        }
+        //use default player to play video if has not TvdVideo.
+        Intent defaultIntent = new Intent();
+        defaultIntent.setAction(android.content.Intent.ACTION_VIEW);
+        defaultIntent.setDataAndType(Uri.fromFile(file), "video/*");
+        try {
+            mContext.startActivity(defaultIntent);
+        } catch (Exception e) {
             displayToast(mContext.getResources().getString(R.string.not_app_to_play_the_video));
         }
     }

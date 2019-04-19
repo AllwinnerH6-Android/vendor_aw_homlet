@@ -280,7 +280,7 @@ public class VideoView extends SurfaceView implements MediaPlayerControl,
                 } else if (focusChange == AudioManager.AUDIOFOCUS_GAIN) {
                         // Resume playback
                         Log.v(TAG,"AudioManager.AUDIOFOCUS_GAIN");
-                        resume();
+                        play();
                 } else if (focusChange == AudioManager.AUDIOFOCUS_LOSS) {
                         // mAm.unregisterMediaButtonEventReceiver(RemoteControlReceiver);
                         Log.v(TAG,"AudioManager.AUDIOFOCUS_LOSS");

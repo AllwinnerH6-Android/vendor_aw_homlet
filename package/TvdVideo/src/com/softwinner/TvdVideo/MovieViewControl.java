@@ -154,7 +154,7 @@ public class MovieViewControl implements MediaPlayer.OnErrorListener,
     private int mScreenHeight;
     private int mReferenceVideoWidth;
     private int mReferenceVideoHeight;
-
+    private int PICTURE_IN_PICTURE_ITEM=5;
     private SubTitleInfoOps subTitleInfoOps = new SubTitleInfoOps();
     private SubTitleInfo mSubTitleInfo;
     private TextViewInfo[] mTextViewInfo = new TextViewInfo[10];
@@ -1640,11 +1640,11 @@ public class MovieViewControl implements MediaPlayer.OnErrorListener,
                     break;
                 }
                 mVideoView.setZoomMode(selectedIterm);
-                if(((Activity)mContext).isInPictureInPictureMode()){
+                if(selectedIterm==PICTURE_IN_PICTURE_ITEM){
                     mMediaController.setHolding(false);
-            switchSubOn = false;
-            subTitleClear();
-        }else{ //画中画模式不要去记录数据库，不然下次重新进入会直接进到PIP
+                    switchSubOn = false;
+                    subTitleClear();
+                }else{ //画中画模式不要去记录数据库，不然下次重新进入会直接进到PIP
                     editor.putInt(EDITOR_ZOOM, selectedIterm);
                     editor.commit();
                 }
@@ -1657,7 +1657,6 @@ public class MovieViewControl implements MediaPlayer.OnErrorListener,
                 break;
         }
     }
-
     public class SubTitleInfo {
         String text;
         int id;

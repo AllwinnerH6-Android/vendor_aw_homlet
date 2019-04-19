@@ -134,6 +134,31 @@
     <string name="case_comprehensive_config_passable_wifi_db">db</string>
     <!-- Battery -->
     <string name="case_battery_name">[电池测试]</string>
+    <string name="BatteryInfo_textview">电池信息</string>
+    <string name="BatteryInfo_status_textview">电池状态：%1$s</string>
+    <string name="BatteryInfo_plugged_textview">充电方式：%1$s</string>
+    <string name="BatteryInfo_level_textview">电池电量：%1$s</string>
+    <string name="BatteryInfo_voltage_textview">电池电压：%1$s</string>
+    <string name="BatteryInfo_temperature_textview">电池温度：%1$s</string>
+    <string name="BatteryInfo_technology_textview">电池类型：%1$s</string>
+    <string name="BatteryInfo_health_textview">健康状态：%1$s</string>
+    <string name="BatteryInfo_present_textview">是否存在：%1$s</string>
+    <string name="BatteryInfo_status_CHARGING">正在充电</string>
+    <string name="BatteryInfo_status_DISCHARGING">正在耗电</string>
+    <string name="BatteryInfo_status_FULL">电量充满</string>
+    <string name="BatteryInfo_status_NOT_CHARGING ">未充电</string>
+    <string name="BatteryInfo_status_UNKNOWN">状态未知</string>
+    <string name="BatteryInfo_plugged_USB">USB电源</string>
+    <string name="BatteryInfo_plugged_AC">交流电电源</string>
+    <string name="BatteryInfo_plugged_NULL">未充电</string>
+    <string name="BatteryInfo_health_DEAD">电池损坏</string>
+    <string name="BatteryInfo_health_GOOD">电池正常</string>
+    <string name="BatteryInfo_health_OVERHEAT">电池过热</string>
+    <string name="BatteryInfo_health_OVERCOLD">电池过冷</string>
+    <string name="BatteryInfo_health_VOLTAGE ">电压过大</string>
+    <string name="BatteryInfo_health_UNKOWN">未知状态</string>
+    <string name="BatteryInfo_health_UNSPECIFIED_FAILURE">未明示故障</string>
+
     <!-- HardKey -->
     <string name="case_hard_key_name">[按键测试]</string>
     <string name="case_hard_key_home">HOME 键</string>
@@ -318,13 +343,17 @@
     <string name="no_vibrator">没有检测到可用的震动马达</string>
 
     <!-- Phone -->
-    <string name="case_phone">[电话测试]</string>
-    <string name="phone_sim_state">SIM卡状态:</string>
+    <string name="case_sim_name">[SIM测试]</string>
+    <string name="phone_sim_state">SIM卡状态:%1$s</string>
+    <string name="phone_sim_operator_name">运营商：%1$s</string>
+    <string name ="phone_sim_phone_number">手机号码：%1$s</string>
+    <string name ="phone_sim_imsi">imsi:%1$s</string>
+    <string name ="phone_sim_serial_number">serial number:%1$s</string>
     <string name="phone_sim_ready">正常</string>
     <string name="phone_sim_exception">异常</string>
     <string name="phone_sim_not_found">无SIM卡</string>
     <string name="phone_imsi">IMSI:</string>
-    <string name="phone_single_strength">信号强度:</string>
+    <string name="phone_signal_strength">信号强度:%1$sdBm</string>
     <string name="phone_single_unit">db</string>
     <string name="phone_model_not_found">没有找到电话模块</string>
     <string name="phone_reload">重载RIL</string>
@@ -697,4 +726,9 @@
     <string name="confirm_test_fail">确认测试失败吗？</string>
     <string name="confirm_yes">确定</string>
     <string name="confirm_no">取消</string>
+    <!--touchScreen-->
+    <string name="case_touchscreen_name">[触摸测试]</string>
+    <string name="case_touchscreen_testresult">触摸屏测试结果：</string>
+    <string name="case_touchscreen_testresult_true">触摸屏测试结果：[成功]</string>
+    <string name="case_touchscreen_testresult_false">触摸屏测试结果：[失败]</string>
 </resources>

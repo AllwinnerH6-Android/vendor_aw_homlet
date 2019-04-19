@@ -17,7 +17,16 @@
 <!--source：AudioRecord的传参，录制来源，可选值：1(MIC)、6(VOICE_RECOGNITION)，参考MediaRecorder.AudioSource-->
 <CaseMicRecordGraphic channel="1020" displayChannel="8" sampleRate="16000" source="1"></CaseMicRecordGraphic>
 <CaseHdmi></CaseHdmi>
+<CaseHdmiFool></CaseHdmiFool>
 <CaseCvbs></CaseCvbs>
+<CaseCvbsFool></CaseCvbsFool>
+<CaseRid></CaseRid>
+<!--level:电池剩余电量，单位%，认为剩余电量大于30%时，测试成功 -->
+<!--voltage: 电压,单位mV，认为电压大于3700mV时，测试成功 -->
+<CaseBattery level="30" voltage="3700"></CaseBattery>>
+<CaseTouchScreen></CaseTouchScreen>
+<!--signalstrength:信号强度，单位dBm，认为信号强度大于-90dBm时，测试成功-->
+<CaseSIM signalstrength="-90"></CaseSIM>
 <CaseCamera recordtime="5"></CaseCamera>
 
 <CaseMixPlay></CaseMixPlay>

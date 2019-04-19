@@ -48,6 +48,7 @@ import com.softwinner.dragonbox.entity.NetReceivedResult;
 import com.softwinner.dragonbox.jni.ReadPrivateJNI;
 import com.softwinner.dragonbox.testcase.CaseEthernet;
 import com.softwinner.dragonbox.testcase.CasePerformance;
+import com.softwinner.dragonbox.testcase.CaseSIM;
 import com.softwinner.dragonbox.testcase.CaseWifi;
 import com.softwinner.dragonbox.testcase.CaseYSTWan;
 import com.softwinner.dragonbox.testcase.CaseYSTWifi;
@@ -443,6 +444,7 @@ public class DragonBoxMain extends Activity implements IBaseCase.onResultChangeL
 		boolean haveEthCase = false;
 		IBaseCase caseYSTWifi = null;
 		IBaseCase caseYSTWan = null;
+		IBaseCase caseSIM = null;
         mTestItems = "";
         mTestValues = "";
 		for (IBaseCase baseCase : mAllCases) {
@@ -456,6 +458,9 @@ public class DragonBoxMain extends Activity implements IBaseCase.onResultChangeL
 			if (baseCase instanceof CaseYSTWan) {
 				caseYSTWan = baseCase;
 			}
+			if(baseCase instanceof CaseSIM) {
+				caseSIM = baseCase;
+			}
 			baseCase.stopCase();
 			baseCase.reset();
 		}
@@ -468,6 +473,8 @@ public class DragonBoxMain extends Activity implements IBaseCase.onResultChangeL
 				baseCase.startCastAfterCase(caseYSTWan);
 			}else if (baseCase instanceof CaseYSTWan) {
 				baseCase.startCastAfterCase(caseYSTWifi);
+			}else if(baseCase instanceof CaseWifi) {//sim卡联网测试在wifi之前，保证sim卡联网时是通过4G出去的
+				baseCase.startCastAfterCase(caseSIM);
 			} else {
 				baseCase.startCase();
 			}

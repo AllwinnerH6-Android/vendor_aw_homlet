@@ -63,7 +63,6 @@ ifeq (H6, $(SW_CHIP_PLATFORM))
     ifneq (,$(filter 9%,$(PLATFORM_VERSION)))
     LOCAL_SRC_FILES += $(call all-java-files-under, platform/AndroidP)
     LOCAL_JAVA_LIBRARIES:= org.apache.http.legacy.boot
-    LOCAL_PRIVATE_PLATFORM_APIS := true
     LOCAL_STATIC_JAVA_LIBRARIES += libgpio softwinner.audio.static libsystemmix
     endif
 endif
@@ -77,7 +76,9 @@ LOCAL_REQUIRED_MODULES :=liballwinnertech_read_private_dragonbox
 LOCAL_CERTIFICATE := platform
 
 LOCAL_PROGUARD_FLAG_FILES := proguard.cfg
-LOCAL_PROGUARD_ENABLED := disabled
+LOCAL_PROGUARD_ENABLED := full obfuscation
+
+LOCAL_PRIVATE_PLATFORM_APIS := true
 
 include $(BUILD_PACKAGE)
 

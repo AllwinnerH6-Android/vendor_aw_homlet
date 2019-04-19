@@ -232,7 +232,7 @@ public class CaseCvbsFool extends IBaseCase implements OnClickListener,
 		else
 			return;
 		if (leftContainer.isShown()) {
-			int index = lstLeftButton.indexOf(button);
+			final int index = lstLeftButton.indexOf(button);
 			if ((index+1) == leftMusic) {
 				cvbsManager.setLeftPlaySuccess(true);
                 Log.w(TAG,"CaseCvbsFool left channel test result success");
@@ -262,7 +262,7 @@ public class CaseCvbsFool extends IBaseCase implements OnClickListener,
                 alertDialog.getButton(DialogInterface.BUTTON_NEGATIVE).requestFocus();
 			}
 		} else {
-			int index = lstRightButton.indexOf(button);
+			final int index = lstRightButton.indexOf(button);
 			if ((index+1) == rightMusic) {
                 Log.w(TAG,"CaseCvbsFool right channel test result success");
 				cvbsManager.setRightPlaySuccess(true);

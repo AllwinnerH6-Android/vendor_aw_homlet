@@ -7,6 +7,7 @@ LOCAL_STATIC_JAVA_LIBRARIES := android-support-v13
 LOCAL_STATIC_JAVA_LIBRARIES := libsysapi
 LOCAL_SRC_FILES := $(call all-java-files-under, src) \
 
+LOCAL_PRIVATE_PLATFORM_APIS := true
 LOCAL_PACKAGE_NAME := DragonAging
 
 # We mark this out until Mtp and MediaMetadataRetriever is unhidden.
@@ -16,14 +17,11 @@ LOCAL_STATIC_JAVA_LIBRARIES = android-support-v4
 
 LOCAL_PROGUARD_FLAG_FILES := proguard.cfg
 
-ifeq (H6, $(SW_CHIP_PLATFORM))
-    $(warning "DragonAging SW_CHIP_PLATFORM is $(SW_CHIP_PLATFORM)")
-    ifneq (,$(filter 9%,$(PLATFORM_VERSION)))
-        $(warning "DragonAging platform_version is $(PLATFORM_VERSION)")
-        LOCAL_STATIC_JAVA_LIBRARIES += libgpio softwinner.audio.static
-        LOCAL_PRIVATE_PLATFORM_APIS := true
-        LOCAL_PACKAGE_NAME := DragonAgingTV
-    endif
+$(warning "DragonAging SW_CHIP_PLATFORM is $(SW_CHIP_PLATFORM)")
+ifneq (,$(filter 9%,$(PLATFORM_VERSION)))
+    $(warning "DragonAging platform_version is $(PLATFORM_VERSION)")
+    LOCAL_STATIC_JAVA_LIBRARIES += libgpio softwinner.audio.static
+    LOCAL_PACKAGE_NAME := DragonAgingTV
 endif
 
 include $(BUILD_PACKAGE)

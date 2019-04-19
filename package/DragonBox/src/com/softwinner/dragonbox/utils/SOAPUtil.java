@@ -16,27 +16,24 @@ public class SOAPUtil {
 	}
 	private static String getXmlBody(String sCommand,String[] arrSParams)throws IllegalArgumentException {
 		String str="";
-		switch (sCommand) {
-		case CommandUtil.CHECKSSN:
-			if(arrSParams.length != 2)
-				throw new IllegalArgumentException("the number of "+sCommand+" params should be 2");
-			str +="<CheckSSN_NEW xmlns=\"http://tempuri.org/\">";
-			str +="<strSN>"+arrSParams[0]+"</strSN>";
-			str +="<station>"+arrSParams[1]+"</station>";
-			str +="</CheckSSN_NEW>";
-			break;
-		case CommandUtil.SAVESSN:
-			if(arrSParams.length!=5)
-				throw new IllegalArgumentException("the number of "+sCommand+" params should be 5");
-			str +="<SaveSSN_NEW xmlns=\"http://tempuri.org/\">";
-			str +="<strSSN>"+arrSParams[0]+"</strSSN>";
-			str +="<strEventPoint>"+arrSParams[1]+"</strEventPoint>";
-			str +="<strIspass>"+arrSParams[2]+"</strIspass>";
-			str +="<strFailcode>"+arrSParams[3]+"</strFailcode>";
-			str +="<strScanner>"+arrSParams[4]+"</strScanner>";
-			str +="</SaveSSN_NEW>";
-			break;
-		case CommandUtil.SFCTESTRESULT_UPLOAD:
+        if(sCommand.equals(CommandUtil.CHECKSSN)){
+            if(arrSParams.length != 2)
+                throw new IllegalArgumentException("the number of "+sCommand+" params should be 2");
+            str +="<CheckSSN_NEW xmlns=\"http://tempuri.org/\">";
+            str +="<strSN>"+arrSParams[0]+"</strSN>";
+            str +="<station>"+arrSParams[1]+"</station>";
+            str +="</CheckSSN_NEW>";
+        }else if(sCommand.equals(CommandUtil.SAVESSN)){
+            if(arrSParams.length!=5)
+                throw new IllegalArgumentException("the number of "+sCommand+" params should be 5");
+            str +="<SaveSSN_NEW xmlns=\"http://tempuri.org/\">";
+            str +="<strSSN>"+arrSParams[0]+"</strSSN>";
+            str +="<strEventPoint>"+arrSParams[1]+"</strEventPoint>";
+            str +="<strIspass>"+arrSParams[2]+"</strIspass>";
+            str +="<strFailcode>"+arrSParams[3]+"</strFailcode>";
+            str +="<strScanner>"+arrSParams[4]+"</strScanner>";
+            str +="</SaveSSN_NEW>";
+        }else if(sCommand.equals(CommandUtil.SFCTESTRESULT_UPLOAD)){
 			if(arrSParams.length!=7)
 				throw new IllegalArgumentException("the number of "+sCommand+" params should be 7");
 			str +="<SfcTestResult_Upload xmlns=\"http://tempuri.org/\">";
@@ -48,10 +45,7 @@ public class SOAPUtil {
 			str +="<testvalue>"+arrSParams[5]+"</testvalue>";
 			str +="<strScanner>"+arrSParams[6]+"</strScanner>";
 			str +="</SfcTestResult_Upload>";
-			break;
-		default:
-			break;
-		}
+        }
 		return str;
 	}
 	public static String getXml(String sCommand,String[] arrSParams) {

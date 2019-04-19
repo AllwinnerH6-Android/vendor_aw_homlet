@@ -216,12 +216,13 @@ public class SlotView extends GLView {
         int unitcount = mLayout.getUnitCount();
         int row = unitcount!=0 ? count/unitcount : 0;
         int pading = mLayout.getSlotSpec().slotGap;
-        Rect rect = mLayout.getSlotRect(mCurrSlot,new Rect());
+        Rect rect ;
         if(keyCode == KeyEvent.KEYCODE_DPAD_UP){
 	    if(mCurrSlot > 0)
 		mCurrSlot = mCurrSlot - 1;
 	}else if(keyCode == KeyEvent.KEYCODE_DPAD_DOWN){
-            if(rect.left + mLayout.getSlotWidth() < this.getWidth())
+            rect=mLayout.getSlotRect(mCurrSlot+1,new Rect());
+            if((rect.left < this.getWidth())&&mCurrSlot<count-1)
 		mCurrSlot = mCurrSlot + 1;
 	}else if(keyCode == KeyEvent.KEYCODE_DPAD_LEFT){
             if(mScallorCount > 0)
@@ -233,8 +234,6 @@ public class SlotView extends GLView {
 		int overDistance = mScroller.startScroll(mLayout.getSlotWidth() + pading , 0, mLayout.getScrollLimit());
             }
         }else if(keyCode == KeyEvent.KEYCODE_DPAD_CENTER){
-            Log.e("huihuixu","KeyEvent.KEYCODE_DPAD_CENTER22");
-            Log.e("huihuixu","sendStatiupe:"+sendState);
             if(!sendState){
                 tapState = false;
 		mLongPressRunnbale = new Runnable(){
@@ -257,10 +256,8 @@ public class SlotView extends GLView {
     public boolean onKeyUp(int keyCode,KeyEvent event){
         final Rect rect = mLayout.getSlotRect(mCurrSlot,new Rect());
         if(keyCode == KeyEvent.KEYCODE_DPAD_CENTER){
-            Log.e("huihuixu","KeyEvent.KEYCODE_DPAD_CENTER");
 	    mHandler.removeCallbacks(mLongPressRunnbale);
 	    sendState = false;
-            Log.e("huihuixu","sendState:"+sendState);
 	    if(!tapState){
             final MotionEvent me1 = MotionEvent.obtain(SystemClock.uptimeMillis(), SystemClock.uptimeMillis(),
                 MotionEvent.ACTION_DOWN,rect.left +  (rect.right - rect.left)/2, rect.top + (rect.bottom - rect.top)/2, 0);

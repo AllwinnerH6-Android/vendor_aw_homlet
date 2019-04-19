@@ -143,7 +143,7 @@ public class CaseHdmiFool extends IBaseCase implements OnClickListener {
 			button = (Button) v;
 		else
 			return;
-		int index = lstButton.indexOf(button);
+		final int index = lstButton.indexOf(button);
 		if ((index+1) == musicNum) {
 			setCaseResult(true);
 			mMaxViewDialog.dismiss();

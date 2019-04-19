@@ -12,6 +12,7 @@ import java.util.Map;
 import org.xmlpull.v1.XmlPullParser;
 
 import com.softwinner.dragonbox.R;
+import com.softwinner.dragonbox.testcase.CaseBattery;
 import com.softwinner.dragonbox.testcase.CaseBluetooth;
 import com.softwinner.dragonbox.testcase.CaseMicRecordGraphic;
 import com.softwinner.dragonbox.testcase.CaseCamera;
@@ -27,8 +28,10 @@ import com.softwinner.dragonbox.testcase.CasePerformance;
 import com.softwinner.dragonbox.testcase.CaseResetKey;
 import com.softwinner.dragonbox.testcase.CaseRid;
 import com.softwinner.dragonbox.testcase.CaseSDVolume;
+import com.softwinner.dragonbox.testcase.CaseSIM;
 import com.softwinner.dragonbox.testcase.CaseSpdif;
 import com.softwinner.dragonbox.testcase.CaseSpeaker;
+import com.softwinner.dragonbox.testcase.CaseTouchScreen;
 import com.softwinner.dragonbox.testcase.CaseUsbVolume;
 import com.softwinner.dragonbox.testcase.CaseVersion;
 import com.softwinner.dragonbox.testcase.CaseVideo;
@@ -106,6 +109,9 @@ public class ConfigManager {
             put(CaseMicRecordGraphic.class.getSimpleName(), CaseMicRecordGraphic.class);
             put(CaseKey.class.getSimpleName(), CaseKey.class);
             put(CaseRid.class.getSimpleName(), CaseRid.class);
+            put(CaseBattery.class.getSimpleName(), CaseBattery.class);
+            put(CaseTouchScreen.class.getSimpleName(), CaseTouchScreen.class);
+            put(CaseSIM.class.getSimpleName(), CaseSIM.class);
 		}
 	};
 
