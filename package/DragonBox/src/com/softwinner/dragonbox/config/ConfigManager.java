@@ -21,6 +21,7 @@ import com.softwinner.dragonbox.testcase.CaseCvbsFool;
 import com.softwinner.dragonbox.testcase.CaseEthernet;
 import com.softwinner.dragonbox.testcase.CaseHdmi;
 import com.softwinner.dragonbox.testcase.CaseHdmiFool;
+import com.softwinner.dragonbox.testcase.CaseHeadSet;
 import com.softwinner.dragonbox.testcase.CaseKey;
 import com.softwinner.dragonbox.testcase.CaseLed;
 import com.softwinner.dragonbox.testcase.CaseMicRecord;
@@ -112,6 +113,7 @@ public class ConfigManager {
             put(CaseBattery.class.getSimpleName(), CaseBattery.class);
             put(CaseTouchScreen.class.getSimpleName(), CaseTouchScreen.class);
             put(CaseSIM.class.getSimpleName(), CaseSIM.class);
+            put(CaseHeadSet.class.getSimpleName(), CaseHeadSet.class);
 		}
 	};
 

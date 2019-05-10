@@ -18,6 +18,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include "libboot.h"
+#include <utils/Log.h>
 
 typedef int (*param_update_method_t)(struct user_display_param *param, char *value);
 
@@ -94,6 +95,64 @@ static int update_item(int *raw, unsigned int mask, int offset, int value)
 	return 1;
 }
 
+#define ARRAYLENGTH 32
+static int update_rsl_item(char *raw, int type, int mode)
+{
+	char valueString[ARRAYLENGTH] = {0};
+	char *pValue, *pt, *ptEnd;
+	int index = 0;
+	int i = 0;
+	int len = 0;
+	int format = ((type & 0xFF) << 8) | (mode & 0xFF);
+	int values[3] = {0, 0, 0};
+
+	if (raw == NULL) {
+		return 0;
+	}
+	switch(type) {
+		case 4:/*HDMI*/
+			index = 1;
+			break;
+		case 2:/*CVBS*/
+			index = 0;
+			break;
+		case 8:/*VGA*/
+			index = 2;
+			break;
+		default:
+			return 0;
+	}
+	len =  strlen(raw);
+	if (len <= 0) {
+		values[index] = format;
+		sprintf(raw, "%x\n%x\n%x\n", values[0], values[1], values[2]);
+		ALOGD("after set raw=%x, len=%d", raw, len);
+		return 1;
+	}
+
+	strncpy(valueString, raw, len);
+	pValue = valueString;
+	pt = valueString;
+	ptEnd = valueString + len;
+	for(;(i < 3) && (pt != ptEnd); pt++) {
+		if('\n' == *pt) {
+			*pt = '\0';
+			values[i] = (int)strtoul(pValue, NULL, 16);
+			ALOGD("libboot:pValue=%s, values[%d]=0x%x", pValue, i, values[i]);
+			pValue = pt + 1;
+			i++;
+		}
+	}
+	ALOGD("libboot:format=%x, values[%d]=0x%x", format, index, values[index]);
+	if (values[index] != format) {
+		values[index] = format;
+		sprintf(raw, "%x\n%x\n%x\n", values[0], values[1], values[2]);
+		ALOGD("after set raw=%x", raw);
+		return 1;
+	}
+	return 0;
+}
+
 static int update_config(struct user_display_param *param, char *value)
 {
 	int type   = 0;
@@ -113,13 +172,14 @@ static int update_config(struct user_display_param *param, char *value)
 		return 0;
 
 	if (type == 2) { offset = 16; mask <<= 16; } /* CVBS */
-	if (type == 4) { offset =  0; mask <<= 0;  } /* HDMI */
+	else if (type == 4) { offset =  0; mask <<= 0;  } /* HDMI */
 	else return 0;
 
 	update += update_item(&param->format, mask, offset, format);
 	update += update_item(&param->depth, mask, offset, depth);
 	update += update_item(&param->eotf, mask, offset, eotf);
 	update += update_item(&param->color_space, mask, offset, space);
+	update += update_rsl_item(param->resolution, type, mode);
 	return update;
 }
 

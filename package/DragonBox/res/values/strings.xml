@@ -200,6 +200,11 @@
     <string name="case_recorder_button_ok">"确定"</string>
     <string name="case_recorder_config_des">请输入一个有效的录音时间（单位：ms）.</string>
     <string name="case_recorder_config_prefix">你为设备所配置的录音时间为:</string>
+    <!-- headset -->
+    <string name="case_headset_info">请带上耳机,判断测试结果</string>
+    <string name="case_headset_name">[耳机测试]</string>
+    <string name="case_headset_manual_plug">耳机未插入,请插入耳机</string>
+    <string name="case_headset_test_result">耳机测试结果：</string>
     <!-- Spdif 
     <string name="case_speaker_name">[SPDIF测试]</string>
     <string name="case_speaker_plugged_in">当前耳机插入状态：</string>

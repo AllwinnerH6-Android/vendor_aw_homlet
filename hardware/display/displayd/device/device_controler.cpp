@@ -46,16 +46,14 @@ const char *type2name(int type)
 
 static void updateDisplayConfigToBoot(const disp_device_config& config)
 {
-    char value[64];
+#define LEGACY_DISP_CONFIG_NODE "vendor.sys.disp_config"
+	char value[64];
 
-    if (config.type != DISP_OUTPUT_TYPE_HDMI) return;
-    sprintf(value, "%d,%d - %d,%d,%d,%d",
-            config.type, config.mode, config.format,
-            config.bits, config.cs, config.eotf);
-    property_set("vendor.sys.disp_config", value);
-    sprintf(value, "%d,%d@", config.type, config.mode);
-    property_set("vendor.sys.disp_rsl_fex", value);
-    dd_debug("Update config to boot");
+	sprintf(value, "%d,%d - %d,%d,%d,%d",
+			config.type, config.mode, config.format,
+			config.bits, config.cs, config.eotf);
+	property_set(LEGACY_DISP_CONFIG_NODE, value);
+	dd_debug("Update config to boot");
 }
 
 DeviceControler::DeviceControler(int type)

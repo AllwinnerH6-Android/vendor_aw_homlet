@@ -31,10 +31,10 @@ endif
 #for H3
 ifeq (H3, $(SW_CHIP_PLATFORM))
     ifneq (,$(filter 4.4%,$(PLATFORM_VERSION)))
-    LOCAL_SRC_FILES += $(call all-java-files-under, platform/H3)
+    LOCAL_SRC_FILES += $(call all-java-files-under, platform/H3-Android4.4)
     endif
     ifneq (,$(filter 7%,$(PLATFORM_VERSION)))
-    LOCAL_SRC_FILES += $(call all-java-files-under, platform/AndroidN)
+    LOCAL_SRC_FILES += $(call all-java-files-under, platform/H3-AndroidN)
     LOCAL_JAVA_LIBRARIES:= org.apache.http.legacy.boot
     endif
 endif
@@ -45,23 +45,28 @@ endif
 
 ifeq (H5, $(SW_CHIP_PLATFORM))
     ifneq (,$(filter 4.4%,$(PLATFORM_VERSION)))
-    LOCAL_SRC_FILES += $(call all-java-files-under, platform/Android4.4)
+    LOCAL_SRC_FILES += $(call all-java-files-under, platform/H5-Android4.4)
     endif
     ifneq (,$(filter 7%,$(PLATFORM_VERSION)))
-    LOCAL_SRC_FILES += $(call all-java-files-under, platform/AndroidN)
+    LOCAL_SRC_FILES += $(call all-java-files-under, platform/H5-AndroidN)
     LOCAL_JAVA_LIBRARIES:= org.apache.http.legacy.boot
     endif
 endif
 ifeq (H6, $(SW_CHIP_PLATFORM))
     ifneq (,$(filter 4.4%,$(PLATFORM_VERSION)))
-    LOCAL_SRC_FILES += $(call all-java-files-under, platform/Android4.4)
+        ifneq (,$(filter yst-petrel_ai_p1,$(TARGET_BUSINESS_PRODUCT)))
+            $(warning "TARGET_BUSINESS_PRODUCT is $(TARGET_BUSINESS_PRODUCT)!!!")
+            LOCAL_SRC_FILES += $(call all-java-files-under, platform/H6-Android4.4-yst)
+        else
+            LOCAL_SRC_FILES += $(call all-java-files-under, platform/H6-Android4.4)
+        endif
     endif
     ifneq (,$(filter 7%,$(PLATFORM_VERSION)))
-    LOCAL_SRC_FILES += $(call all-java-files-under, platform/AndroidN)
+    LOCAL_SRC_FILES += $(call all-java-files-under, platform/H6-AndroidN)
     LOCAL_JAVA_LIBRARIES:= org.apache.http.legacy.boot
     endif
     ifneq (,$(filter 9%,$(PLATFORM_VERSION)))
-    LOCAL_SRC_FILES += $(call all-java-files-under, platform/AndroidP)
+    LOCAL_SRC_FILES += $(call all-java-files-under, platform/H6-AndroidP)
     LOCAL_JAVA_LIBRARIES:= org.apache.http.legacy.boot
     LOCAL_STATIC_JAVA_LIBRARIES += libgpio softwinner.audio.static libsystemmix
     endif

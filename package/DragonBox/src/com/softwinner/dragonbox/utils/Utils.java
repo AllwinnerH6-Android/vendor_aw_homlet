@@ -4,8 +4,11 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.security.MessageDigest;
 import java.io.InputStream;
 import java.util.Random;
 import java.util.UUID;
@@ -13,6 +16,7 @@ import java.util.UUID;
 import org.json.JSONObject;
 
 import android.content.Context;
+import android.content.res.AssetManager;
 import android.os.Environment;
 import android.os.storage.StorageManager;
 import android.os.storage.StorageVolume;
@@ -29,6 +33,7 @@ public class Utils {
 	public static boolean ridFileCheck;//检查rid文件写入情况
 	public static boolean propertyCheck;//检查属性设置情况
     public static final int RID_FILE_LENGTH = 88;//检查rid文件的依据：rid文件长度88
+    public static boolean md5CheckResult;//比较拷贝前后文件的md5结果
 	public static boolean checkHasFile(Context context, String fileName) {
 		String filePath = getFileAbsolutePath(context, fileName);
 		return filePath != null && !"".equals(filePath);
@@ -291,5 +296,92 @@ public class Utils {
         else if(secondsRemained!=0)
             return hours+"小时"+minutesRemained+"分"+secondsRemained+"秒";
         else return hours+"小时"+minutesRemained+"分";
+    }
+    /**
+     *write file to cache repeatedlly until md5 check pass
+     */
+    public static String writeFileToCacheSecure(String fileName,Context context) {
+        md5CheckResult = false;
+        String path=null;
+        for(int i=0;i<5;i++){
+            Log.d(TAG,"invoke writeFileToCache times:"+i);
+            path = writeFileToCache(fileName,context);
+            if(md5CheckResult){
+                Log.d(TAG,"md5 check pass ,stop invoke writeFileToCache");
+                break;
+            }
+        }
+        return path;
+    }
+    public static String writeFileToCache(String fileName,Context context) {
+        File file = new File(context.getCacheDir().getPath() + File.separator
+                + fileName);
+        AssetManager am = context.getAssets();
+        try {
+            if (file.exists()) {//md5 check
+                InputStream fileInputStream = new FileInputStream(file);
+                InputStream assetInputStream = am.open(fileName);
+                String fileMD5 = MD5(fileInputStream);
+                String assetMD5 = MD5(assetInputStream);
+                Log.d(TAG,"file:"+fileName+" fileMD5 = "+fileMD5);
+                Log.d(TAG,"assetMD5 = "+assetMD5);
+                md5CheckResult = fileMD5.equals(assetMD5);
+                fileInputStream.close();
+                assetInputStream.close();
+                if(md5CheckResult){
+                    Log.d(TAG,"md5 check result pass!");
+                    return file.getAbsolutePath();
+                }else{
+                    Log.e(TAG, "error: the copyed video file md5 check error!copy agagin!");
+                    file.delete();
+                }
+            }
+            Log.d(TAG,"start to write File to Cache");
+            file.createNewFile();
+            file.setReadable(true, false);
+            InputStream is = am.open(fileName);
+            BufferedInputStream bis = new BufferedInputStream(is);
+            BufferedOutputStream bos = new BufferedOutputStream(
+                    new FileOutputStream(file));
+            byte[] buf = new byte[1024 * 1024];
+            int length = 0;
+            while ((length = bis.read(buf)) > 0) {
+                bos.write(buf, 0, length);
+            }
+            bos.flush();
+            bis.close();
+            is.close();
+            bos.close();
+            return file.getAbsolutePath();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+    private static String MD5(InputStream is) {
+        try {
+            byte[] buffer = new byte[8192];
+            int len = 0;
+            MessageDigest md = MessageDigest.getInstance("MD5");
+            while ((len = is.read(buffer)) != -1) {
+                md.update(buffer, 0, len);
+            }
+            is.close();
+            byte[] bytes = md.digest();
+            return toHex(bytes);
+        }
+        catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+    private static String toHex(byte[] bytes) {
+
+        final char[] HEX_DIGITS = "0123456789ABCDEF".toCharArray();
+        StringBuilder ret = new StringBuilder(bytes.length * 2);
+        for (int i=0; i<bytes.length; i++) {
+            ret.append(HEX_DIGITS[(bytes[i] >> 4) & 0x0f]);
+            ret.append(HEX_DIGITS[bytes[i] & 0x0f]);
+        }
+        return ret.toString();
     }
 }

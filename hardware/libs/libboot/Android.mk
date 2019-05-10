@@ -44,6 +44,7 @@ LOCAL_SRC_FILES += \
 	image-android.c \
 	key_ladder_verify.c
 
+LOCAL_STATIC_LIBRARIES := libutils libcutils liblog
 LOCAL_MODULE := libboot
 LOCAL_CFLAGS += -Wall -std=c99
 include $(BUILD_STATIC_LIBRARY)
@@ -77,6 +78,7 @@ LOCAL_C_INCLUDES += \
 
 LOCAL_SRC_FILES  := ubootparam.c
 LOCAL_STATIC_LIBRARIES := libboot libc libcrypto_static
+LOCAL_STATIC_LIBRARIES += libutils libcutils liblog
 LOCAL_FORCE_STATIC_EXECUTABLE := true
 LOCAL_MODULE := ubootparam
 LOCAL_CFLAGS += -Wall -std=c99

@@ -139,7 +139,7 @@ public class CaseWifi extends IBaseCase implements OnWifiConnChangeListener {
 	public void onStartCase() {
         Log.w(TAG,"onStartCase CaseWifi");
         mhandler.sendEmptyMessageDelayed(WHAT_TEST_TIMEOUT, WIFI_TEST_TIMEOUT);
-		if(useSFC.equals("false"))
+		if("false".equals(useSFC))
 			NetUtil.connectWifi(mContext, CaseWifi.SSID, CaseWifi.password);
 		mWifiEfuseTestResult = false;
 		mWifiConnManager.startWifiTest();

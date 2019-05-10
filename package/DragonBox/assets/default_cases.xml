@@ -8,6 +8,7 @@
 <CaseSDVolume></CaseSDVolume>
 <CaseEthernet></CaseEthernet>
 <CaseWifi  maxRSSI="-65" wifiSSID="wifiSSID" wifiPWD="password"></CaseWifi>
+<CaseWifi  useSFC="false" maxRSSI="-65" wifiSSID="Allwinner-PDl-HK" wifiPWD="12345768" station="FlashSN" url="http://219.133.2.168:81/SFCWEBSERVICETEST1/SFCWebService.asmx" pcname="pc01"></CaseWifi>
 <CaseBluetooth></CaseBluetooth>
 <CaseSpeaker></CaseSpeaker>
 <CaseMicRecord recordtime="5"></CaseMicRecord>
@@ -24,6 +25,7 @@
 <!--level:电池剩余电量，单位%，认为剩余电量大于30%时，测试成功 -->
 <!--voltage: 电压,单位mV，认为电压大于3700mV时，测试成功 -->
 <CaseBattery level="30" voltage="3700"></CaseBattery>>
+<CaseHeadSet></CaseHeadSet>
 <CaseTouchScreen></CaseTouchScreen>
 <!--signalstrength:信号强度，单位dBm，认为信号强度大于-90dBm时，测试成功-->
 <CaseSIM signalstrength="-90"></CaseSIM>
@@ -31,6 +33,7 @@
 
 <CaseMixPlay></CaseMixPlay>
 <CaseResetKey></CaseResetKey>
+<CaseYSTVersion version="5.2.19.04.17" memsize="1024MB" cpufreq="1800MHZ"></CaseYSTVersion>
 <CaseYSTWifi routerIP="192.168.125.1" apName="AndroidAP" apPSW="qqqqqqqq" apSecurity="WPA2" timeout="25000"></CaseYSTWifi>
 <CaseYSTWan routerIP="192.168.125.1" timeout="15000"></CaseYSTWan>
 <CaseYSTLan lan1IP="192.168.125.10" lan2IP="192.168.125.11" timeout="15000"></CaseYSTLan>

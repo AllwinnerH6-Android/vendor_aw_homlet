@@ -46,6 +46,7 @@ import android.provider.Settings;
 import com.softwinner.dragonbox.config.ConfigManager;
 import com.softwinner.dragonbox.entity.NetReceivedResult;
 import com.softwinner.dragonbox.jni.ReadPrivateJNI;
+import com.softwinner.dragonbox.platform.IPhaseCallback;
 import com.softwinner.dragonbox.testcase.CaseEthernet;
 import com.softwinner.dragonbox.testcase.CasePerformance;
 import com.softwinner.dragonbox.testcase.CaseSIM;
@@ -59,6 +60,7 @@ import com.softwinner.dragonbox.utils.PreferenceUtil;
 import com.softwinner.dragonbox.utils.Utils;
 import com.softwinner.dragonbox.utils.LogcatHelper;
 import com.softwinner.SystemMix;
+import com.softwinner.dragonbox.platform.PhaseCallBack;
 
 public class DragonBoxMain extends Activity implements IBaseCase.onResultChangeListener{
 
@@ -87,11 +89,11 @@ public class DragonBoxMain extends Activity implements IBaseCase.onResultChangeL
 	private static final String TIME_WEBSITE="http://www.mi.com";
 	public static final String TAG="DragonBox-DragonBoxMain";
     public static final String LOG_END_FLAG="DragonBox-test_over";
-	private static final String PROPERTY_DRAGONAGING_NEXTBOOT = "persist.sys.dragonaging";
+    public static final String PROPERTY_DRAGONAGING_NEXTBOOT = "persist.sys.dragonaging";
 	private static final String PROPERTY_DRAGONAGING_TIME = "persist.sys.dragonaging_time";
 	private static final String PROPERTY_DRAGONBOX_SMT = "persist.sys.smt_dragonbox";
-	private static final String PROPERTY_SMT_DRAGONBOX_TESTCASE = "persist.sys.dragonbox_case";
-	private static final String PROPERTY_SMT_DRAGONBOX_TESTRESULT = "persist.sys.dragonbox_result";
+	public static final String PROPERTY_SMT_DRAGONBOX_TESTCASE = "persist.sys.dragonbox_case";
+	public static final String PROPERTY_SMT_DRAGONBOX_TESTRESULT = "persist.sys.dragonbox_result";
 	private static final String PROPERTY_DRAGONBOX_RMFILE = "dragonbox.sys.rmfile";
 	private static final String DRAGONAGING_LOG = "/sdcard/ALLWINNERAGING";
 	public String sSSN = null;
@@ -105,6 +107,7 @@ public class DragonBoxMain extends Activity implements IBaseCase.onResultChangeL
 	private AlertDialog wifiConnectTimeoutDialog = null;
 	private boolean useSFC =false;
     private boolean alreadyUpload = false;
+    private IPhaseCallback mPhaseCallback = new PhaseCallBack();
 	
 	Handler mHandler = new Handler(){
 		public void handleMessage(android.os.Message msg) {
@@ -264,6 +267,7 @@ public class DragonBoxMain extends Activity implements IBaseCase.onResultChangeL
                 }
             };
         }.start();
+        mPhaseCallback.startAppCallback(DragonBoxMain.this);//tell others 'I'm running'
 		caseContainner = (LinearLayout) findViewById(R.id.main_case_container);
 		try {
 			List<IBaseCase> cases = ConfigManager.getInstence(this)
@@ -674,11 +678,9 @@ public class DragonBoxMain extends Activity implements IBaseCase.onResultChangeL
 		Log.e(TAG, "mTestItems = "+mTestItems+"\n mTestValues = "+mTestValues);
         if(!useSFC) {
             Log.e(TAG,"before setproperty "+LOG_END_FLAG);//通知LogcatHelper强制将log写入磁盘
-            Utils.setPropertySecure(PROPERTY_SMT_DRAGONBOX_TESTCASE,mTestItems);
-            Utils.setPropertySecure(PROPERTY_SMT_DRAGONBOX_TESTRESULT,mTestValues);
+            mPhaseCallback.allTestOverCallback(DragonBoxMain.this,mTestItems,mTestValues);
             if(mTestResult.equals("PASS")) {
-                Utils.setPropertySecure(PROPERTY_DRAGONAGING_NEXTBOOT,"true");
-                Utils.setPropertySecure("persist.sys.dragonaging_time","0");
+                mPhaseCallback.allResultTestPassCallback(DragonBoxMain.this);
             }
             NetUtil.forgetWifi(DragonBoxMain.this);
             Utils.setPropertySecure(PROPERTY_DRAGONBOX_SMT,"test_over");

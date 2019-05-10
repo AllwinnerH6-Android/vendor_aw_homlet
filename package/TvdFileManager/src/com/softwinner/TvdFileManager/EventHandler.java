@@ -168,6 +168,7 @@ public class EventHandler implements OnClickListener, OnItemSelectedListener, On
     private static LinkAddress mLinkAddress = null;
     private long mLastClickTime = 0;
     ArrayList<StorageVolume> mStorageVolumesList;
+    private BroadcastReceiver mNetStateReceiver;
 
     public EventHandler(Context context, final IEventHandlerCallbacks mCallbacks1,
             MediaProvider mProvider, DeviceManager mDevices1) {
@@ -222,7 +223,7 @@ public class EventHandler implements OnClickListener, OnItemSelectedListener, On
 
         IntentFilter mNetFilter = new IntentFilter();
         mNetFilter.addAction(ConnectivityManager.CONNECTIVITY_ACTION);
-        BroadcastReceiver mNetStateReceiver = new BroadcastReceiver() {
+        mNetStateReceiver = new BroadcastReceiver() {
             @Override
             public void onReceive(Context context, Intent intent) {
                 String action = intent.getAction();
@@ -1141,14 +1142,12 @@ public class EventHandler implements OnClickListener, OnItemSelectedListener, On
         });
     }
 
-    private void showDeviceMessagePre(){
+    private void showDeviceMessage(String path1){
+        String target = null;
         imageThumb.setBackgroundResource(R.drawable.thumbnail_bg);
         imageThumb.setImageResource(R.drawable.thumbnail_equipment);
-        preview.setBackgroundResource(R.drawable.preview);
-    }
-    private String showDeviceMessageExec(String path1) {
-        String target = null;
         target = getDeviceName(path1);
+        preview.setBackgroundResource(R.drawable.preview);
         try {
             long totalsize = 0;
             long availsize = 0;
@@ -1168,36 +1167,15 @@ public class EventHandler implements OnClickListener, OnItemSelectedListener, On
             }
             String availSize = toSize(availsize);
             String usedSize = toSize(usedsize);
-
             String target1 = mContext.getResources().getString(R.string.target) + target + "\n";
-            String usedsize1 = mContext.getResources().getString(R.string.used_size) + usedSize
-                    + "\n";
+            String usedsize1 = mContext.getResources().getString(R.string.used_size) + usedSize + "\n";
             String availsize1 = mContext.getResources().getString(R.string.avail_size) + availSize;
             String display1 = target1 + usedsize1 + availsize1;
-
-            return display1;
-
+            preview.setText2(display1);
         } catch (Exception e) {
             Log.e(TAG, "fail to catch the size of the devices");
-        }
-        return null;
-
-    }
-
-    private void showDeviceMessage(String path1){
-        showDeviceMessagePre();
-        new AsyncTask<String, Void, String>(){
-            @Override
-            protected String doInBackground(String... params){
-                return showDeviceMessageExec(params[0]);
-            }
-
-            @Override
-            protected void onPostExecute(String value){
-                preview.setText2(value);
-            }
-        }.execute(path1);
-    }
+	    }
+	}
     /* 获取全部空间,..GB */
     private long getTotalSize(String path1) {
         StatFs statfs = new StatFs(path1);
@@ -1768,6 +1746,7 @@ public class EventHandler implements OnClickListener, OnItemSelectedListener, On
         mCallbacks.releaseMediaPlayerAsync();
         mMedia.clearThumbnailData();
         mMedia.closeDB();
+        mContext.unregisterReceiver(mNetStateReceiver);
     }
 
     public void isoClear() {

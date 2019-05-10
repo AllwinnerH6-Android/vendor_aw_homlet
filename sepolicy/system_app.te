@@ -24,3 +24,4 @@ allow system_app sysfs_cvbs:dir r_dir_perms;
 allow system_app sysfs_net_eth0:file r_file_perms;
 allow system_app sysfs_net_eth0:dir r_dir_perms;
 allow system_app sysfs_net:dir r_dir_perms;
+allow system_app overlay_prop:file { read open getattr };
