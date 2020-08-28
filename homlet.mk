@@ -1,15 +1,15 @@
 
 #app
 PRODUCT_PACKAGES += \
-    TvdVideo \
-    TvLauncher \
-    TvdFileManager \
-    SettingsAssist \
-    MiracastReceiver \
-    WebScreensaver \
+    #TvdVideo \
+    #TvLauncher \
+    #TvdFileManager \
+    #SettingsAssist \
+    #MiracastReceiver \
+    #WebScreensaver \
     DragonBox \
     DragonAgingTV \
-    GalleryTV \
+    #GalleryTV \
     #DragonSN  \
 
 #service
@@ -51,7 +51,8 @@ PRODUCT_COPY_FILES += \
     $(SUNXI_VENDOR_KL_DIR)/customer_ir_bc00.kl:system/usr/keylayout/customer_ir_bc00.kl \
     $(SUNXI_VENDOR_KL_DIR)/customer_ir_fc00.kl:system/usr/keylayout/customer_ir_fc00.kl \
     $(SUNXI_VENDOR_KL_DIR)/customer_ir_2992.kl:system/usr/keylayout/customer_ir_2992.kl \
-	$(SUNXI_VENDOR_KL_DIR)/customer_ir_fe01.kl:system/usr/keylayout/customer_ir_fe01.kl \
+    $(SUNXI_VENDOR_KL_DIR)/customer_ir_fe01.kl:system/usr/keylayout/customer_ir_fe01.kl \
+    $(SUNXI_VENDOR_KL_DIR)/customer_ir_fe02.kl:system/usr/keylayout/customer_ir_fe02.kl \
     $(SUNXI_VENDOR_KL_DIR)/customer_rc5_ir_04.kl:system/usr/keylayout/customer_rc5_ir_04.kl \
     $(SUNXI_VENDOR_KL_DIR)/sunxi-ir-uinput.kl:system/usr/keylayout/sunxi-ir-uinput.kl \
 

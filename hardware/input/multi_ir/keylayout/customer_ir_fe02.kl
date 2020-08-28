@@ -1,5 +1,5 @@
 key 25   BACK               WAKE_DROPPED
-key 76   MENU               WAKE_DROPPED
+key 0   MENU               WAKE_DROPPED
 key 19    DPAD_CENTER        WAKE_DROPPED
 key 26   DPAD_DOWN          WAKE_DROPPED
 key 22   DPAD_UP            WAKE_DROPPED
@@ -9,7 +9,7 @@ key 80   DPAD_RIGHT         WAKE_DROPPED
 key 24   VOLUME_UP          WAKE
 key 16   VOLUME_DOWN        WAKE
 key 15   CALCULATOR          WAKE
-key 67   CONTACTS           WAKE
+key 67   F3           WAKE
 key 64   POWER              WAKE
 key 1   0                  WAKE
 key 78   1                  WAKE
@@ -21,12 +21,14 @@ key 8   6                  WAKE
 key 70   7                  WAKE
 key 5   8                  WAKE
 key 4   9                  WAKE
-key 65   VOLUME_MUTE               WAKE
-key 0   MOUSE              WAKE
+key 75   MEDIA_PREVIOUS              WAKE
+key 79   MEDIA_NEXT              WAKE
+key 65   EXPLORER               WAKE
+key 76   MOUSE              WAKE
 key 213   APPS               WAKE
 key 66    DEL
 key 02    CALENDAR
 key 33    ZOOM_IN
 key 34    ZOOM_OUT
 key 35    INFO
-key 37    F1
+
